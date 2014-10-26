@@ -1,3 +1,11 @@
 body {
 	padding-top:75px;
 }
+
+#media {
+	border:1px;
+}
+
+#panel-row {
+	max-height: 41px;
+}
