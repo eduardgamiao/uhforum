@@ -1,0 +1,20 @@
+body {
+  padding-top: 0px; /* Move body of page below header. */
+  margin: 0px;
+}
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.section-1 {
+    font-size: 60px;
+    padding-top: 100px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+h1 {
+    font-size: 60px;
+}
