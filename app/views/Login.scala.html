@@ -1,0 +1,10 @@
+@(message: String)
+
+@scripts = {
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/index.css")">
+}
+
+@main(message, scripts) {
+
+    <div class="panel">This is stuff.</div>
+}
