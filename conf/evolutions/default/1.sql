@@ -3,15 +3,36 @@
 
 # --- !Ups
 
-create table user_account (
+create table post (
+  id                        bigint not null,
+  first_name                varchar(255),
+  topic_text                varchar(255),
+  constraint pk_post primary key (id))
+;
+
+create table topic (
+  id                        bigint not null,
+  first_name                varchar(255),
+  title                     varchar(255),
+  tags                      varchar(255),
+  topic_text                varchar(255),
+  constraint pk_topic primary key (id))
+;
+
+create table user_info (
   id                        bigint not null,
   first_name                varchar(255),
   last_name                 varchar(255),
   email                     varchar(255),
-  constraint pk_user_account primary key (id))
+  password                  varchar(255),
+  constraint pk_user_info primary key (id))
 ;
 
-create sequence user_account_seq;
+create sequence post_seq;
+
+create sequence topic_seq;
+
+create sequence user_info_seq;
 
 
 
@@ -20,9 +41,17 @@ create sequence user_account_seq;
 
 SET REFERENTIAL_INTEGRITY FALSE;
 
-drop table if exists user_account;
+drop table if exists post;
+
+drop table if exists topic;
+
+drop table if exists user_info;
 
 SET REFERENTIAL_INTEGRITY TRUE;
 
-drop sequence if exists user_account_seq;
+drop sequence if exists post_seq;
+
+drop sequence if exists topic_seq;
+
+drop sequence if exists user_info_seq;
 

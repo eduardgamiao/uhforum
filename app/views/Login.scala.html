@@ -1,10 +1,41 @@
-@(message: String)
+@(message: String, loginForm: Form[views.formdata.LoginFormData])
+
+@import helper._
+@import bootstrap3._
 
 @scripts = {
 <link rel="stylesheet" href="@routes.Assets.at("stylesheets/index.css")">
 }
 
 @main(message, scripts) {
-
-    <div class="panel">This is stuff.</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Please log in</h3>
+          </div>
+          <div class="panel-body" style="color: black;">
+            @form(routes.Application.postLogin(), 'class -> "form-horizontal") {
+              @email(loginForm("email"), "Email", "Email", "")
+              @password(loginForm("password"), "Password", "Password", "")
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Login</button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-6" style="text-align:left">
+          </div>
+          <div class="col-sm-6" style="text-align:right">
+            <a href="/signup">Not A Member? Signup Now!</a>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 }

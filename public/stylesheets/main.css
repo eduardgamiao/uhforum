@@ -1,5 +1,5 @@
 body {
-  padding-top: 0px; /* Move body of page below header. */
+  padding-top: 75px; /* Move body of page below header. */
   margin: 0px;
 }
 
@@ -17,4 +17,12 @@ body {
 
 h1 {
     font-size: 60px;
+}
+
+#media {
+  border:1px;
+}
+
+#panel-row {
+  max-height: 41px;
 }

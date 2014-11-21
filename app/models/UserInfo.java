@@ -3,10 +3,9 @@ package models;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import play.db.ebean.Model;
-import play.db.ebean.Model.Finder;
 
 @Entity
-public class UserAccount extends Model {
+public class UserInfo extends Model {
   private static final long serialVersionUID = 1L;
   
   @Id
@@ -14,11 +13,13 @@ public class UserAccount extends Model {
   private String firstName;
   private String lastName;
   private String email;
+  private String password;
   
-  public UserAccount(String firstName, String lastName, String email) {
+  public UserInfo(String firstName, String lastName, String email, String password) {
     this.firstName = firstName;
     this.lastName = lastName;
     this.email = email;
+    this.setPassword(password);
   }
 
   /**
@@ -77,7 +78,21 @@ public class UserAccount extends Model {
     this.email = email;
   }
   
-  public static Finder<Long, UserAccount> find() {
-    return new Finder<Long, UserAccount>(Long.class, UserAccount.class);
+  /**
+   * @return the password
+   */
+  public String getPassword() {
+    return password;
+  }
+
+  /**
+   * @param password the password to set
+   */
+  public void setPassword(String password) {
+    this.password = password;
+  }
+
+  public static Finder<Long, UserInfo> find() {
+    return new Finder<Long, UserInfo>(Long.class, UserInfo.class);
   }
 }
