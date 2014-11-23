@@ -1,0 +1,14 @@
+@(message: String)
+
+@import helper._
+@import bootstrap3._
+
+@scripts = {
+<link rel="stylesheet" href="@routes.Assets.at("stylesheets/index.css")">
+}
+
+@main(message, scripts) {
+<div class="well">
+  <p>Please work...</p>
+</div>
+}

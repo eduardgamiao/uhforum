@@ -16,7 +16,7 @@
             <h3 class="panel-title">Please log in</h3>
           </div>
           <div class="panel-body" style="color: black;">
-            @form(routes.Application.postLogin(), 'class -> "form-horizontal") {
+            @form(routes.Users.postLogin(), 'class -> "form-horizontal") {
               @email(loginForm("email"), "Email", "Email", "")
               @password(loginForm("password"), "Password", "Password", "")
               <div class="form-group">
