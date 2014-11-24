@@ -12,11 +12,16 @@ import play.db.ebean.Model.Finder;
     @Id
     private Long id;
     private String firstName;
+    private String lastName;
     private String topicText;
+    private String subject;
     
-    public Post(String firstName, String topicText) {
+    
+    public Post(String firstName, String topicText, String lastName, String subject) {
       this.firstName = firstName;
       this.topicText = topicText;
+      this.lastName = lastName;
+      this.subject = subject;
     }
     
     /**
@@ -59,6 +64,34 @@ import play.db.ebean.Model.Finder;
      */
     public void setTopicText(String topicText) {
       this.topicText = topicText;
+    }
+
+    /**
+     * @return the lastName
+     */
+    public String getLastName() {
+      return lastName;
+    }
+
+    /**
+     * @param lastName the lastName to set
+     */
+    public void setLastName(String lastName) {
+      this.lastName = lastName;
+    }
+
+    /**
+     * @return the subject
+     */
+    public String getSubject() {
+      return subject;
+    }
+
+    /**
+     * @param subject the subject to set
+     */
+    public void setSubject(String subject) {
+      this.subject = subject;
     }
 
 }

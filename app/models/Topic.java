@@ -15,14 +15,24 @@ import play.db.ebean.Model.Finder;
     private String title;
     private String tags;
     private String topicText;
+    private String subject;
     
-    public Topic(String firstName, String title, String tags, String topicText) {
+    public Topic(String firstName, String title, String tags, String topicText, String subject) {
       this.firstName = firstName;
       this.title = title;
       this.tags = tags;
       this.topicText = topicText;
+      this.subject = subject;
     }
     
+    public String getSubject() {
+      return subject;
+    }
+
+    public void setSubject(String subject) {
+      this.subject = subject;
+    }
+
     /**
      * @return the id
      */

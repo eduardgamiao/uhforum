@@ -6,7 +6,9 @@
 create table post (
   id                        bigint not null,
   first_name                varchar(255),
+  last_name                 varchar(255),
   topic_text                varchar(255),
+  subject                   varchar(255),
   constraint pk_post primary key (id))
 ;
 
@@ -16,6 +18,7 @@ create table topic (
   title                     varchar(255),
   tags                      varchar(255),
   topic_text                varchar(255),
+  subject                   varchar(255),
   constraint pk_topic primary key (id))
 ;
 
