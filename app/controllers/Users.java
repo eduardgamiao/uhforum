@@ -5,6 +5,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import views.formdata.LoginFormData;
+import views.formdata.SignupFormData;
 import views.html.Signup;
 import views.html.index;
 import views.html.Login;
@@ -21,7 +22,21 @@ public class Users extends Controller {
    * @return The signup Result view.
    */
   public static Result signup() {
-    return ok(Signup.render("..."));
+    Form<SignupFormData> formData = Form.form(SignupFormData.class);
+    return ok(Signup.render("Signup", formData));
+  }
+  
+  /**
+   * Handles the post signup event.
+   * @return The user's profile page.
+   */
+  public static Result postSignup() {
+    Form<SignupFormData> formData = Form.form(SignupFormData.class).bindFromRequest();
+    
+    if (formData.hasErrors()) {
+      return badRequest(Signup.render("Signup", formData));
+    }
+    return TODO;
   }
   
   /**

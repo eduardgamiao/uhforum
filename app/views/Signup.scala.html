@@ -1,4 +1,4 @@
-@(message: String)
+@(message: String, signupForm: Form[views.formdata.SignupFormData])
 
 @import helper._
 @import bootstrap3._
@@ -8,7 +8,28 @@
 }
 
 @main(message, scripts) {
-<div class="well">
-  <p>Please work...</p>
-</div>
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Please Sign Up</h3>
+          </div>
+          <div class="panel-body" style="color: black;">
+            @form(routes.Users.postSignup(), 'class -> "form-horizontal") {
+              @email(signupForm("email"), "Email", "Email", "")
+              @text2(signupForm("firstName"), "Name", "First Name", signupForm("lastName"), "Last Name")              
+              @passwordMulti(signupForm("password1"), "Password", "Password", signupForm("password2"), "Re-enter Password")
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Signup</button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
 }
