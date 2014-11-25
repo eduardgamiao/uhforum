@@ -1,0 +1,25 @@
+import java.util.List;
+
+public class PostDB {
+  
+  public static long addPost(String firstName, String lastName, String topicText, String subject) {
+    Post post = new Post(firstName, lastName, topicText, subject);
+    post.save();
+    return post.getId();
+  }
+  
+  public static Post getPostFirst(String firstName) {
+    return Post.find().where().eq("firstName", firstName).findUnique();
+    
+    public static Post getPostLast(String lastName) {
+      return Post.find().where().eq("lastName", lastName).findUnique(); 
+  } 
+    public static Post getSubject(String subject) {
+      return Post.find().where().eq("subject", subject).findUnique();
+    }
+
+  public static List<UserInfo> getPosts() {
+    return Post.find().all();
+  }
+
+}

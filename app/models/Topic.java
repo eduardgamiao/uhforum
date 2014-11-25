@@ -102,5 +102,9 @@ import play.db.ebean.Model.Finder;
     public void setTopicText(String topicText) {
       this.topicText = topicText;
     }
+    
+    public static Finder<Long, Topic> find() {
+      return new Finder<Long, Topic>(Long.class, Topic.class);
+    }
 
 }

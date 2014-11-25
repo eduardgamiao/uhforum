@@ -93,5 +93,9 @@ import play.db.ebean.Model.Finder;
     public void setSubject(String subject) {
       this.subject = subject;
     }
+    
+    public static Finder<Long, Post> find() {
+      return new Finder<Long, Post>(Long.class, Post.class);
+    }
 
 }
