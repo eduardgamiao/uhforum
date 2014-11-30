@@ -16,13 +16,15 @@ import play.db.ebean.Model.Finder;
     private String tags;
     private String topicText;
     private String subject;
-    
-    public Topic(String firstName, String title, String tags, String topicText, String subject) {
+    private int views;
+
+    public Topic(String firstName, String title, String tags, String topicText, String subject, int views) {
       this.firstName = firstName;
       this.title = title;
       this.tags = tags;
       this.topicText = topicText;
       this.subject = subject;
+      this.views = views;
     }
     
     public String getSubject() {
@@ -101,6 +103,20 @@ import play.db.ebean.Model.Finder;
      */
     public void setTopicText(String topicText) {
       this.topicText = topicText;
+    }
+    
+    /**
+     * @return the views
+     */
+    public int getViews() {
+      return views;
+    }
+
+    /**
+     * @param views the views to set
+     */
+    public void setViews(int views) {
+      this.views = views;
     }
     
     public static Finder<Long, Topic> find() {

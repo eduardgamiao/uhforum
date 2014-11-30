@@ -19,6 +19,7 @@ create table topic (
   tags                      varchar(255),
   topic_text                varchar(255),
   subject                   varchar(255),
+  views                     integer,
   constraint pk_topic primary key (id))
 ;
 

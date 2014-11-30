@@ -1,3 +1,5 @@
+package models;
+
 import java.util.List;
 
 public class PostDB {
@@ -10,6 +12,7 @@ public class PostDB {
   
   public static Post getPostFirst(String firstName) {
     return Post.find().where().eq("firstName", firstName).findUnique();
+  }
     
     public static Post getPostLast(String lastName) {
       return Post.find().where().eq("lastName", lastName).findUnique(); 
@@ -18,8 +21,9 @@ public class PostDB {
       return Post.find().where().eq("subject", subject).findUnique();
     }
 
-  public static List<UserInfo> getPosts() {
+  public static List<Post> getPosts() {
     return Post.find().all();
   }
 
 }
+  
