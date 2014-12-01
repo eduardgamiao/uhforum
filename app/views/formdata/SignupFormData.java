@@ -12,6 +12,9 @@ import play.data.validation.ValidationError;
  */
 public class SignupFormData {
   
+  /** User's ID. */
+  public long id = -1;
+  
   /** User's email. */
   public String email;
   
