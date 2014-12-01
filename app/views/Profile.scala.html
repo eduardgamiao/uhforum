@@ -8,7 +8,7 @@
   <div class="container">
   @if(user != null) {
     <div class="well well-white">
-      <p>Hello @user.getName()!</p>
+      @if(user.getAvatarURL() != null || user.getAvatarURL().length() != 0) {<span>Picture Exists!</span>}<p>Hello @user.getName()!</p>
     </div>
   }
   </div>

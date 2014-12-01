@@ -72,7 +72,11 @@ public class Users extends Controller {
     }
   }
   
-  
+  /**
+   * Returns the profile page.
+   * @param id The ID of the user.
+   * @return The user's profile page (if it exists). The index page if not a valid user.
+   */
   public static Result viewProfile(Long id) {
     UserInfo user = UserInfoDB.getUser(id);
     if (user != null) {
