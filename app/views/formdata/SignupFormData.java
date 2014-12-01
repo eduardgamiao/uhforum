@@ -2,6 +2,7 @@ package views.formdata;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.UserInfoDB;
 import play.Logger;
 import play.data.validation.ValidationError;
 
@@ -54,6 +55,9 @@ public class SignupFormData {
     }
     if (!(this.password1.equals(this.password2))) {
       errors.add(new ValidationError("password1", "The passwords do not match."));
+    }
+    if (!(UserInfoDB.getUser(this.email) == null)) {
+      errors.add(new ValidationError("email", "The email \"" + this.email + "\" is already being used."));
     }
     
     return errors.isEmpty() ? null : errors;
