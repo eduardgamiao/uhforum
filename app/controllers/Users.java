@@ -1,5 +1,6 @@
 package controllers;
 
+import models.UserInfoDB;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -36,7 +37,9 @@ public class Users extends Controller {
     if (formData.hasErrors()) {
       return badRequest(Signup.render("Signup", formData));
     }
-    return TODO;
+    SignupFormData data = formData.get();
+    UserInfoDB.addUser(data);
+    return redirect(routes.Application.index());
   }
   
   /**
