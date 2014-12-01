@@ -11,6 +11,13 @@ public class TopicDB {
     return topic.getId();
   }
   
+  public static long addTopic(String firstName, String lastName, String topicText,String tags, String subject, 
+                              int views, UserInfo user) {
+    Topic topic = new Topic(firstName, lastName, tags, topicText, subject, views, user);
+    topic.save();
+    return topic.getId();
+  }
+  
   public static Topic getTopicFirst(String firstName) {
     ExpressionList test;
     /*test= Topic.find().where().eq("firstName", firstName);*/

@@ -1,7 +1,9 @@
 package models;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
@@ -17,6 +19,10 @@ import play.db.ebean.Model.Finder;
     private String topicText;
     private String subject;
     private int views;
+    private Date datePosted;
+    
+    @ManyToOne
+    private UserInfo user;
 
     public Topic(String firstName, String title, String tags, String topicText, String subject, int views) {
       this.firstName = firstName;
@@ -25,6 +31,19 @@ import play.db.ebean.Model.Finder;
       this.topicText = topicText;
       this.subject = subject;
       this.views = views;
+      this.setDatePosted(new Date());
+    }
+    
+    public Topic(String firstName, String title, String tags, String topicText, String subject, int views,
+                 UserInfo user) {
+      this.firstName = firstName;
+      this.title = title;
+      this.tags = tags;
+      this.topicText = topicText;
+      this.subject = subject;
+      this.views = views;
+      this.setDatePosted(new Date());
+      this.user = user;
     }
     
     public String getSubject() {
@@ -119,6 +138,20 @@ import play.db.ebean.Model.Finder;
       this.views = views;
     }
     
+    /**
+     * @return the datePosted
+     */
+    public Date getDatePosted() {
+      return datePosted;
+    }
+
+    /**
+     * @param datePosted the datePosted to set
+     */
+    public void setDatePosted(Date datePosted) {
+      this.datePosted = datePosted;
+    }
+
     public static Finder<Long, Topic> find() {
       return new Finder<Long, Topic>(Long.class, Topic.class);
     }

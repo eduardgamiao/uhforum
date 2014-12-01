@@ -1,9 +1,17 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import play.db.ebean.Model;
 
+/**
+ * User model.
+ * @author eduardgamiao
+ *
+ */
 @Entity
 public class UserInfo extends Model {
   private static final long serialVersionUID = 1L;
@@ -15,6 +23,16 @@ public class UserInfo extends Model {
   private String email;
   private String password;
   
+  @OneToMany
+  private List<Topic> topics = new ArrayList<Topic>();
+  
+  /**
+   * Constructor.
+   * @param firstName First name.
+   * @param lastName Last name.
+   * @param email Email.
+   * @param password Password.
+   */
   public UserInfo(String firstName, String lastName, String email, String password) {
     this.firstName = firstName;
     this.lastName = lastName;
@@ -91,7 +109,19 @@ public class UserInfo extends Model {
   public void setPassword(String password) {
     this.password = password;
   }
+  
+  /**
+   * Return a list of topics.
+   * @return A list of topics.
+   */
+  public List<Topic> getTopics() {
+    return topics;
+  }
 
+  /**
+   * Finder method for database functions.
+   * @return A Finder instance.
+   */
   public static Finder<Long, UserInfo> find() {
     return new Finder<Long, UserInfo>(Long.class, UserInfo.class);
   }
