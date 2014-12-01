@@ -1,8 +1,7 @@
-@(message: String)
+@(message: String, topic: List[Topic])
 
 @main(message) {
 
-@test = getTopicFirst("test");
-<title>test.getTopic()</title>
+<p>@TopicDB.getTopicFirst("subjectTest").getSubject()</p>
 
 }

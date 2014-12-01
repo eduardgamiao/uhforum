@@ -1,5 +1,10 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
+import models.Topic;
+import models.TopicDB;
+import models.UserInfo;
 import play.*;
 import play.data.Form;
 import play.mvc.*;
@@ -12,8 +17,14 @@ public class Application extends Controller {
         return ok(index.render("Your new application is ready."));
     }
     
-    public static Result Front() {
-      return ok(Front.render("Home"));
-  }
+    public static Result Front()  {
+      
+      UserInfo userInfo = Secured.getUserInfo(ctx());
+      List<Topic> topicList = new ArrayList<Topic>();
+      topicList = TopicDB.getTopics();
+      
+      //List<Surfer> searchList = SearchFormDB.getSearch();          
+      return ok(Front.render("Front Page", topicList));
+    }
     
 }

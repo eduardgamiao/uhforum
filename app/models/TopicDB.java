@@ -1,6 +1,7 @@
 package models;
 
 import java.util.List;
+import org.h2.expression.ExpressionList;
 
 public class TopicDB {
   
@@ -11,14 +12,18 @@ public class TopicDB {
   }
   
   public static Topic getTopicFirst(String firstName) {
-    return Topic.find().where().eq("firstName", firstName).findUnique();
+    ExpressionList test;
+    /*test= Topic.find().where().eq("firstName", firstName);*/
+    List<Topic> list = getTopics();
+    Topic testTopic = list.get(0);
+    return testTopic;
   }  
-    public static Topic getTopicLast(String lastName) {
-      return Topic.find().where().eq("lastName", lastName).findUnique(); 
+    /*public static Topic getTopicLast(String lastName) {
+      return Topic.find().where().eq("lastName", lastName); 
   } 
     public static Topic getTopicSubject(String subject) {
-      return Topic.find().where().eq("subject", subject).findUnique(); 
-    }
+      return Topic.find().where().eq("subject", subject); 
+    }*/
 
   public static List<Topic> getTopics() {
     return Topic.find().all();
