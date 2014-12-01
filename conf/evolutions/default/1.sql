@@ -31,6 +31,7 @@ create table user_info (
   last_name                 varchar(255),
   email                     varchar(255),
   password                  varchar(255),
+  avatar_url                varchar(255),
   constraint pk_user_info primary key (id))
 ;
 

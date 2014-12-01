@@ -1,0 +1,15 @@
+@(message: String, user: UserInfo)
+
+@import helper._
+@import bootstrap3._
+
+
+@main(message) {
+  <div class="container">
+  @if(user != null) {
+    <div class="well well-white">
+      <p>Hello @user.getName()!</p>
+    </div>
+  }
+  </div>
+}

@@ -22,6 +22,7 @@ public class UserInfo extends Model {
   private String lastName;
   private String email;
   private String password;
+  private String avatarURL;
   
   @OneToMany
   private List<Topic> topics = new ArrayList<Topic>();
@@ -116,6 +117,24 @@ public class UserInfo extends Model {
    */
   public List<Topic> getTopics() {
     return topics;
+  }
+
+  /**
+   * @return the avatarURL
+   */
+  public String getAvatarURL() {
+    return avatarURL;
+  }
+
+  /**
+   * @param avatarURL the avatarURL to set
+   */
+  public void setAvatarURL(String avatarURL) {
+    this.avatarURL = avatarURL;
+  }
+  
+  public String getName() {
+    return this.firstName + " " + this.lastName;
   }
 
   /**

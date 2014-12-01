@@ -1,5 +1,6 @@
 package controllers;
 
+import models.UserInfo;
 import models.UserInfoDB;
 import play.data.Form;
 import play.mvc.Controller;
@@ -10,6 +11,7 @@ import views.formdata.SignupFormData;
 import views.html.Signup;
 import views.html.index;
 import views.html.Login;
+import views.html.Profile;
 
 /**
  * Handles user login, logout, signup and profiles.
@@ -38,8 +40,10 @@ public class Users extends Controller {
       return badRequest(Signup.render("Signup", formData));
     }
     SignupFormData data = formData.get();
-    UserInfoDB.addUser(data);
-    return redirect(routes.Application.index());
+    Long id = UserInfoDB.addUser(data);
+    session().clear();
+    session("email", data.email);
+    return redirect(routes.Users.viewProfile(id));
   }
   
   /**
@@ -66,6 +70,16 @@ public class Users extends Controller {
       session("email", formData.get().email);
       return ok(index.render("Logged In!"));
     }
+  }
+  
+  
+  public static Result viewProfile(Long id) {
+    UserInfo user = UserInfoDB.getUser(id);
+    if (user != null) {
+      String title = user.getName() + "'s Profile";
+      return ok(Profile.render(title, user));
+    }
+    return redirect(routes.Application.index());
   }
   
   /**
