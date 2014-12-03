@@ -9,3 +9,9 @@ body {
 #panel-row {
 	max-height: 41px;
 }
+
+.topic-listing {  
+  padding-left: 40px;
+  padding-right: 40px;
+  background-color: pink;
+}
