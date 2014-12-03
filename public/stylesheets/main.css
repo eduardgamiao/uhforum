@@ -1,0 +1,49 @@
+body {
+  padding-top: 75px; /* Move body of page below header. */
+  margin: 0px;
+}
+
+.navbar {
+  border-radius: 0px;
+  margin-bottom: 0px;
+}
+
+.section-1 {
+    font-size: 60px;
+    padding-top: 100px;
+    text-align: center;
+    padding-bottom: 50px;
+}
+
+h1 {
+    font-size: 60px;
+}
+
+#media {
+  border:1px;
+}
+
+#panel-row {
+  max-height: 41px;
+}
+
+.form-inline .form-group{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+.well-white {
+	background-color: white;
+}
+
+.subject-menu {
+	 height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}
+
+.list-group-item:hover {
+	-moz-box-shadow:    inset 0 0 1px #000000;
+   -webkit-box-shadow: inset 0 0 1px #000000;
+   box-shadow:         inset 0 0 1px #000000;
+}

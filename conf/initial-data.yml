@@ -1,0 +1,606 @@
+subject:
+
+- !!models.Subject
+  name: "Academy for Creative Media"
+  acronym: ACM
+
+- !!models.Subject
+  name: "Accounting"
+  acronym: ACC
+
+- !!models.Subject
+  name: "Aerospace Studies"
+  acronym: AS
+
+- !!models.Subject
+  name: "American Studies"
+  acronym: AMST
+
+- !!models.Subject
+  name: "Anatomy"
+  acronym: ANAT
+
+- !!models.Subject
+  name: "Animal Science"
+  acronym: ANSC
+
+- !!models.Subject
+  name: "Anthropology"
+  acronym: ANTH
+
+- !!models.Subject
+  name: "Arabic"
+  acronym: ARAB
+
+- !!models.Subject
+  name: "Architecture"
+  acronym: ARCH
+
+- !!models.Subject
+  name: "Art"
+  acronym: ART
+
+- !!models.Subject
+  name: "Asian Studies"
+  acronym: ASAN
+
+- !!models.Subject
+  name: "Astronomy"
+  acronym: ASTR
+
+- !!models.Subject
+  name: "Biochemistry"
+  acronym: BIOC
+
+- !!models.Subject
+  name: "Bioengineering"
+  acronym: BE
+
+- !!models.Subject
+  name: "Biology"
+  acronym: BIOL
+
+- !!models.Subject
+  name: "Biomedical Science"
+  acronym: BIOM
+
+- !!models.Subject
+  name: "Botany"
+  acronym: BOT
+
+- !!models.Subject
+  name: "Business"
+  acronym: BUS
+
+- !!models.Subject
+  name: "Business Law"
+  acronym: BLAW
+
+- !!models.Subject
+  name: "Cambodian"
+  acronym: CAM
+
+- !!models.Subject
+  name: "Cell and Molecular Biology"
+  acronym: CMB
+
+- !!models.Subject
+  name: "Chamorro"
+  acronym: CHAM
+
+- !!models.Subject
+  name: "Chemistry"
+  acronym: CHEM
+
+- !!models.Subject
+  name: "Chinese Language & Literature"
+  acronym: CHN
+
+- !!models.Subject
+  name: "Civil & Environmental Engr"
+  acronym: CEE
+
+- !!models.Subject
+  name: "Communication"
+  acronym: COM
+
+- !!models.Subject
+  name: "Communication & Info Sciences"
+  acronym: CIS
+
+- !!models.Subject
+  name: "Communication Sci & Disorders"
+  acronym: CSD
+
+- !!models.Subject
+  name: "Communicology"
+  acronym: COMG
+
+- !!models.Subject
+  name: "Curriculum Studies"
+  acronym: EDCS
+
+- !!models.Subject
+  name: "Dance"
+  acronym: DNCE
+
+- !!models.Subject
+  name: "Dental Hygiene"
+  acronym: DH
+
+- !!models.Subject
+  name: "Developmental & Repro Biology"
+  acronym: DRB
+
+- !!models.Subject
+  name: "Disability Studies"
+  acronym: DIS
+
+- !!models.Subject
+  name: "East Asian Languages & Lit"
+  acronym: EALL
+
+- !!models.Subject
+  name: "Economics"
+  acronym: ECON
+
+- !!models.Subject
+  name: "Educational Administration"
+  acronym: EDEA
+
+- !!models.Subject
+  name: "Educational Foundations"
+  acronym: EDEF
+
+- !!models.Subject
+  name: "Educational Psychology"
+  acronym: EDEP
+
+- !!models.Subject
+  name: "Educational Technology"
+  acronym: ETEC
+
+- !!models.Subject
+  name: "Electrical Engineering"
+  acronym: EE
+
+- !!models.Subject
+  name: "Engineering, Interdisciplinary"
+  acronym: ENGR
+
+- !!models.Subject
+  name: "English"
+  acronym: ENG
+
+- !!models.Subject
+  name: "English as a Second Language"
+  acronym: ESL
+
+- !!models.Subject
+  name: "English Language Institute"
+  acronym: ELI
+
+- !!models.Subject
+  name: "Ethnic Studies"
+  acronym: ES
+
+- !!models.Subject
+  name: "Family Medicine & Comm Health"
+  acronym: FMCH
+
+- !!models.Subject
+  name: "Family Resources"
+  acronym: FAMR
+
+- !!models.Subject
+  name: "Fashion Design Textiles & Mdsg"
+  acronym: FDM
+
+- !!models.Subject
+  name: "Filipino"
+  acronym: FIL
+
+- !!models.Subject
+  name: "Finance"
+  acronym: FIN
+
+- !!models.Subject
+  name: "Food Science & Human Nutrition"
+  acronym: FSHN
+
+- !!models.Subject
+  name: "French"
+  acronym: FR
+
+- !!models.Subject
+  name: "Geography"
+  acronym: GEOG
+
+- !!models.Subject
+  name: "Geology & Geophysics"
+  acronym: GG
+
+- !!models.Subject
+  name: "Geriatric Medicine"
+  acronym: GERI
+
+- !!models.Subject
+  name: "German"
+  acronym: GER
+
+- !!models.Subject
+  name: "Global Health & Pop Studies"
+  acronym: GHPS
+
+- !!models.Subject
+  name: "Greek"
+  acronym: GRK
+
+- !!models.Subject
+  name: "Hawaiian"
+  acronym: HAW
+
+- !!models.Subject
+  name: "Hawaiian Studies"
+  acronym: HWST
+
+- !!models.Subject
+  name: "Hindi"
+  acronym: HNDI
+
+- !!models.Subject
+  name: "History"
+  acronym: HIST
+
+- !!models.Subject
+  name: "Honors"
+  acronym: HON
+
+- !!models.Subject
+  name: "Human Resources Mgt"
+  acronym: HRM
+
+- !!models.Subject
+  name: "Ilokano"
+  acronym: ILO
+
+- !!models.Subject
+  name: "Indo-Pacific Languages"
+  acronym: IP
+
+- !!models.Subject
+  name: "Indonesian"
+  acronym: IND
+
+- !!models.Subject
+  name: "Information Technology Mgt"
+  acronym: ITM
+
+- !!models.Subject
+  name: "Information& Computer Sciences"
+  acronym: ICS
+
+- !!models.Subject
+  name: "Institute for Teacher Educatn"
+  acronym: ITE
+
+- !!models.Subject
+  name: "Interdisciplinary Studies"
+  acronym: IS
+
+- !!models.Subject
+  name: "Internatl Cultural Studies"
+  acronym: CUL
+
+- !!models.Subject
+  name: "Italian"
+  acronym: ITAL
+
+- !!models.Subject
+  name: "Japanese Language & Literature"
+  acronym: JPN
+
+- !!models.Subject
+  name: "Journalism"
+  acronym: JOUR
+
+- !!models.Subject
+  name: "Kinesiology & Rehab Science"
+  acronym: KRS
+
+- !!models.Subject
+  name: "Korean"
+  acronym: KOR
+
+- !!models.Subject
+  name: "Lang & Lit Europe & Americas"
+  acronym: LLEA
+
+- !!models.Subject
+  name: "Latin"
+  acronym: LATN
+
+- !!models.Subject
+  name: "Latin Amer & Iberian Studies"
+  acronym: LAIS
+
+- !!models.Subject
+  name: "Law"
+  acronym: LAW
+
+- !!models.Subject
+  name: "Law-Environmental"
+  acronym: LWEV
+
+- !!models.Subject
+  name: "Law-Journals and Teams"
+  acronym: LWJT
+
+- !!models.Subject
+  name: "Law-Legal Writing"
+  acronym: LWLW
+
+- !!models.Subject
+  name: "Law-Pacific and Asian"
+  acronym: LWPA
+
+- !!models.Subject
+  name: "Library & Information Science"
+  acronym: LIS
+
+- !!models.Subject
+  name: "Linguistics"
+  acronym: LING
+
+- !!models.Subject
+  name: "Management"
+  acronym: MGT
+
+- !!models.Subject
+  name: "Maori"
+  acronym: MAO
+
+- !!models.Subject
+  name: "Marine Biology"
+  acronym: MBIO
+
+- !!models.Subject
+  name: "Marketing"
+  acronym: MKT
+
+- !!models.Subject
+  name: "Mathematics"
+  acronym: MATH
+
+- !!models.Subject
+  name: "Mechanical Engineering"
+  acronym: ME
+
+- !!models.Subject
+  name: "Medical Education"
+  acronym: MDED
+
+- !!models.Subject
+  name: "Medical Technology"
+  acronym: MEDT
+
+- !!models.Subject
+  name: "Medicine"
+  acronym: MED
+
+- !!models.Subject
+  name: "Meteorology"
+  acronym: MET
+
+- !!models.Subject
+  name: "Microbiology"
+  acronym: MICR
+
+- !!models.Subject
+  name: "Military Science & Leadership"
+  acronym: MSL
+
+- !!models.Subject
+  name: "Molecular and Cell Biology"
+  acronym: MCB
+
+- !!models.Subject
+  name: "Molecular Biosci & Bioengr"
+  acronym: MBBE
+
+- !!models.Subject
+  name: "Music"
+  acronym: MUS
+
+- !!models.Subject
+  name: "Native Hawaiian Health"
+  acronym: NHH
+
+- !!models.Subject
+  name: "Natural Res & Environmtl Mgt"
+  acronym: NREM
+
+- !!models.Subject
+  name: "Nursing"
+  acronym: NURS
+
+- !!models.Subject
+  name: "Obstetrics & Gynecology"
+  acronym: OBGN
+
+- !!models.Subject
+  name: "Ocean & Resources Engineering"
+  acronym: ORE
+
+- !!models.Subject
+  name: "Oceanography"
+  acronym: OCN
+
+- !!models.Subject
+  name: "Pacific Islands Studies"
+  acronym: PACS
+
+- !!models.Subject
+  name: "Pathology"
+  acronym: PATH
+
+- !!models.Subject
+  name: "Peace and Conflict Education"
+  acronym: PACE
+
+- !!models.Subject
+  name: "Pediatrics"
+  acronym: PED
+
+- !!models.Subject
+  name: "Persian"
+  acronym: PERS
+
+- !!models.Subject
+  name: "Pharmacology"
+  acronym: PHRM
+
+- !!models.Subject
+  name: "Philosophy"
+  acronym: PHIL
+
+- !!models.Subject
+  name: "Physics"
+  acronym: PHYS
+
+- !!models.Subject
+  name: "Physiology"
+  acronym: PHYL
+
+- !!models.Subject
+  name: "Plant & Environmtl Protect Sci"
+  acronym: PEPS
+
+- !!models.Subject
+  name: "Political Science"
+  acronym: POLS
+
+- !!models.Subject
+  name: "Portuguese"
+  acronym: PORT
+
+- !!models.Subject
+  name: "Psychiatry"
+  acronym: PSTY
+
+- !!models.Subject
+  name: "Psychology"
+  acronym: PSY
+
+- !!models.Subject
+  name: "Public Administration"
+  acronym: PUBA
+
+- !!models.Subject
+  name: "Public Health"
+  acronym: PH
+
+- !!models.Subject
+  name: "Public Policy Center"
+  acronym: PPC
+
+- !!models.Subject
+  name: "Real Estate"
+  acronym: RE
+
+- !!models.Subject
+  name: "Religion"
+  acronym: REL
+
+- !!models.Subject
+  name: "Russian"
+  acronym: RUS
+
+- !!models.Subject
+  name: "Samoan"
+  acronym: SAM
+
+- !!models.Subject
+  name: "Sanskrit"
+  acronym: SNSK
+
+- !!models.Subject
+  name: "Second Language Studies"
+  acronym: SLS
+
+- !!models.Subject
+  name: "Social Science"
+  acronym: SOCS
+
+- !!models.Subject
+  name: "Social Work"
+  acronym: SW
+
+- !!models.Subject
+  name: "Sociology"
+  acronym: SOC
+
+- !!models.Subject
+  name: "Spanish"
+  acronym: SPAN
+
+- !!models.Subject
+  name: "Special Education"
+  acronym: SPED
+
+- !!models.Subject
+  name: "Surgery"
+  acronym: SURG
+
+- !!models.Subject
+  name: "Tahitian"
+  acronym: TAHT
+
+- !!models.Subject
+  name: "Thai"
+  acronym: THAI
+
+- !!models.Subject
+  name: "Theatre"
+  acronym: THEA
+
+- !!models.Subject
+  name: "Tongan"
+  acronym: TONG
+
+- !!models.Subject
+  name: "Translation & Interpretation"
+  acronym: TI
+
+- !!models.Subject
+  name: "Travel Industry Management"
+  acronym: TIM
+
+- !!models.Subject
+  name: "Tropical Med & Medcl Micro"
+  acronym: TRMD
+
+- !!models.Subject
+  name: "Tropical Plant & Soil Sciences"
+  acronym: TPSS
+
+- !!models.Subject
+  name: "Urban & Regional Planning"
+  acronym: PLAN
+
+- !!models.Subject
+  name: "Urdu"
+  acronym: URDU
+
+- !!models.Subject
+  name: "Vietnamese"
+  acronym: VIET
+
+- !!models.Subject
+  name: "Women's Studies"
+  acronym: WS
+
+- !!models.Subject
+  name: "Zoology"
+  acronym: ZOOL
+

@@ -1,0 +1,46 @@
+@(message: String, user: UserInfo)
+
+@import helper._
+@import bootstrap3._
+
+
+@main(message + ": " + user.getName()) {
+  <div class="container">
+  @if(user != null) {
+    <div class="well well-white">
+      <div class="page-header"><h1>@user.getName()</h1></div> 
+      <div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">My Topics <span class="badge">0</span></div>
+  <div class="panel-body">
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div>
+
+<div class="panel panel-primary">
+  <!-- Default panel contents -->
+  <div class="panel-heading">My Answers <span class="badge">0</span></div>
+  <div class="panel-body">
+  </div>
+
+  <!-- List group -->
+  <ul class="list-group">
+    <li class="list-group-item">Cras justo odio</li>
+    <li class="list-group-item">Dapibus ac facilisis in</li>
+    <li class="list-group-item">Morbi leo risus</li>
+    <li class="list-group-item">Porta ac consectetur ac</li>
+    <li class="list-group-item">Vestibulum at eros</li>
+  </ul>
+</div> 
+    </div>
+  }
+  </div>
+}

@@ -1,0 +1,18 @@
+@(message: String, topic: List[Topic])
+
+@main(message) {
+
+<title>Welcome to the UH Knowledge Forum</title>
+<div class="panel panel-primary topic-listing">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Most Viewed <span class="badge">0</span></div>
+  <div class="panel-body">
+  <ul class="list-group">
+  @for(topic <- TopicDB.getTopicFirst("test")) {  
+    <li class="list-group-item">@topic.getTitle()</li>
+  }
+  </ul>
+  </div>
+  </div>
+
+}
