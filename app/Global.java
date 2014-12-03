@@ -21,6 +21,9 @@ public class Global extends GlobalSettings {
      Long id = UserInfoDB.addUser("Site", "Administrator", "admin@abc.com", "pw");
      UserInfo user = UserInfoDB.getUser(id);
      TopicDB.addTopic("test", "guy", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "guy", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "guy", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "guy", "itsatesttext", "testTag", "subjectTest", 0, user);
     }
     
 

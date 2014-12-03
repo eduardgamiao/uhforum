@@ -18,12 +18,9 @@ public class TopicDB {
     return topic.getId();
   }
   
-  public static Topic getTopicFirst(String firstName) {
-    ExpressionList test;
-    /*test= Topic.find().where().eq("firstName", firstName);*/
-    List<Topic> list = getTopics();
-    Topic testTopic = list.get(0);
-    return testTopic;
+  public static List<Topic> getTopicFirst(String firstName) {
+    List<Topic> test = Topic.find().where().eq("firstName", firstName).findList();  
+    return test;
   }  
     /*public static Topic getTopicLast(String lastName) {
       return Topic.find().where().eq("lastName", lastName); 

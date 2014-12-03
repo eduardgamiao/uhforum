@@ -2,6 +2,7 @@
 
 @main(message) {
 
-<p>@TopicDB.getTopicFirst("subjectTest").getSubject()</p>
+@for(topic <-   TopicDB.getTopicFirst("test")) {
+<p>@topic.getFirstName()</p>}
 
 }
