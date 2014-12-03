@@ -9,6 +9,8 @@ create table post (
   last_name                 varchar(255),
   topic_text                varchar(255),
   subject                   varchar(255),
+  date_posted               timestamp,
+  user_id                   bigint,
   constraint pk_post primary key (id))
 ;
 
@@ -41,8 +43,10 @@ create sequence topic_seq;
 
 create sequence user_info_seq;
 
-alter table topic add constraint fk_topic_user_1 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
-create index ix_topic_user_1 on topic (user_id);
+alter table post add constraint fk_post_user_1 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
+create index ix_post_user_1 on post (user_id);
+alter table topic add constraint fk_topic_user_2 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
+create index ix_topic_user_2 on topic (user_id);
 
 
 
