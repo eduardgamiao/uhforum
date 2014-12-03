@@ -35,3 +35,9 @@ h1 {
 .well-white {
 	background-color: white;
 }
+
+.subject-menu {
+	 height: auto;
+    max-height: 200px;
+    overflow-x: hidden;
+}

@@ -11,6 +11,7 @@ GET     /logout                     controllers.Users.logout()
 GET     /signup                     controllers.Users.signup()
 POST    /signup                     controllers.Users.postSignup()
 GET     /user/:id                   controllers.Users.viewProfile(id: Long)
+GET     /subject/:subject           controllers.Application.subjectView(subject: String)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

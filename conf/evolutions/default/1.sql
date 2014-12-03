@@ -14,6 +14,13 @@ create table post (
   constraint pk_post primary key (id))
 ;
 
+create table subject (
+  id                        bigint not null,
+  name                      varchar(255),
+  acronym                   varchar(255),
+  constraint pk_subject primary key (id))
+;
+
 create table topic (
   id                        bigint not null,
   first_name                varchar(255),
@@ -39,6 +46,8 @@ create table user_info (
 
 create sequence post_seq;
 
+create sequence subject_seq;
+
 create sequence topic_seq;
 
 create sequence user_info_seq;
@@ -56,6 +65,8 @@ SET REFERENTIAL_INTEGRITY FALSE;
 
 drop table if exists post;
 
+drop table if exists subject;
+
 drop table if exists topic;
 
 drop table if exists user_info;
@@ -63,6 +74,8 @@ drop table if exists user_info;
 SET REFERENTIAL_INTEGRITY TRUE;
 
 drop sequence if exists post_seq;
+
+drop sequence if exists subject_seq;
 
 drop sequence if exists topic_seq;
 

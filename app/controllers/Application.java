@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.Subject;
+import models.SubjectDB;
 import models.Topic;
 import models.TopicDB;
 import models.UserInfo;
@@ -25,6 +27,15 @@ public class Application extends Controller {
       
       //List<Surfer> searchList = SearchFormDB.getSearch();          
       return ok(Front.render("Front Page", topicList));
+    }
+    
+    public static Result subjectView(String acronym) {
+      Subject subject = SubjectDB.getSubjectByAcronym(acronym);
+      Logger.debug("" + (subject == null));
+      if (subject == null) {
+        return redirect(routes.Application.index());
+      }
+      return TODO;
     }
     
 }

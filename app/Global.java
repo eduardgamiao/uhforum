@@ -1,8 +1,13 @@
+import java.util.List;
+import java.util.Map;
+import com.avaje.ebean.Ebean;
+import models.Subject;
 import models.UserInfo;
 import models.UserInfoDB;
 import models.TopicDB;
 import play.Application;
 import play.GlobalSettings;
+import play.libs.Yaml;
 
 
 /**
@@ -26,6 +31,12 @@ public class Global extends GlobalSettings {
      TopicDB.addTopic("test", "guy4", "itsatesttext", "testTag", "subjectTest", 0, user);
     }
     
+    // Populate Subject Database.
+    if (Subject.find().all().isEmpty()) {
+      @SuppressWarnings("unchecked")
+      Map<String, List<Object>> all = (Map<String, List<Object>>) Yaml.load("initial-data.yml");
+      Ebean.save(all.get("subject"));
+    }
 
   }
 
