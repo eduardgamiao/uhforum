@@ -2,6 +2,7 @@ package controllers;
 
 import models.UserInfo;
 import models.UserInfoDB;
+import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -80,8 +81,7 @@ public class Users extends Controller {
   public static Result viewProfile(Long id) {
     UserInfo user = UserInfoDB.getUser(id);
     if (user != null) {
-      String title = user.getName() + "'s Profile";
-      return ok(Profile.render(title, user));
+      return ok(Profile.render("View Profile", user));
     }
     return redirect(routes.Application.index());
   }

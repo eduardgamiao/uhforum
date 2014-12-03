@@ -133,6 +133,18 @@ public class UserInfo extends Model {
     this.avatarURL = avatarURL;
   }
   
+  /**
+   * Check if user has an avatar URL.
+   * @return True if the user has an avatar url, false otherwise.
+   */
+  public boolean hasAvatar() {
+    return (this.avatarURL != null && this.avatarURL.length() == 0);
+  }
+  
+  /**
+   * Get the user's first and last name.
+   * @return The user's first and last name.
+   */
   public String getName() {
     return this.firstName + " " + this.lastName;
   }
