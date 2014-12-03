@@ -41,3 +41,9 @@ h1 {
     max-height: 200px;
     overflow-x: hidden;
 }
+
+.list-group-item:hover {
+	-moz-box-shadow:    inset 0 0 1px #000000;
+   -webkit-box-shadow: inset 0 0 1px #000000;
+   box-shadow:         inset 0 0 1px #000000;
+}
