@@ -1,6 +1,7 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import models.Subject;
 import models.SubjectDB;
@@ -34,7 +35,8 @@ public class Application extends Controller {
       if (subject == null) {
         return redirect(routes.Application.index());
       }
-      return ok(SubjectList.render(subject));
+      HashMap<String, Integer> tags = new HashMap<String, Integer>();
+      return ok(SubjectList.render(subject, tags));
     }
     
 }
