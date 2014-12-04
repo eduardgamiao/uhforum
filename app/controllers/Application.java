@@ -31,11 +31,10 @@ public class Application extends Controller {
     
     public static Result subjectView(String acronym) {
       Subject subject = SubjectDB.getSubjectByAcronym(acronym);
-      Logger.debug("" + (subject == null));
       if (subject == null) {
         return redirect(routes.Application.index());
       }
-      return TODO;
+      return ok(SubjectList.render(subject));
     }
     
 }

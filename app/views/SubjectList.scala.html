@@ -1,0 +1,17 @@
+@(subject: Subject)
+
+@main(subject.getName()) {
+  <div class="container">
+    <div class="page-header"><h1>@subject.getName() <small>(@subject.getAcronym())</small></h1></div>
+    <div class="col-md-10">
+      
+    </div>
+    <div class="col-md-2">
+      <div class="well well-white">
+      <p>Popular Tags</p>
+      <ul class="tag-list">
+      </ul>
+      </div>
+    </div>
+  </div>
+}
