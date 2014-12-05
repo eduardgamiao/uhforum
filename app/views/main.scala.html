@@ -57,7 +57,7 @@
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, @Secured.getUserInfo(ctx()).getFirstName() @Secured.getUserInfo(ctx()).getLastName()<b class="caret"></b></a>
             <ul class="dropdown-menu">
                 <li><a href="@routes.Users.viewProfile(Secured.getUserInfo(ctx()).getId())">View Profile</a></li>
-                <li><a href="./logout">Logout</a></li>       
+                <li><a href="@routes.Users.logout()">Logout</a></li>       
             </ul>
           </li>
             } else {

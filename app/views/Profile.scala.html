@@ -15,7 +15,7 @@
   <!-- List group -->
   <ul class="list-group">
   @if(user.getTopics().isEmpty()) {
-    <span class="label label-info">You have not created any topics yet.</span>
+    <li class="list-group-item"><span class="label label-info">You have not created any topics yet.</span></li>
   } else {
     @for(topic <- user.getTopics()) {    
     <li class="list-group-item topic">@topic.getTitle()</li>
@@ -31,11 +31,11 @@
 
   <!-- List group -->
   <ul class="list-group">
-    @if(!(user.getTopics().isEmpty())) {
-    <li class="list-group-item"><span class="label label-info">You have not submitted any answers yet.</span></li>
+    @if(user.getPosts().isEmpty()) {
+    <li class="list-group-item"><span class="label label-info">You have not posted yet.</span></li>
   } else {
-    @for(topic <- user.getTopics()) {    
-    <li class="list-group-item topic">@topic.getTitle()</li>
+    @for(post <- user.getPosts()) {    
+    <li class="list-group-item topic">@post.getTopicText()</li>
     }
   }
   </ul>

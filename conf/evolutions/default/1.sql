@@ -26,10 +26,13 @@ create table topic (
   first_name                varchar(255),
   title                     varchar(255),
   tags                      varchar(255),
-  topic_text                varchar(255),
+  topic_text                clob,
   subject                   varchar(255),
   views                     integer,
+  images                    clob,
+  videos                    clob,
   date_posted               timestamp,
+  posts_id                  bigint,
   user_id                   bigint,
   constraint pk_topic primary key (id))
 ;
@@ -54,8 +57,10 @@ create sequence user_info_seq;
 
 alter table post add constraint fk_post_user_1 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
 create index ix_post_user_1 on post (user_id);
-alter table topic add constraint fk_topic_user_2 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
-create index ix_topic_user_2 on topic (user_id);
+alter table topic add constraint fk_topic_posts_2 foreign key (posts_id) references post (id) on delete restrict on update restrict;
+create index ix_topic_posts_2 on topic (posts_id);
+alter table topic add constraint fk_topic_user_3 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
+create index ix_topic_user_3 on topic (user_id);
 
 
 

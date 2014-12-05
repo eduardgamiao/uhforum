@@ -28,6 +28,9 @@ public class UserInfo extends Model {
   @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
   private List<Topic> topics = new ArrayList<Topic>();
   
+  @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+  private List<Post> posts = new ArrayList<Post>();
+  
   /**
    * Constructor.
    * @param firstName First name.
@@ -118,6 +121,14 @@ public class UserInfo extends Model {
    */
   public List<Topic> getTopics() {
     return topics;
+  }
+  
+  /**
+   * Return a list of post.
+   * @return A list of post.
+   */
+  public List<Post> getPosts() {
+    return posts;
   }
 
   /**
