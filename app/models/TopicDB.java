@@ -56,6 +56,10 @@ public class TopicDB {
     return Topic.find().where().eq("subject", subject).findList();
   }
   
+  public static List<Topic> getTopicsBySubjectSorted(String subject) {
+    return Topic.find().where().eq("subject", subject).orderBy("datePosted, datePosted asc").findList();
+  }
+  
   public static List<Topic> getTopics() {
     return Topic.find().all();
   }

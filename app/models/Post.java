@@ -20,6 +20,9 @@ import play.db.ebean.Model.Finder;
     private Date datePosted;
     
     @ManyToOne
+    private Topic topic;
+    
+    @ManyToOne
     private UserInfo user;
     
     public Post(String firstName, String topicText, String lastName, String subject) {

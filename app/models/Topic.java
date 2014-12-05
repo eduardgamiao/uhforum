@@ -1,10 +1,15 @@
 package models;
 
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
@@ -27,8 +32,8 @@ import play.db.ebean.Model.Finder;
     private String videos;
     private Date datePosted;
     
-    @ManyToOne
-    private Post posts;
+    @OneToMany (mappedBy = "topic", cascade = CascadeType.ALL)
+    private List<Post> posts = new ArrayList<Post>();
     
     @ManyToOne
     private UserInfo user;    
@@ -200,8 +205,10 @@ import play.db.ebean.Model.Finder;
     /**
      * @return the datePosted
      */
-    public Date getDatePosted() {
-      return datePosted;
+    public String getDatePosted() {
+      SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+      String date = dateFormat.format(this.datePosted);
+      return date;
     }
 
     /**
@@ -209,6 +216,13 @@ import play.db.ebean.Model.Finder;
      */
     public void setDatePosted(Date datePosted) {
       this.datePosted = datePosted;
+    }
+
+    /**
+     * @return the posts
+     */
+    public List<Post> getPosts() {
+      return posts;
     }
 
     /**

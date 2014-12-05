@@ -1,2 +1,30 @@
 @(topics: List[Topic])
 
+@if(!(topics.isEmpty())) {
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Topic</th>
+      <th class="text-center">Topic Starter</th>
+      <th class="text-center">Posts</th>
+      <th class="text-center">Views</th>
+      <th class="text-center">Last Post</th>
+    </tr> 
+  </thead>
+  <tbody>
+  @for(topic <- topics) {
+  <tr>
+    <td>@topic.getTitle()</td>
+    <td class="text-center">@topic.getUser().getName()</td>
+    <td class="text-center">@topic.getPosts().size()</td>
+    <td class="text-center">@topic.getViews()</td>
+    <td class="text-center">@topic.getDatePosted()</td>
+  </tr>
+  }
+  </tbody>
+</table>
+} else {
+  <ul class="list-group">
+    <li class="list-group-item"><span class="label label-info">No topics for this subject.</span></li>
+  </ul>
+}

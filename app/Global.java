@@ -32,6 +32,12 @@ public class Global extends GlobalSettings {
      TopicDB.addTopic("How do I succeed at French?", "lol, <3 English", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
+     TopicDB.addTopic("How do I succeed at French 101?", "lol, <3 English", "Read the title.", "French", 
+         "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
+         "", user);
+     TopicDB.addTopic("How do I succeed at French 201?", "lol, <3 English", "Read the title.", "French", 
+         "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
+         "", user);
     }
     
     // Populate Subject Database.

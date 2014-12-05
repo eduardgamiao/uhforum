@@ -1,10 +1,18 @@
 @(subject: Subject, tags: HashMap[String, Integer])
 
+@import bootstrap3._
+
 @main(subject.getName()) {
   <div class="container">
     <div class="page-header"><h1>@subject.getName() <small>(@subject.getAcronym())</small></h1></div>
     <div class="col-md-10 col-sm-10 col-xs-12">
+      <div class="panel panel-primary">
       
+      <!-- Default panel contents -->
+      <div class="panel-heading">Recent Topics</div>
+     
+  @topics(TopicDB.getTopicsBySubjectSorted(subject.getName()))
+</div>      
     </div>
     <div class="col-md-2 col-sm-2 hidden-xs">
       <div class="well well-white">
