@@ -16,6 +16,19 @@ public class PostDB {
     return post.getId();
   }
   
+  /**
+   * Add a post to the database.
+   * @param topicText The text of the topic.
+   * @param topic The topic being posted to.
+   * @param user The poster of the post.
+   * @return The ID of the post.
+   */
+  public static long addPost(String topicText, Topic topic, UserInfo user) {
+    Post post = new Post(topicText, topic, user);
+    post.save();
+    return post.getId();
+  }
+  
 /*  public static Post getPostFirst(String firstName) {
     return Post.find().where().eq("firstName", firstName).findUnique();
   }

@@ -1,0 +1,10 @@
+@(message: String, topic: Topic, post: List[Post])
+
+@import bootstrap3._
+
+@main(message) {
+  <div class="container">
+    @(posts(topic, post))
+    </div>
+}
+

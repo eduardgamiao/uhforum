@@ -10,6 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import play.Logger;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
@@ -24,7 +25,6 @@ import play.db.ebean.Model.Finder;
     private String tags;
     @Lob
     private String topicText;
-    private String subject;
     private int views;
     @Lob
     private String images;
@@ -37,27 +37,38 @@ import play.db.ebean.Model.Finder;
     
     @ManyToOne
     private UserInfo user;    
+    
+    @ManyToOne
+    private Subject subject = SubjectDB.getSubjectBySubject("General");
 
-    public Topic(String firstName, String title, String tags, String topicText, String subject, int views) {
+    public Topic(String firstName, String title, String tags, String topicText, String subjectTitle, int views) {
       this.firstName = firstName;
       this.title = title;
       this.tags = tags;
       this.topicText = topicText;
-      this.subject = subject;
       this.views = views;
       this.setDatePosted(new Date());
+      Subject subject = SubjectDB.getSubjectBySubject(subjectTitle);
+      Logger.debug("" + (subject == null));
+      if (subject != null) {
+        this.subject = subject;
+      }
     }
     
-    public Topic(String firstName, String title, String tags, String topicText, String subject, int views,
+    public Topic(String firstName, String title, String tags, String topicText, String subjectTitle, int views,
                  UserInfo user) {
       this.firstName = firstName;
       this.title = title;
       this.tags = tags;
-      this.topicText = topicText;
-      this.subject = subject;
+      this.topicText = topicText;      
       this.views = views;
       this.setDatePosted(new Date());
       this.user = user;
+      Subject subject = SubjectDB.getSubjectBySubject(subjectTitle);
+      Logger.debug("" + (subject == null));
+      if (subject != null) {
+        this.subject = subject;
+      }
     }
     
     /**
@@ -70,23 +81,27 @@ import play.db.ebean.Model.Finder;
      * @param videos Videos.
      * @param user Topic creator.
      */
-    public Topic(String title, String tags, String topicText, String subject, String images, String videos,
+    public Topic(String title, String tags, String topicText, String subjectTitle, String images, String videos,
         UserInfo user) {
       this.title = title;
       this.tags = tags;
       this.topicText = topicText;
-      this.subject = subject;
       this.images = images;
       this.videos = videos;
       this.setDatePosted(new Date());
       this.user = user;
+      Subject subject = SubjectDB.getSubjectBySubject(subjectTitle);
+      Logger.debug("" + (subject == null));
+      if (subject != null) {
+        this.subject = subject;
+      }
     }
 
-    public String getSubject() {
+    public Subject getSubject() {
       return subject;
     }
 
-    public void setSubject(String subject) {
+    public void setSubject(Subject subject) {
       this.subject = subject;
     }
 

@@ -33,7 +33,7 @@ public class TopicDB {
       UserInfo user) {
     Topic topic = new Topic(title, tags, topicText, subject, images, videos, user);
     topic.save();
-    return topic.getUser().getId();
+    return topic.getId();
   }
   
   public static List<Topic> getTopicFirst(String firstName) {
@@ -46,17 +46,31 @@ public class TopicDB {
     public static Topic getTopicSubject(String subject) {
       return Topic.find().where().eq("subject", subject); 
     }*/
+  
+  /**
+   * Return a topic.
+   * @param id The ID of the topic.
+   * @return The topic matching the id.
+   */
+  public static Topic getTopic(Long id) {
+    return Topic.find().byId(id);
+  }
 
   /**
    * Retrieve a topic by subject.
    * @param subject The subject to search for.
    * @return A list of topics with the matching topic.
    */
-  public static List<Topic> getTopicsBySubject(String subject) {
+  public static List<Topic> getTopicsBySubject(Subject subject) {
     return Topic.find().where().eq("subject", subject).findList();
   }
   
-  public static List<Topic> getTopicsBySubjectSorted(String subject) {
+  /**
+   * Get a list of topics sorted by date.
+   * @param subject The subject of the topic to find.
+   * @return A list of topics.
+   */
+  public static List<Topic> getTopicsBySubjectSorted(Subject subject) {
     return Topic.find().where().eq("subject", subject).orderBy("datePosted, datePosted asc").findList();
   }
   

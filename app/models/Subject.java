@@ -1,7 +1,11 @@
 package models;
 
+import java.util.ArrayList;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import play.db.ebean.Model;
 
 /**
@@ -16,6 +20,9 @@ public class Subject extends Model {
   private long id;
   private String name;
   private String acronym;
+  
+  @OneToMany (mappedBy = "subject", cascade = CascadeType.ALL)
+  private List<Topic> topics = new ArrayList<Topic>();
   
   /**
    * Constructor.

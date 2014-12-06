@@ -1,5 +1,6 @@
 package models;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -23,8 +24,8 @@ import play.db.ebean.Model.Finder;
     private Topic topic;
     
     @ManyToOne
-    private UserInfo user;
-    
+    private UserInfo user;    
+
     public Post(String firstName, String topicText, String lastName, String subject) {
       this.firstName = firstName;
       this.topicText = topicText;
@@ -40,7 +41,20 @@ import play.db.ebean.Model.Finder;
       this.subject = subject;
       this.setDatePosted(new Date());
       this.user = user;
-}
+    }
+    
+    /**
+     * Constructor.
+     * @param topicText The text of the post.
+     * @param topic The topic of the post.
+     * @param user The poster.
+     */
+    public Post(String topicText, Topic topic, UserInfo user) {
+      this.topicText = topicText;
+      this.topic = topic;
+      this.user = user;
+      this.setDatePosted(new Date());
+    }
     
     /**
      * @return the id
@@ -115,8 +129,10 @@ import play.db.ebean.Model.Finder;
     /**
      * @return the datePosted
      */
-    public Date getDatePosted() {
-      return datePosted;
+    public String getDatePosted() {
+      SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy hh:mm a");
+      String date = dateFormat.format(this.datePosted);
+      return date;
     }
 
     /**
@@ -126,6 +142,20 @@ import play.db.ebean.Model.Finder;
       this.datePosted = datePosted;
     }
 
+    /**
+     * @return the user
+     */
+    public UserInfo getUser() {
+      return user;
+    }
+
+    /**
+     * @param user the user to set
+     */
+    public void setUser(UserInfo user) {
+      this.user = user;
+    }
+    
     public static Finder<Long, Post> find() {
       return new Finder<Long, Post>(Long.class, Post.class);
     }

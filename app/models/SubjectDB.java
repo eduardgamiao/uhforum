@@ -13,6 +13,11 @@ public class SubjectDB {
     return Subject.find().where().eq("name", subject).findUnique();
   }
   
+  public static String getSubjectAcronym(String subjectTitle) {
+    Subject subject = getSubjectBySubject(subjectTitle);    
+    return (subject == null) ? "" : subject.getAcronym();
+  }
+  
   public static Subject getSubjectByAcronym(String acronym) {
     return Subject.find().where().eq("acronym", acronym.toUpperCase()).findUnique();
   }

@@ -14,7 +14,7 @@
   <tbody>
   @for(topic <- topics) {
   <tr>
-    <td>@topic.getTitle()</td>
+    <td><a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(), topic.getId())">@topic.getTitle()</a></td>
     <td class="text-center">@topic.getUser().getName()</td>
     <td class="text-center">@topic.getPosts().size()</td>
     <td class="text-center">@topic.getViews()</td>

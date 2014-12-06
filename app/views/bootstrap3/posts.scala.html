@@ -1,0 +1,42 @@
+@(topic: Topic, posts: List[Post]) 
+
+<div class="nav">
+<div class="page-header"><h1>@topic.getTitle()</h1></div>
+<ol class="breadcrumb">
+  <li><a href="@routes.Application.index()">Home</a></li>
+  <li><a href="@routes.Application.subjectView(topic.getSubject().getAcronym().toLowerCase())">@topic.getSubject().getName()</a></li>
+  <li class="active">@topic.getTitle()</li>
+</ol>
+        <div class="panel panel-default">  
+        <div class="panel-body">      
+<div class="panel panel-primary op">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-1">
+        <img src="@topic.getUser().getAvatarURL()" class="avatar">
+      </div>
+      <div class="col-md-11">
+        <a href="@routes.Users.viewProfile(topic.getUser().getId())">@topic.getUser().getName()</a><br />@topic.getDatePosted()
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">@topic.getTopicText()</div>
+</div>
+@for(post <- posts) {
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row">
+      <div class="col-md-1">
+        <img src="@post.getUser().getAvatarURL()" class="avatar">
+      </div>
+      <div class="col-md-11">
+        <a href="@routes.Users.viewProfile(post.getUser().getId())">@post.getUser().getName()</a><br />@post.getDatePosted()
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">@post.getTopicText()</div>
+</div>
+}
+</div>
+</div>
+</div>

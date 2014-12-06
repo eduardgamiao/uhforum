@@ -28,12 +28,12 @@ create table topic (
   title                     varchar(255),
   tags                      varchar(255),
   topic_text                clob,
-  subject                   varchar(255),
   views                     integer,
   images                    clob,
   videos                    clob,
   date_posted               timestamp,
   user_id                   bigint,
+  subject_id                bigint,
   constraint pk_topic primary key (id))
 ;
 
@@ -61,6 +61,8 @@ alter table post add constraint fk_post_user_2 foreign key (user_id) references 
 create index ix_post_user_2 on post (user_id);
 alter table topic add constraint fk_topic_user_3 foreign key (user_id) references user_info (id) on delete restrict on update restrict;
 create index ix_topic_user_3 on topic (user_id);
+alter table topic add constraint fk_topic_subject_4 foreign key (subject_id) references subject (id) on delete restrict on update restrict;
+create index ix_topic_subject_4 on topic (subject_id);
 
 
 

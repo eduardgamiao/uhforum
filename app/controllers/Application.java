@@ -40,7 +40,7 @@ public class Application extends Controller {
       if (subject == null) {
         return redirect(routes.Application.index());
       }
-      List<Topic> topics = TopicDB.getTopicsBySubject(subject.getName());
+      List<Topic> topics = TopicDB.getTopicsBySubject(subject);
       HashMap<String, Integer> tags = new HashMap<String, Integer>();
       for (Topic topic : topics) {
         String [] topicTags = topic.getTags().split(",");
@@ -56,6 +56,18 @@ public class Application extends Controller {
       }
       
       return ok(SubjectList.render(subject, tags));
+    }
+    
+    public static Result viewTopic(String subjectAcronym, Long id) {
+      Topic topic = TopicDB.getTopic(id);
+      Subject subject = SubjectDB.getSubjectByAcronym(subjectAcronym);
+      if (topic == null) {
+        return badRequest(index.render("Nope."));
+      }
+      if (topic.getSubject().getName().equals(subject.getName())) {
+        return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts()));
+      }
+      return badRequest(index.render("Nope."));     
     }
     
 }
