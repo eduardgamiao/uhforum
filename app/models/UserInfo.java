@@ -10,7 +10,6 @@ import play.db.ebean.Model;
 /**
  * User model.
  * @author eduardgamiao
- *
  */
 @Entity
 public class UserInfo extends Model {
