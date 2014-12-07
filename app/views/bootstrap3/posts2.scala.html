@@ -3,7 +3,7 @@
 <div class="nav">
   <ol class="breadcrumb">
     <li><a href="@routes.Application.index()">Home</a></li>
-    <li><a href="@routes.Application.subjectView(topic.getSubject().getAcronym().toLowerCase())">@topic.getSubject().getName()</a></li>
+    <li><a href="@routes.Application.viewSubject(topic.getSubject().getAcronym().toLowerCase())">@topic.getSubject().getName()</a></li>
     <li class="active">@topic.getTitle()</li>
   </ol>
 

@@ -9,6 +9,7 @@
       <th class="text-center hidden-xs">Posts</th>
       <th class="text-center hidden-xs">Views</th>
       <th class="text-center hidden-xs">Last Post</th>
+      <th class="text-center">Subject</th>
     </tr> 
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
     <td class="text-center hidden-xs">@topic.getPosts().size()</td>
     <td class="text-center hidden-xs">@topic.getViews()</td>
     <td class="text-center hidden-xs">@topic.getDatePosted()</td>
+    <td class="text-center">@topic.getSubject().getName()</td>
   </tr> 
   }
   </tbody>

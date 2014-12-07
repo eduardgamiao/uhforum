@@ -38,12 +38,42 @@ public class Application extends Controller {
      * @param acronym The acronym of the subject.
      * @return The subject topic listing.
      */
-    public static Result subjectView(String acronym) {
+    public static Result viewSubject(String acronym) {
       Subject subject = SubjectDB.getSubjectByAcronym(acronym);
       if (subject == null) {
         return redirect(routes.Application.index());
       }
-      List<Topic> topics = TopicDB.getTopicsBySubject(subject);
+      List<Topic> topics = TopicDB.getTopicsBySubject(subject);            
+      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+      return ok(ViewSubject.render(subject, getTags(topics), searchFormData));
+    }
+    
+    public static Result viewTopic(String subjectAcronym, Long id) {
+      Topic topic = TopicDB.getTopic(id);
+      Subject subject = SubjectDB.getSubjectByAcronym(subjectAcronym);
+      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+      if (topic == null) {        
+        return redirect(routes.Application.viewSubject(subjectAcronym));
+      }
+      if (topic.getSubject().getName().equals(subject.getName())) {
+        return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts(), searchFormData));
+      }
+      return redirect(routes.Application.viewSubject(subjectAcronym));    
+    }
+    
+    public static Result search() {
+      Form<SearchFormData> newSearchFormData = Form.form(SearchFormData.class);
+      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
+      SearchFormData formData = searchFormData.get();
+      return ok(Search.render(formData.searchTerm, newSearchFormData));
+    }
+    
+    /**
+     * Return a hashmap of tags.
+     * @param topics The list of topics to compile.
+     * @return A hashmap of tags.
+     */
+    private static HashMap<String, Integer> getTags(List<Topic> topics) {
       HashMap<String, Integer> tags = new HashMap<String, Integer>();
       for (Topic topic : topics) {
         String [] topicTags = topic.getTags().split(",");
@@ -54,28 +84,10 @@ public class Application extends Controller {
           }
           else {
             tags.put(current, 1);
-          }
-        }
-      }
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-      return ok(SubjectList.render(subject, tags, searchFormData));
-    }
-    
-    public static Result viewTopic(String subjectAcronym, Long id) {
-      Topic topic = TopicDB.getTopic(id);
-      Subject subject = SubjectDB.getSubjectByAcronym(subjectAcronym);
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-      if (topic == null) {        
-        return badRequest(index.render("UH Forum", searchFormData));
-      }
-      if (topic.getSubject().getName().equals(subject.getName())) {
-        return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts(), searchFormData));
-      }
-      return badRequest(index.render("UH Forum", searchFormData));     
-    }
-    
-    public static Result search() {
-      return TODO;
+          }        
+        }        
+      }      
+      return tags;
     }
     
 }

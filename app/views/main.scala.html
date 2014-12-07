@@ -41,12 +41,12 @@
           <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Browse<b class="caret"></b></a>
             <ul class="dropdown-menu subject-menu">
-                <li><a href="@routes.Application.subjectView("general")">General</a></li>
+                <li><a href="@routes.Application.viewSubject("general")">General</a></li>
                 <li class="divider"></li>
               <li class="dropdown-header">Subjects</li>
               @for(subject <- SubjectDB.getSubjects()) {
                 @if(!(subject.getName().equals("General"))) {
-                  <li><a href="@routes.Application.subjectView(subject.getAcronym().toLowerCase())">@subject.getName() (@subject.getAcronym())</a></li>
+                  <li><a href="@routes.Application.viewSubject(subject.getAcronym().toLowerCase())">@subject.getName() (@subject.getAcronym())</a></li>
                 }
               }     
             </ul>
