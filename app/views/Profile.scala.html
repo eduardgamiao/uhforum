@@ -1,10 +1,10 @@
-@(message: String, user: UserInfo)
+@(message: String, user: UserInfo, searchForm: Form[views.formdata.SearchFormData])
 
 @import helper._
 @import bootstrap3._
 
 
-@main(message + ": " + user.getName()) {
+@main(message + ": " + user.getName(), searchForm) {
   <div class="container">
   @if(user != null) {
       <div class="page-header"><h1>@user.getName()</h1></div> 

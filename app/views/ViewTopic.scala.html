@@ -1,8 +1,8 @@
-@(message: String, topic: Topic, post: List[Post])
+@(message: String, topic: Topic, post: List[Post], searchForm: Form[views.formdata.SearchFormData])
 
 @import bootstrap3._
 
-@main(message) {
+@main(message, searchForm) {
   <div class="container">
     @(posts2(topic, post))
     </div>

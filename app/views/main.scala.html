@@ -1,4 +1,6 @@
-@(title: String)(content: Html)
+@(title: String, searchForm: Form[views.formdata.SearchFormData])(content: Html)
+
+@import bootstrap3._
 
 <!DOCTYPE html>
 
@@ -52,6 +54,7 @@
           <li><a href="#">Help</a></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
+            @search(searchForm("searchTerm"))
             @if(Secured.isLoggedIn(ctx())) {
             <li class="dropdown">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">Welcome, @Secured.getUserInfo(ctx()).getName()<b class="caret"></b></a>

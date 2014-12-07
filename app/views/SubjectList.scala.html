@@ -1,8 +1,8 @@
-@(subject: Subject, tagMap: HashMap[String, Integer]) 
+@(subject: Subject, tagMap: HashMap[String, Integer], searchForm: Form[views.formdata.SearchFormData]) 
 
 @import bootstrap3._ 
 
-@main(subject.getName()) {
+@main(subject.getName(), searchForm) {
 <div class="container">
   <div class="page-header">
     <h1>

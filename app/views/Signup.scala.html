@@ -1,9 +1,9 @@
-@(message: String, signupForm: Form[views.formdata.SignupFormData])
+@(message: String, signupForm: Form[views.formdata.SignupFormData], searchForm: Form[views.formdata.SearchFormData])
 
 @import helper._
 @import bootstrap3._
 
-@main(message) {
+@main(message, searchForm) {
 <div class="container">
     <div class="row">
       <div class="col-sm-6 col-sm-offset-3">

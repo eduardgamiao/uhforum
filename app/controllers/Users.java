@@ -8,6 +8,7 @@ import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import views.formdata.LoginFormData;
+import views.formdata.SearchFormData;
 import views.formdata.SignupFormData;
 import views.html.Signup;
 import views.html.index;
@@ -27,7 +28,8 @@ public class Users extends Controller {
    */
   public static Result signup() {
     Form<SignupFormData> formData = Form.form(SignupFormData.class);
-    return ok(Signup.render("Signup", formData));
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+    return ok(Signup.render("Signup", formData, searchFormData));
   }
   
   /**
@@ -36,9 +38,10 @@ public class Users extends Controller {
    */
   public static Result postSignup() {
     Form<SignupFormData> formData = Form.form(SignupFormData.class).bindFromRequest();
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);    
     
     if (formData.hasErrors()) {
-      return badRequest(Signup.render("Signup", formData));
+      return badRequest(Signup.render("Signup", formData, searchFormData));
     }
     SignupFormData data = formData.get();
     Long id = UserInfoDB.addUser(data);
@@ -53,7 +56,8 @@ public class Users extends Controller {
    */
   public static Result login() {
     Form<LoginFormData> formData = Form.form(LoginFormData.class);
-    return ok(Login.render("Login", formData));
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+    return ok(Login.render("Login", formData, searchFormData));
   }
   
   /**
@@ -62,14 +66,15 @@ public class Users extends Controller {
    */
   public static Result postLogin() {
     Form<LoginFormData> formData = Form.form(LoginFormData.class).bindFromRequest();
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     
     if (formData.hasErrors()) {
-      return badRequest(Login.render("Login", formData));
+      return badRequest(Login.render("Login", formData, searchFormData));
     }
     else {
       session().clear();
       session("email", formData.get().email);
-      return ok(index.render("Logged In!"));
+      return ok(index.render("UH Forum", searchFormData));
     }
   }
   
@@ -80,8 +85,9 @@ public class Users extends Controller {
    */
   public static Result viewProfile(Long id) {
     UserInfo user = UserInfoDB.getUser(id);
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     if (user != null) {
-      return ok(Profile.render("View Profile", user));
+      return ok(Profile.render("View Profile", user, searchFormData));
     }
     return redirect(routes.Application.index());
   }

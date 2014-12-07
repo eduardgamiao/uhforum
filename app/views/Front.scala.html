@@ -1,6 +1,6 @@
-@(message: String, topic: List[Topic])
+@(message: String, topic: List[Topic], searchForm: Form[views.formdata.SearchFormData])
 
-@main(message) {
+@main(message, searchForm) {
 
 <title>Welcome to the UH Knowledge Forum</title>
 <div class="panel panel-primary topic-listing">
