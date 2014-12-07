@@ -1,0 +1,18 @@
+@(tagMap: HashMap[String, Integer])
+
+<div class="col-md-2 col-sm-2 col-xs-hidden">
+  <div class="panel panel-info">
+    <div class="panel-heading">
+      Popular Tags
+    </div>
+    <ul class="list-group">
+        @if(!(tagMap.isEmpty())) {
+          @for((tag, amount) <- tagMap) {
+            <li class="list-group-item"><span class="badge">@amount</span><span class="label label-primary">@tag</span></li>
+          }
+        } else {
+          <li class="list-group-item"><span class="label label-primary">No tags for this subject.</span></li>
+        }
+      </ul>
+  </div>
+</div>

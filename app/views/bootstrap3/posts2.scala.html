@@ -1,0 +1,39 @@
+@(topic: Topic, posts: List[Post])
+
+<div class="nav">
+  <ol class="breadcrumb">
+    <li><a href="@routes.Application.index()">Home</a></li>
+    <li><a href="@routes.Application.subjectView(topic.getSubject().getAcronym().toLowerCase())">@topic.getSubject().getName()</a></li>
+    <li class="active">@topic.getTitle()</li>
+  </ol>
+
+  <div class="panel panel-primary">
+    <div class="panel-heading">@topic.getTitle()</div>
+    <table class="table table-bordered">
+      <tr>
+        <td class="col-md-2 col-sm-2 col-xs-2">
+          @topic.getUser().getName()<br />
+          <small>@topic.getDatePosted()</small><br/>
+          <img src="@topic.getUser().getAvatarURL()" class="avatar">
+        </td>
+        <td class="col-md-10 col-md-10 col-xs-10">@topic.getTopicText()</td>
+      </tr>
+      @for(post <- posts) {
+      <tr>
+        <td class="col-md-2 col-sm-2 col-xs-2">@post.getUser().getName()<br /> <small>@post.getDatePosted()</small><br />
+          <img src="@post.getUser().getAvatarURL()" class="avatar">
+        </td>
+        <td class="col-md-10 col-md-10 col-xs-10">@post.getTopicText()</td>
+      </tr>
+      }
+    </table>
+  </div>
+  <div class="panel panel-info">
+    <div class="panel-heading">Tags</div>
+    <div class="panel-body">
+    @for(tag <- topic.getTags().split(''')) {
+      <span class="label label-info">@tag.trim()</span>
+    }
+    </div>
+  </div>
+</div>
