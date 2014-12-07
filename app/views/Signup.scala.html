@@ -14,7 +14,7 @@
           <div class="panel-body" style="color: black;">
             @form(routes.Users.postSignup(), 'class -> "form-horizontal") {
               @email(signupForm("email"), "Email", "Email", "")
-              @text2(signupForm("firstName"), "Name", "First Name", signupForm("lastName"), "Last Name")              
+              @bootstrap3.text(signupForm("name"), "Username", "Username", "")              
               @passwordMulti(signupForm("password1"), "Password", "Password", signupForm("password2"), "Re-enter Password")
               <div class="form-group">
                 <div class="col-sm-offset-2 col-sm-10">

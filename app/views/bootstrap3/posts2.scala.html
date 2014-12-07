@@ -12,7 +12,7 @@
     <table class="table table-bordered">
       <tr>
         <td class="col-md-2 col-sm-2 col-xs-2">
-          @topic.getUser().getName()<br />
+          <a href="@routes.Users.viewProfile(topic.getUser().getId())">@topic.getUser().getName()<br />
           <small>@topic.getDatePosted()</small><br/>
           <img src="@topic.getUser().getAvatarURL()" class="avatar">
         </td>
@@ -20,7 +20,7 @@
       </tr>
       @for(post <- posts) {
       <tr>
-        <td class="col-md-2 col-sm-2 col-xs-2">@post.getUser().getName()<br /> <small>@post.getDatePosted()</small><br />
+        <td class="col-md-2 col-sm-2 col-xs-2"><a href="@routes.Users.viewProfile(post.getUser().getId())">@post.getUser().getName()</a><br /> <small>@post.getDatePosted()</small><br />
           <img src="@post.getUser().getAvatarURL()" class="avatar">
         </td>
         <td class="col-md-10 col-md-10 col-xs-10">@post.getTopicText()</td>

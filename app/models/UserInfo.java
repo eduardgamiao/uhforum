@@ -19,8 +19,7 @@ public class UserInfo extends Model {
   
   @Id
   private Long id;
-  private String firstName;
-  private String lastName;
+  private String name;
   private String email;
   private String password;
   private String avatarURL;
@@ -33,14 +32,12 @@ public class UserInfo extends Model {
   
   /**
    * Constructor.
-   * @param firstName First name.
-   * @param lastName Last name.
+   * @param name Name.
    * @param email Email.
    * @param password Password.
    */
-  public UserInfo(String firstName, String lastName, String email, String password) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  public UserInfo(String name, String email, String password) {
+    this.name = name;
     this.email = email;
     this.setPassword(password);
   }
@@ -60,31 +57,17 @@ public class UserInfo extends Model {
   }
 
   /**
-   * @return the firstName
+   * @return the name
    */
-  public String getFirstName() {
-    return firstName;
+  public String getName() {
+    return name;
   }
 
   /**
-   * @param firstName the firstName to set
+   * @param name the name to set
    */
-  public void setFirstName(String firstName) {
-    this.firstName = firstName;
-  }
-
-  /**
-   * @return the lastName
-   */
-  public String getLastName() {
-    return lastName;
-  }
-
-  /**
-   * @param lastName the lastName to set
-   */
-  public void setLastName(String lastName) {
-    this.lastName = lastName;
+  public void setName(String name) {
+    this.name = name;
   }
 
   /**
@@ -151,14 +134,6 @@ public class UserInfo extends Model {
    */
   public boolean hasAvatar() {
     return (this.avatarURL != null && this.avatarURL.length() == 0);
-  }
-  
-  /**
-   * Get the user's first and last name.
-   * @return The user's first and last name.
-   */
-  public String getName() {
-    return this.firstName + " " + this.lastName;
   }
 
   /**

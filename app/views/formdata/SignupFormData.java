@@ -19,11 +19,8 @@ public class SignupFormData {
   /** User's email. */
   public String email;
   
-  /** User's First Name. */
-  public String firstName;
-  
-  /** User's last name. */
-  public String lastName;
+  /** User's Name. */
+  public String name;
   
   /** First password input. */
   public String password1 = "";
@@ -41,11 +38,8 @@ public class SignupFormData {
     if (this.email == null || this.email.length() == 0) {
       errors.add(new ValidationError("email", "An email address is required."));
     }
-    if (this.firstName == null || this.firstName.length() == 0) {
+    if (this.name == null || this.name.length() == 0) {
       errors.add(new ValidationError("firstName", "First name is a required field."));
-    }
-    if (this.lastName == null || this.lastName.length() == 0) {
-      errors.add(new ValidationError("lastName", "Last name is a required field."));
     }
     if (this.password1 == null || this.password1.length() == 0) {
       errors.add(new ValidationError("password1", "A password is required."));

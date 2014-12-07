@@ -18,12 +18,11 @@ public class UserInfoDB {
   public static long addUser(SignupFormData formData) {
     UserInfo user;
     if (formData.id == -1) {
-      user = new UserInfo(formData.firstName, formData.lastName, formData.email, formData.password1);
+      user = new UserInfo(formData.name, formData.email, formData.password1);
     }
     else {
       user = UserInfoDB.getUser(formData.id);
-      user.setFirstName(formData.firstName);
-      user.setLastName(formData.lastName);
+      user.setName(formData.name);
       user.setEmail(formData.email);
       user.setPassword(formData.password1);
     }
@@ -33,14 +32,13 @@ public class UserInfoDB {
   
   /**
    * Adds a user to the database.
-   * @param firstName The first name of the user.
-   * @param lastName The last name of the user.
+   * @param name The username.
    * @param email The email of the user.
    * @param password The password of the user.
    * @return The ID of the user.
    */
-  public static long addUser(String firstName, String lastName, String email, String password) {
-    UserInfo user = new UserInfo(firstName, lastName, email, password);
+  public static long addUser(String name, String email, String password) {
+    UserInfo user = new UserInfo(name, email, password);
     user.save();
     return user.getId();
   }

@@ -39,8 +39,7 @@ create table topic (
 
 create table user_info (
   id                        bigint not null,
-  first_name                varchar(255),
-  last_name                 varchar(255),
+  name                      varchar(255),
   email                     varchar(255),
   password                  varchar(255),
   avatar_url                varchar(255),
