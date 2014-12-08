@@ -82,7 +82,7 @@ public class TopicDB {
    * @return A list of topics with the search term in its title.
    */
   public static PagingList<Topic> getTopicsBySearch(String searchTerm) {
-    return Topic.find().where().icontains("title", searchTerm).findPagingList(2);
+    return Topic.find().where().icontains("title", searchTerm).findPagingList(PAGE_SIZE);
   }
   
   public static void addView(Long id) {
