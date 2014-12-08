@@ -18,6 +18,7 @@ public class TopicFormData {
   public String tags;
   public String image;
   public String video;
+  
 
   public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<ValidationError>();

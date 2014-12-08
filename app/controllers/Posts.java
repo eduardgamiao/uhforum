@@ -2,6 +2,8 @@ package controllers;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
+import models.Subject;
 import models.Topic;
 import models.TopicDB;
 import models.UserInfo;
@@ -15,12 +17,14 @@ import views.formdata.LoginFormData;
 import views.formdata.PostFormData;
 import views.formdata.SearchFormData;
 import views.formdata.SignupFormData;
+import views.formdata.SubjectTypes;
 import views.formdata.TopicFormData;
 import views.html.Front;
 import views.html.Signup;
 import views.html.index;
 import views.html.Login;
 import views.html.Profile;
+import views.html.*;
 
 /**
  * Handles user login, logout, signup and profiles.
@@ -36,7 +40,8 @@ public class Posts extends Controller {
   public static Result postTopic() {
     Form<TopicFormData> formData = Form.form(TopicFormData.class);
     Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-    return ok(PostTopic.render("Post Topic", formData, searchFormData));
+    Map<Subject, Boolean> subjectTypeMap = SubjectTypes.getTypes();
+    return ok(PostTopics.render("Post Topic", formData, searchFormData, subjectTypeMap));
   }
   
   /**
