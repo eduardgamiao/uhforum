@@ -22,6 +22,10 @@ public class SubjectDB {
     return Subject.find().where().eq("acronym", acronym.toUpperCase()).findUnique();
   }
   
+  /**
+   * Get a list of all subjects.
+   * @return A list of subjects.
+   */
   public static List<Subject> getSubjects() {
     return Subject.find().all();
   }
