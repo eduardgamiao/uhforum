@@ -44,10 +44,10 @@ public class Global extends GlobalSettings {
      Long topicID = TopicDB.addTopic("How do I succeed at French?", "hey, lol, <3 English", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
-     TopicDB.addTopic("How do I succeed at French 101?", "lol, <3 English", "Read the title.", "French", 
+     TopicDB.addTopic("How do I succeed at French 101?", "<3 English, all", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
-     TopicDB.addTopic("How do I succeed at French 201?", "lol, <3 English", "Read the title.", "French", 
+     TopicDB.addTopic("How do I succeed at French 201?", "<3 English, hey", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
      Logger.debug("" + topicID);

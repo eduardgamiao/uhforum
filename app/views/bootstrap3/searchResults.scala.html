@@ -22,7 +22,7 @@
     <td class="text-center hidden-xs">@topic.getPosts().size()</td>
     <td class="text-center hidden-xs">@topic.getViews()</td>
     <td class="text-center hidden-xs">@topic.getDatePosted()</td>
-    <td class="text-center">@topic.getSubject().getName()</td>
+    <td class="text-center"><a href="@routes.Application.viewSubject(topic.getSubject().getAcronym().toLowerCase())">@topic.getSubject().getName()</a></td>
   </tr> 
   }
   </tbody>

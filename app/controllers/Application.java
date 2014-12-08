@@ -1,8 +1,11 @@
 package controllers;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.TreeMap;
 import models.Subject;
 import models.SubjectDB;
 import models.Topic;
@@ -67,10 +70,12 @@ public class Application extends Controller {
      * @param topics The list of topics to compile.
      * @return A hashmap of tags.
      */
-    private static HashMap<String, Integer> getTags(List<Topic> topics) {
+    private static TreeMap<String, Integer> getTags(List<Topic> topics) {
       HashMap<String, Integer> tags = new HashMap<String, Integer>();
+      TagComparator comparator = new TagComparator(tags);
+      TreeMap<String, Integer> sortedTags = new TreeMap<String, Integer>(comparator);
       for (Topic topic : topics) {
-        String [] topicTags = topic.getTags().split(",");
+        String [] topicTags = topic.getTags();
         for (String current : topicTags) {
           current = current.trim();
           if (tags.containsKey(current)) {
@@ -81,7 +86,26 @@ public class Application extends Controller {
           }        
         }        
       }      
-      return tags;
-    }
-    
+      sortedTags.putAll(tags);
+      return sortedTags;
+    }        
 }
+
+class TagComparator implements Comparator<String> {
+      Map<String, Integer> map;
+      public TagComparator(Map<String, Integer> map) {
+        this.map = map;
+      }
+
+      public int compare(String key1, String key2) {
+        if (map.get(key1) < map.get(key2)) {
+          return 1;        
+        }
+        else if (map.get(key1) > map.get(key2)) {
+          return -1;
+        }
+        else {
+         return key1.compareTo(key2); 
+        }
+      }
+    }

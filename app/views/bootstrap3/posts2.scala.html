@@ -16,7 +16,11 @@
           <small>@topic.getDatePosted()</small><br/>
           <img src="@topic.getUser().getAvatarURL()" class="avatar">
         </td>
-        <td class="col-md-10 col-md-10 col-xs-10">@topic.getTopicText()</td>
+        <td class="col-md-10 col-md-10 col-xs-10">@topic.getTopicText()<br/>
+            @for(picture <- topic.getImages()) {
+              <img src="@picture.trim()" class="img-responsive">
+            }
+        </td>
       </tr>
       @for(post <- posts) {
       <tr>
@@ -31,7 +35,7 @@
   <div class="panel panel-info">
     <div class="panel-heading">Tags</div>
     <div class="panel-body">
-    @for(tag <- topic.getTags().split(''')) {
+    @for(tag <- topic.getTags()) {
       <span class="label label-info">@tag.trim()</span>
     }
     </div>

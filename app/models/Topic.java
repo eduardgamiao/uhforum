@@ -150,8 +150,8 @@ import play.db.ebean.Model.Finder;
     /**
      * @return the tags
      */
-    public String getTags() {
-      return tags;
+    public String[] getTags() {
+      return tags.split(",");
     }
 
     /**
@@ -192,8 +192,8 @@ import play.db.ebean.Model.Finder;
     /**
      * @return the images
      */
-    public String getImages() {
-      return images;
+    public String[] getImages() {
+      return images.split(",");
     }
 
     /**
