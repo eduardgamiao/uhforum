@@ -56,6 +56,7 @@ public class Application extends Controller {
         return redirect(routes.Application.viewSubject(subjectAcronym));
       }
       if (topic.getSubject().getName().equals(subject.getName())) {
+        TopicDB.addView(topic.getId());
         return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts(), searchFormData));
       }
       return redirect(routes.Application.viewSubject(subjectAcronym));    

@@ -84,6 +84,14 @@ public class TopicDB {
     //return Topic.find().where().icontains("title", searchTerm).findPagingList(10).getPage(0).getList();
   }
   
+  public static void addView(Long id) {
+    Topic topic = TopicDB.getTopic(id);
+    if (topic != null) {
+      topic.setViews(topic.getViews() + 1);
+      topic.save();
+    }
+  }
+  
   public static List<Topic> getTopics() {
     return Topic.find().all();
   }
