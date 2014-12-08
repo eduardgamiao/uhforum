@@ -1,0 +1,32 @@
+@(message: String, topicForm: Form[views.formdata.TopicFormData], searchForm: Form[views.formdata.SearchFormData])
+
+@import helper._
+@import bootstrap3._
+
+@main(message, searchForm) {
+<div class="container">
+    <div class="row">
+      <div class="col-sm-6 col-sm-offset-3">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h3 class="panel-title">Post a Topic</h3>
+          </div>
+          <div class="panel-body" style="color: black;">
+            @form(routes.Posts.postSignup(), 'class -> "form-horizontal") {
+              @bootstrap3.text(topicForm("title"), "Title", "Title", "")
+              @bootstrap3.text(topicForm("topicText"), "TopicText", "TopicText", "")              
+              @bootstrap3.text(topicForm("tags"), "Tags", "Tags", "")
+              @bootstrap3.text(topicForm("image"), "Image", "Image", "")
+              @bootstrap3.text(topicForm("video"), "Video", "Video", "")
+              <div class="form-group">
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+              </div>
+            }
+          </div>
+        </div>
+        
+      </div>
+    </div>
+  </div>
