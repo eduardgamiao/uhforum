@@ -3,7 +3,6 @@ package views.formdata;
 import java.util.ArrayList;
 import java.util.List;
 import models.UserInfoDB;
-import play.Logger;
 import play.data.validation.ValidationError;
 
 /**
@@ -52,6 +51,9 @@ public class SignupFormData {
     }
     if (!(UserInfoDB.getUser(this.email) == null)) {
       errors.add(new ValidationError("email", "The email \"" + this.email + "\" is already being used."));
+    }
+    if (UserInfoDB.isUserNameTaken(this.name)) {
+      errors.add(new ValidationError("name", "The name \"" + this.name + "\" is already being used."));      
     }
     
     return errors.isEmpty() ? null : errors;

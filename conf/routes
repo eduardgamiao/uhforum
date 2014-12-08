@@ -13,7 +13,8 @@ POST    /signup                     controllers.Users.postSignup()
 GET     /user/:id                   controllers.Users.viewProfile(id: Long)
 GET     /:subject                   controllers.Application.viewSubject(subject: String)
 GET     /:subject/view/:id          controllers.Application.viewTopic(subject: String, id: Long)
-POST    /search                     controllers.Application.search()
+GET     /search/                    controllers.Search.searchByTag(term, subject, tag)
+POST    /search                     controllers.Search.search()
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

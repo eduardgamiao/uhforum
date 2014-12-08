@@ -60,14 +60,7 @@ public class Application extends Controller {
         return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts(), searchFormData));
       }
       return redirect(routes.Application.viewSubject(subjectAcronym));    
-    }
-    
-    public static Result search() {
-      Form<SearchFormData> newSearchFormData = Form.form(SearchFormData.class);
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
-      SearchFormData formData = searchFormData.get();     
-      return ok(Search.render(formData.searchTerm, newSearchFormData));
-    }
+    }    
     
     /**
      * Return a hashmap of tags.

@@ -2,8 +2,10 @@ package models;
 
 import java.util.List;
 import org.h2.expression.ExpressionList;
+import com.avaje.ebean.PagingList;
 
 public class TopicDB {
+    private static final int PAGE_SIZE = 10;
   
   public static long addTopic(String firstName, String lastName, String topicText,String tags, String subject, int views) {
     Topic topic = new Topic(firstName, lastName, tags, topicText, subject, views);
@@ -79,9 +81,8 @@ public class TopicDB {
    * @param searchTerm The search term.
    * @return A list of topics with the search term in its title.
    */
-  public static List<Topic> getTopicsBySearch(String searchTerm) {
-    return Topic.find().where().icontains("title", searchTerm).findList();
-    //return Topic.find().where().icontains("title", searchTerm).findPagingList(10).getPage(0).getList();
+  public static PagingList<Topic> getTopicsBySearch(String searchTerm) {
+    return Topic.find().where().icontains("title", searchTerm).findPagingList(2);
   }
   
   public static void addView(Long id) {

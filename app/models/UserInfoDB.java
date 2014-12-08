@@ -60,6 +60,15 @@ public class UserInfoDB {
   public static UserInfo getUser(String email) {
     return UserInfo.find().where().eq("email", email).findUnique();      
   }
+  
+  /**
+   * Check if a username is taken.
+   * @param name The name to check.
+   * @return True if the username is taken, false otherwise.
+   */
+  public static boolean isUserNameTaken(String name) {
+    return (UserInfo.find().where().eq("name", name).findUnique() != null);        
+  }
 
   /**
    * Get a list of all users.

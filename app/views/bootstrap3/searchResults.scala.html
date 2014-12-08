@@ -1,7 +1,7 @@
-@(term: String, topics: List[Topic])
+@(term: String, topics: com.avaje.ebean.PagingList[Topic])
 
-<div class="panel-heading">@topics.size() Result(s) For &quot;@term&quot;</div>
-@if(!(topics.isEmpty())) {
+<div class="panel-heading">@topics.getTotalRowCount() Result(s) For &quot;@term&quot;</div>
+@if(topics.getTotalRowCount() != 0) {
 <table class="table table-hover">
   <thead>
     <tr>
@@ -14,7 +14,7 @@
     </tr> 
   </thead>
   <tbody>
-  @for(topic <- topics) {
+  @for(topic <- topics.getPage(0).getList()) {
   <tr>
     <td><a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(), topic.getId())">@topic.getTitle()</a></td>
     <td class="text-center">@topic.getUser().getName()</td>
@@ -26,6 +26,8 @@
   }
   </tbody>
 </table>
+<!--  Pagination -->
+
 } else {
   <ul class="list-group">
     <li class="list-group-item"><span class="label label-info">No topics found!</span></li>
