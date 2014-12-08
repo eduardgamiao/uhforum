@@ -9,11 +9,18 @@ import views.html.SearchResults;
 
 public class Search extends Controller {
   
-  public static Result search() {
+  public static Result search(Integer currentPage) {
     Form<SearchFormData> newSearchFormData = Form.form(SearchFormData.class);
     Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
     SearchFormData formData = searchFormData.get();     
-    return ok(SearchResults.render(formData.searchTerm, newSearchFormData));
+    return ok(SearchResults.render(formData.searchTerm, newSearchFormData, currentPage));
+  }
+  
+  public static Result pageSearch(String term, Integer currentPage) {
+    Form<SearchFormData> newSearchFormData = Form.form(SearchFormData.class); 
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
+    SearchFormData formData = searchFormData.get();    
+    return ok(SearchResults.render(term, newSearchFormData, currentPage));
   }
   
   public static Result searchByTag(String term, String subject, String tag) {
