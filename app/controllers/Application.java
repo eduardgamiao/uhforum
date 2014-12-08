@@ -64,7 +64,7 @@ public class Application extends Controller {
     public static Result search() {
       Form<SearchFormData> newSearchFormData = Form.form(SearchFormData.class);
       Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
-      SearchFormData formData = searchFormData.get();
+      SearchFormData formData = searchFormData.get();     
       return ok(Search.render(formData.searchTerm, newSearchFormData));
     }
     

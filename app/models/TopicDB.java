@@ -37,7 +37,7 @@ public class TopicDB {
   }
   
   public static List<Topic> getTopicFirst(String firstName) {
-    List<Topic> test = Topic.find().where().eq("firstName", firstName).findList();  
+    List<Topic> test = Topic.find().where().eq("firstName", firstName).findList();
     return test;
   }  
     /*public static Topic getTopicLast(String lastName) {
@@ -72,6 +72,16 @@ public class TopicDB {
    */
   public static List<Topic> getTopicsBySubjectSorted(Subject subject) {
     return Topic.find().where().eq("subject", subject).orderBy("datePosted, datePosted asc").findList();
+  }
+  
+  /**
+   * Return a list of matching topics.
+   * @param searchTerm The search term.
+   * @return A list of topics with the search term in its title.
+   */
+  public static List<Topic> getTopicsBySearch(String searchTerm) {
+    return Topic.find().where().icontains("title", searchTerm).findList();
+    //return Topic.find().where().icontains("title", searchTerm).findPagingList(10).getPage(0).getList();
   }
   
   public static List<Topic> getTopics() {

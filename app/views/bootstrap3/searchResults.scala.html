@@ -1,5 +1,6 @@
-@(topics: List[Topic])
+@(term: String, topics: List[Topic])
 
+<div class="panel-heading">@topics.size() Result(s) For &quot;@term&quot;</div>
 @if(!(topics.isEmpty())) {
 <table class="table table-hover">
   <thead>
@@ -27,6 +28,6 @@
 </table>
 } else {
   <ul class="list-group">
-    <li class="list-group-item"><span class="label label-info">No topics for this subject.</span></li>
+    <li class="list-group-item"><span class="label label-info">No topics found!</span></li>
   </ul>
 }
