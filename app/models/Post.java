@@ -2,6 +2,7 @@ package models;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
@@ -16,6 +17,7 @@ import play.db.ebean.Model.Finder;
     private Long id;
     private String firstName;
     private String lastName;
+    @Column(columnDefinition = "TEXT")
     private String topicText;
     private String subject;
     private Date datePosted;

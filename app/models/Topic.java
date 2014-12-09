@@ -5,14 +5,13 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Lob;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import play.Logger;
 import play.db.ebean.Model;
-import play.db.ebean.Model.Finder;
 
 @Entity
   public class Topic extends Model {
@@ -23,12 +22,12 @@ import play.db.ebean.Model.Finder;
     private String firstName;
     private String title;
     private String tags;
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String topicText;
     private int views;
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String images;
-    @Lob
+    @Column(columnDefinition = "TEXT")
     private String videos;
     private Date datePosted;
     
