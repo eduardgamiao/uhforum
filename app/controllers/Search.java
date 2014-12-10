@@ -1,11 +1,15 @@
 package controllers;
 
+import models.Subject;
+import models.SubjectDB;
+import models.TopicDB;
 import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import views.formdata.SearchFormData;
 import views.html.SearchResults;
+import views.html.TagResults;
 
 public class Search extends Controller {
   
@@ -23,10 +27,10 @@ public class Search extends Controller {
     return ok(SearchResults.render(term, newSearchFormData, currentPage));
   }
   
-  public static Result searchByTag(String term, String subject, String tag) {
+  public static Result searchByTag(String tag, String subjectTitle, Integer currentPage) {
     Form<SearchFormData> newSearchFormData = Form.form(SearchFormData.class);
-    Logger.debug(term + "|" + subject + "|" + tag);
-    return TODO;
+    Subject subject = SubjectDB.getSubjectBySubject(subjectTitle);
+    return ok(TagResults.render(tag, subject, newSearchFormData, currentPage));
   }
 
 }

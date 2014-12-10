@@ -4,6 +4,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import org.h2.expression.ExpressionList;
+import play.Logger;
 import com.avaje.ebean.PagingList;
 
 public class TopicDB {
@@ -87,6 +88,21 @@ public class TopicDB {
     return Topic.find().where().icontains("title", searchTerm).findPagingList(PAGE_SIZE);
   }
   
+  /**
+   * Return a list of matching topics.
+   * @param tag The tag to search for.
+   * @param subject The subject of the topics.
+   * @return A list of matching topics.
+   */
+  public static PagingList<Topic> getTopicByTag(String tag, Subject subject) {
+    Logger.debug(tag + " " + subject);
+    return Topic.find().where().eq("subject", subject).icontains("tags", tag).findPagingList(PAGE_SIZE);
+  }
+  
+  /**
+   * Increment the view of a page.
+   * @param id The ID of the page to view.
+   */
   public static void addView(Long id) {
     Topic topic = TopicDB.getTopic(id);
     if (topic != null) {
