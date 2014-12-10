@@ -1,4 +1,4 @@
 uhforum
 =======
 
-University of Hawaii ICS 465 Final Project
+Forum built in Play Framework 2.
