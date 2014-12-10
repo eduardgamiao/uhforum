@@ -4,12 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import org.h2.expression.ExpressionList;
-<<<<<<< HEAD
-import views.formdata.SignupFormData;
 import views.formdata.TopicFormData;
-=======
 import play.Logger;
->>>>>>> 0ed7609373a5b5153bc3323a90358e7cd506394c
 import com.avaje.ebean.PagingList;
 
 public class TopicDB {
