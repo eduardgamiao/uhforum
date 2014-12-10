@@ -3,6 +3,7 @@ package models;
 import java.util.List;
 import org.h2.expression.ExpressionList;
 import play.Logger;
+import views.formdata.TopicFormData;
 import com.avaje.ebean.PagingList;
 
 public class TopicDB {
