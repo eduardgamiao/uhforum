@@ -19,11 +19,6 @@ import views.formdata.SearchFormData;
 import views.formdata.SignupFormData;
 import views.formdata.SubjectTypes;
 import views.formdata.TopicFormData;
-import views.html.Front;
-import views.html.Signup;
-import views.html.index;
-import views.html.Login;
-import views.html.Profile;
 import views.html.*;
 
 /**
@@ -37,6 +32,7 @@ public class Posts extends Controller {
    * Returns the signup view.
    * @return The signup Result view.
    */
+  @Security.Authenticated(Secured.class)
   public static Result postTopic() {
     Form<TopicFormData> formData = Form.form(TopicFormData.class).bindFromRequest();
     Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
@@ -44,6 +40,7 @@ public class Posts extends Controller {
     return ok(PostTopics.render("Post Topic", formData, searchFormData, subjectTypeMap));
   }
   
+  @Security.Authenticated(Secured.class)
   public static Result inputTopic() {
     List<Topic> topicList = new ArrayList<Topic>();
     topicList = TopicDB.getTopics();
