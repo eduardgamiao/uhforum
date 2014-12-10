@@ -1,0 +1,15 @@
+@(tag: String, subject: Subject, searchForm: Form[views.formdata.SearchFormData], currentPage: Integer) 
+
+@import bootstrap3._ 
+
+@main("Search Results: " + tag + " in " + subject, searchForm) {
+<div class="container">
+  <div class="page-header">
+    <h1>
+      Search
+    </h1>
+  </div>
+  <div class="col-md-12">
+      @tagResults(tag, subject, TopicDB.getTopicByTag(tag, subject), currentPage)
+</div>
+}

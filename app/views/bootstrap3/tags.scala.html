@@ -1,4 +1,4 @@
-@(tagMap: TreeMap[String, Integer])
+@(tagMap: TreeMap[String, Integer], subject: String)
 
 <div class="col-md-2 col-sm-2 col-xs-hidden">
   <div class="panel panel-info">
@@ -8,7 +8,7 @@
     <ul class="list-group">
         @if(!(tagMap.isEmpty())) {
           @for((tag, amount) <- tagMap) {
-            <li class="list-group-item"><span class="badge">@amount</span><span class="label label-primary">@tag</span></li>
+            <li class="list-group-item"><span class="badge badge-important pull-right">@amount</span><a href="@routes.Search.searchByTag(tag, subject)"><span class="label label-primary">@tag</span></a></li>
           }
         } else {
           <li class="list-group-item"><span class="label label-primary">No tags for this subject.</span></li>
