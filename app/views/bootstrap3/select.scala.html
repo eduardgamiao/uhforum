@@ -10,7 +10,7 @@
         @if(isMultiple) {multiple="multiple"}>
         @if(!isMultiple) {<option class="blank" value="">Please select a value</option>}
         @for((optionName, isSelected) <- optionMap) {
-          <option id="@optionName" value="@optionName" @if(isSelected) {selected}>@optionName</option>
+          <option id="@optionName" value="@optionName" @if(isSelected) {selected}>@optionName.getName()</option>
         }
       </select>
       <span class="help-block">@help</span>
