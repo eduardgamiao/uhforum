@@ -2,7 +2,6 @@ package models;
 
 import java.util.List;
 import org.h2.expression.ExpressionList;
-import views.formdata.TopicFormData;
 import play.Logger;
 import com.avaje.ebean.PagingList;
 
