@@ -38,7 +38,7 @@ public class SignupFormData {
       errors.add(new ValidationError("email", "An email address is required."));
     }
     if (this.name == null || this.name.length() == 0) {
-      errors.add(new ValidationError("firstName", "First name is a required field."));
+      errors.add(new ValidationError("name", "Username is a required field."));
     }
     if (this.password1 == null || this.password1.length() == 0) {
       errors.add(new ValidationError("password1", "A password is required."));
