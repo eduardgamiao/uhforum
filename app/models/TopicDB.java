@@ -4,6 +4,8 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import org.h2.expression.ExpressionList;
+import views.formdata.SignupFormData;
+import views.formdata.TopicFormData;
 import com.avaje.ebean.PagingList;
 
 public class TopicDB {
@@ -22,6 +24,10 @@ public class TopicDB {
     return topic.getId();
   }
   
+  public static void addTopic(TopicFormData formData, UserInfo user) {
+    Topic topic = new Topic(formData.title, formData.tags, formData.topicText, formData.subject, formData.image, formData.video, user);
+    topic.save();
+  }
   /**
    * Add topic to database.
    * @param title Title of topic.

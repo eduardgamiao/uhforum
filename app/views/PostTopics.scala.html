@@ -12,13 +12,13 @@
             <h3 class="panel-title">Post a Topic</h3>
           </div>
           <div class="panel-body" style="color: black;">
-            @form(routes.Posts.postTopic(), 'class -> "form-horizontal") {
+            @form(routes.Posts.inputTopic(), 'class -> "form-horizontal") {
               @bootstrap3.text(topicForm("title"), "Title", "Title", "")
               @bootstrap3.text(topicForm("topicText"), "TopicText", "TopicText", "")              
               @bootstrap3.text(topicForm("tags"), "Tags", "Tags", "")
               @bootstrap3.text(topicForm("image"), "Image", "Image", "")
               @bootstrap3.text(topicForm("video"), "Video", "Video", "")
-              @bootstrap3.select(topicForm("subjectType"),
+              @bootstrap3.select(topicForm("subject"),
                      label = "Topic type",
                      optionMap = subjectTypeMap,
                      isMultiple = false,

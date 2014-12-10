@@ -2,6 +2,7 @@ package views.formdata;
 
 import java.util.ArrayList;
 import java.util.List;
+import models.Subject;
 import models.UserInfoDB;
 import models.TopicDB;
 import play.data.validation.ValidationError;
@@ -18,6 +19,7 @@ public class TopicFormData {
   public String tags;
   public String image;
   public String video;
+  public String subject;
   
 
   public List<ValidationError> validate() {
