@@ -76,7 +76,7 @@ import play.db.ebean.Model.Finder;
      * @param title Title.
      * @param tags Tags.
      * @param topicText Topic text.
-     * @param subject Subject.
+     * @param subjectTitle Subject.
      * @param images Images.
      * @param videos Videos.
      * @param user Topic creator.
