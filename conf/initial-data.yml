@@ -227,6 +227,10 @@ subject:
 - !!models.Subject
   name: "German"
   acronym: GER
+  
+- !!models.Subject
+  name: "General"
+  acronym: GENERAL  
 
 - !!models.Subject
   name: "Global Health & Pop Studies"
@@ -277,7 +281,7 @@ subject:
   acronym: ITM
 
 - !!models.Subject
-  name: "Information& Computer Sciences"
+  name: "Information & Computer Sciences"
   acronym: ICS
 
 - !!models.Subject

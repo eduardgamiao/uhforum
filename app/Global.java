@@ -30,8 +30,6 @@ public class Global extends GlobalSettings {
       @SuppressWarnings("unchecked")
       Map<String, List<Object>> all = (Map<String, List<Object>>) Yaml.load("initial-data.yml");
       Ebean.save(all.get("subject"));
-      Subject general = new Subject("General", "GENERAL");
-      general.save();
     } 
     
     if (UserInfoDB.getUsers().isEmpty()) {
@@ -41,9 +39,9 @@ public class Global extends GlobalSettings {
      TopicDB.addTopic("test", "guy2", "itsatesttext", "testTag", "subjectTest", 0, user);
      TopicDB.addTopic("test", "guy3", "itsatesttext", "testTag", "subjectTest", 0, user);
      TopicDB.addTopic("test", "guy4", "itsatesttext", "testTag", "subjectTest", 0, user);
-     Long topicID = TopicDB.addTopic("How do I succeed at French?", "hey, lol, <3 English", "Read the title.", "French", 
-         "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
-         "", user);
+     Long topicID = TopicDB.addTopic("How do I succeed at French?", "hey, lol, <3 English", "Read the title.", 
+         "French", "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, "
+             + "http://i.imgur.com/fa0Wmp2.gif", "", user);
      TopicDB.addTopic("How do I succeed at French 101?", "<3 English, all", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);

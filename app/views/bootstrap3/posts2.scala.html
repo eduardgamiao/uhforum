@@ -36,7 +36,7 @@
     <div class="panel-heading">Tags</div>
     <div class="panel-body">
     @for(tag <- topic.getTags()) {
-      <span class="label label-info">@tag.trim()</span>
+      <a href="@routes.Search.searchByTag(tag.trim(), topic.getSubject().getName())"><span class="label label-info">@tag.trim()</span></a>
     }
     </div>
   </div>
