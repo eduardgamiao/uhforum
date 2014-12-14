@@ -14,10 +14,6 @@ import views.formdata.SearchFormData;
 import views.formdata.SignupFormData;
 import views.formdata.SubjectTypes;
 import views.formdata.TopicFormData;
-import views.html.Signup;
-import views.html.index;
-import views.html.Login;
-import views.html.Profile;
 import views.html.*;
 
 /**
@@ -102,6 +98,21 @@ public class Users extends Controller {
       return ok(Profile.render("View Profile", user, searchFormData));
     }
     return redirect(routes.Application.index());
+  }
+  
+  /**
+   * User information management.
+   * @param id The ID of the user.
+   * @return The user edit page (if valid) or the index page.
+   */
+  @Security.Authenticated(Secured.class)
+  public static Result editProfile(Long id) {
+    return TODO;
+  }
+  
+  @Security.Authenticated(Secured.class)
+  public static Result postEditProfile(Long id) {
+    return TODO;
   }
   
   /**

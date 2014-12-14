@@ -7,7 +7,13 @@
 @main(message + ": " + user.getName(), searchForm) {
   <div class="container">
   @if(user != null) {
-      <div class="page-header"><h1>@user.getName()</h1></div> 
+      <h1>@user.getName()</h1>           
+      <ul class="nav nav-tabs">
+  <li role="presentation" class="active"><a href="#">View</a></li>
+  <li role="presentation"><a href="@routes.Users.editProfile(user.getId())">Edit Profile</a></li>
+</ul> 
+      <div class="panel panel-default">
+       <div class="panel-body">            
       <div class="panel panel-primary">
   <!-- Default panel contents -->
   <div class="panel-heading">My Topics <span class="badge">@user.getTopics().size()</span></div>
@@ -41,5 +47,7 @@
   </ul>
 </div> 
     </div>
+    </div>    
+    </div>    
   }
 }
