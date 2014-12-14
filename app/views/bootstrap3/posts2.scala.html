@@ -16,7 +16,7 @@
           <small>@topic.getDatePosted()</small><br/>
           <img src="@topic.getUser().getAvatarURL()" class="avatar">
         </td>
-        <td class="col-md-10 col-md-10 col-xs-10">@topic.getTopicText()<br/>
+        <td class="col-md-10 col-md-10 col-xs-10">@Html(topic.getHTML())<br/>
             @for(picture <- topic.getImages()) {
               <img src="@picture.trim()" class="img-responsive">
             }

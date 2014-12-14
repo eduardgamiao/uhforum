@@ -1,5 +1,6 @@
 package models;
 
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -12,6 +13,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import play.Logger;
 import play.db.ebean.Model;
+import org.markdown4j.Markdown4jProcessor;
 
 @Entity
   public class Topic extends Model {
@@ -245,6 +247,18 @@ import play.db.ebean.Model;
     public UserInfo getUser() {
       return user;
     }
+    
+    public String getHTML() {
+      String html;
+      try {
+        html = new Markdown4jProcessor().process("This is **bold**.");
+      }
+      catch (IOException e) {
+        return "Encoding error.";
+      }
+      return html;
+    }
+    
 
     public static Finder<Long, Topic> find() {
       return new Finder<Long, Topic>(Long.class, Topic.class);
