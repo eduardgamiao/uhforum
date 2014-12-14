@@ -110,14 +110,21 @@ public class Users extends Controller {
   public static Result editProfile(Long id) {
     UserInfo user = UserInfoDB.getUser(id);
     if (user != null) {
-      EditProfileFormData data = new EditProfileFormData(user);
-      Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).fill(data);
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-      return ok(EditProfile.render(formData, user, searchFormData));
+      if (Secured.getUserInfo(ctx()).getId() == id) {
+        EditProfileFormData data = new EditProfileFormData(user);
+        Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).fill(data);
+        Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+        return ok(EditProfile.render(formData, user, searchFormData));
+      }
     }
-    return redirect(routes.Application.index());
+    return redirect(routes.Users.viewProfile(Secured.getUserInfo(ctx()).getId()));
   }
   
+  /**
+   * Handles edit profile submission.
+   * @param id The ID of the user.
+   * @return The profile page of the user or the edit profile form if the form has errors.
+   */
   @Security.Authenticated(Secured.class)
   public static Result postEditProfile(Long id) {
     Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).bindFromRequest();
@@ -126,6 +133,10 @@ public class Users extends Controller {
       Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
       return badRequest(EditProfile.render(formData, user, searchFormData));
     }
+    EditProfileFormData data = formData.get();
+    UserInfoDB.addUser(data);
+    session().clear();
+    session("email", formData.get().email);
     return redirect(routes.Users.viewProfile(id));
   }
   

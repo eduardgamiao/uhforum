@@ -22,7 +22,7 @@ public class UserInfo extends Model {
   private String name;
   private String email;
   private String password;
-  private String avatarURL;
+  private String avatarURL = "";
   
   @OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
   private List<Topic> topics = new ArrayList<Topic>();

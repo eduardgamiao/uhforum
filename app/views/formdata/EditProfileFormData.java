@@ -80,6 +80,12 @@ public class EditProfileFormData {
         errors.add(new ValidationError("name", "The username \"" + this.name + "\" is already in use."));
       }
     }
+    if ((this.password1 != null || this.password1.length() > 0) 
+        && (this.password2 != null || this.password2.length() > 0)) {
+      if (!(this.password1.equals(this.password2))) {
+        errors.add(new ValidationError("password1", "The passwords do not match."));       
+      }
+    }
     /**
     if (this.avatarURL != null || this.avatarURL.length() > 0) {    
       try {
