@@ -103,5 +103,14 @@ public class UserInfoDB {
   public static boolean doesUserExist(String email) {
     return (getUser(email) == null);
   }
+  
+  /**
+   * Get a user by their name.
+   * @param name The name of the user.
+   * @return The user with the maching name (if it exists), otherwise null.
+   */
+  public static UserInfo getUserByName(String name) {
+    return UserInfo.find().where().eq("name", name).findUnique();
+  }
 
 }

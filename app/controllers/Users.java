@@ -9,6 +9,7 @@ import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
+import views.formdata.EditProfileFormData;
 import views.formdata.LoginFormData;
 import views.formdata.SearchFormData;
 import views.formdata.SignupFormData;
@@ -107,12 +108,25 @@ public class Users extends Controller {
    */
   @Security.Authenticated(Secured.class)
   public static Result editProfile(Long id) {
-    return TODO;
+    UserInfo user = UserInfoDB.getUser(id);
+    if (user != null) {
+      EditProfileFormData data = new EditProfileFormData(user);
+      Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).fill(data);
+      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+      return ok(EditProfile.render(formData, user, searchFormData));
+    }
+    return redirect(routes.Application.index());
   }
   
   @Security.Authenticated(Secured.class)
   public static Result postEditProfile(Long id) {
-    return TODO;
+    Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).bindFromRequest();
+    UserInfo user = UserInfoDB.getUser(id);
+    if (formData.hasErrors() || user == null) {
+      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+      return badRequest(EditProfile.render(formData, user, searchFormData));
+    }
+    return redirect(routes.Users.viewProfile(id));
   }
   
   /**
