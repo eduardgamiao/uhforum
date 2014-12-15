@@ -78,3 +78,13 @@ h1 {
 .pages {
 	margin: 0px;
 }
+
+.post-image {
+	max-height: 300px;
+}
+
+.embed-video {
+	width: 640px;
+	height: 390px;
+}
+

@@ -1,6 +1,9 @@
 package models;
 
 import java.util.List;
+import controllers.Users;
+import play.Logger;
+import views.formdata.EditProfileFormData;
 import views.formdata.SignupFormData;
 
 /**
@@ -28,6 +31,36 @@ public class UserInfoDB {
     }
     user.save();
     return user.getId();
+  }
+  
+  /**
+   * Update user data.
+   * @param formData The processed form data.
+   * @return The ID of the edited user.
+   */
+  public static Long addUser(EditProfileFormData formData) {
+    UserInfo user;
+    if (formData.id == -1) {
+      user = new UserInfo(formData.name, formData.email, formData.password1);
+    }
+    else {
+      user = UserInfoDB.getUser(formData.id);
+      user.setName(formData.name);
+      user.setEmail(formData.email);
+      if (!(formData.password1 == null || formData.password1.isEmpty())) {
+        if (formData.verifyPassword.equals(user.getPassword())) {
+          user.setPassword(formData.password1);
+        }
+      }
+      if (!(formData.avatarURL == null || formData.avatarURL.length() == 0)) {
+        user.setAvatarURL(formData.avatarURL);
+      }
+      else {
+        user.setAvatarURL("");
+      }
+    }
+    user.save();
+    return user.getId();  
   }
   
   /**
@@ -112,5 +145,6 @@ public class UserInfoDB {
   public static UserInfo getUserByName(String name) {
     return UserInfo.find().where().eq("name", name).findUnique();
   }
+
 
 }

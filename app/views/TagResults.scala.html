@@ -1,8 +1,8 @@
-@(tag: String, subject: Subject, searchForm: Form[views.formdata.SearchFormData], currentPage: Integer) 
+@(tag: String, subject: Subject, currentPage: Integer) 
 
 @import bootstrap3._ 
 
-@main("Search Results: " + tag + " in " + subject, searchForm) {
+@main("Search Results: " + tag + " in " + subject) {
 <div class="container">
   <div class="page-header">
     <h1>

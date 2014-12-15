@@ -1,9 +1,10 @@
-@(message: String, topic: Topic, post: List[Post], searchForm: Form[views.formdata.SearchFormData])
+@(message: String, topic: Topic, post: List[Post])
 
 @import bootstrap3._
 
-@main(message, searchForm) {
+@main(message) {
   <div class="container">
+  <div class="page-header"><h1>@topic.getSubject().getName() <small>(@topic.getSubject().getAcronym())</small></h1></div>    
     @(posts2(topic, post))
     </div>
 }
