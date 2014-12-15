@@ -71,7 +71,7 @@ public class Posts extends Controller {
     PostFormData data = formData.get();
     UserInfo user = Secured.getUserInfo(ctx());
     String topicTitle = Secured.getTopic(ctx());
-    return ok(Front.render("Front", topicList, searchFormData));
+    return ok(Front.render("Front", topicList));
   }
   
 }
