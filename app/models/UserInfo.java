@@ -133,7 +133,7 @@ public class UserInfo extends Model {
    * @return True if the user has an avatar url, false otherwise.
    */
   public boolean hasAvatar() {
-    return (this.avatarURL != null && this.avatarURL.length() == 0);
+    return (this.avatarURL != null && !(this.avatarURL.isEmpty()));
   }
 
   /**

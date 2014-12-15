@@ -73,3 +73,7 @@ h1 {
 .pages {
 	margin: 0px;
 }
+
+.post {
+	min-height: 121px;
+}

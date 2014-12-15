@@ -18,22 +18,12 @@
   <li role="presentation"><a href="@routes.Users.editProfile(user.getId())">Edit Profile</a></li>
 </ul> 
       <div class="panel panel-default">
-       <div class="panel-body">            
-      <div class="panel panel-primary">
-  <!-- Default panel contents -->
-  <div class="panel-heading">My Topics <span class="badge">@user.getTopics().size()</span></div>
-
-  <!-- List group -->
-  <ul class="list-group">
-  @if(user.getTopics().isEmpty()) {
-    <li class="list-group-item"><span class="label label-info">You have not created any topics yet.</span></li>
-  } else {
-    @for(topic <- user.getTopics()) {    
-    <li class="list-group-item topic">@topic.getTitle()</li>
-    }
-  }
-  </ul>
-</div>
+       <div class="panel-body">
+       <div class="panel panel-primary">
+       <div class="panel-heading">My Topics</div>            
+      @topics(user.getTopics())
+      </div>
+      </div>
 
 <div class="panel panel-primary">
   <!-- Default panel contents -->
