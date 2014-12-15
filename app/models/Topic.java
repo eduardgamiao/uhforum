@@ -198,6 +198,7 @@ import play.db.ebean.Model;
      * @return the images
      */
     public List<String> getImages() {
+      Logger.debug("DEBUG");
       List<String> images = new ArrayList<String>();
       if (!(this.images == null || this.images.length() == 0)) {
         for (String current : this.images.split(",")) {
