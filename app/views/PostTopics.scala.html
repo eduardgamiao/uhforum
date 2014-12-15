@@ -14,7 +14,7 @@
           <div class="panel-body" style="color: black;">
             @form(routes.Posts.inputTopic(), 'class -> "form-horizontal") {
               @bootstrap3.text(topicForm("title"), "Title", "Title", "")
-              @bootstrap3.text(topicForm("topicText"), "TopicText", "TopicText", "")              
+              @bootstrap3.textarea(topicForm("topicText"), "TopicText", "TopicText", 0)              
               @bootstrap3.text(topicForm("tags"), "Tags", "Tags", "")
               @bootstrap3.text(topicForm("image"), "Image", "Image", "")
               @bootstrap3.text(topicForm("video"), "Video", "Video", "")

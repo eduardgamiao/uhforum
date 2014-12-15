@@ -1,7 +1,11 @@
 package controllers;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import models.Subject;
+import models.Topic;
+import models.TopicDB;
 import models.UserInfo;
 import models.UserInfoDB;
 import play.Logger;
@@ -76,9 +80,11 @@ public class Users extends Controller {
       return badRequest(Login.render("Login", formData));
     }
     else {
+      List<Topic> topicList = new ArrayList<Topic>();
+      topicList = TopicDB.getTopics();
       session().clear();
       session("email", formData.get().email);
-      return ok(index.render("UH Forum"));
+      return ok(Front.render("UH Forum", topicList));
     }
   }
   
