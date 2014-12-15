@@ -18,7 +18,7 @@
   @for(topic <- topics.getPage(currentPage).getList()) {
   <tr>
     <td><a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(), topic.getId())">@topic.getTitle()</a></td>
-    <td class="text-center">@topic.getUser().getName()</td>
+    <td class="text-center"><a href="@routes.Users.viewProfile(topic.getUser().getId())">@topic.getUser().getName()</a></td>
     <td class="text-center hidden-xs">@topic.getPosts().size()</td>
     <td class="text-center hidden-xs">@topic.getViews()</td>
     <td class="text-center hidden-xs">@topic.getDatePosted()</td>
