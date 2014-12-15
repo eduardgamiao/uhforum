@@ -26,6 +26,7 @@ public class TopicDB {
     Topic topic = new Topic(formData.title, formData.tags, formData.topicText, formData.subject, formData.image, formData.video, user);
     topic.save();
   }
+  
   /**
    * Add topic to database.
    * @param title Title of topic.
@@ -36,6 +37,7 @@ public class TopicDB {
    * @param videos Videos of the topic.
    * @param user Topic creator.
    * @return The ID of the topic being created.
+   * @author eduardgamiao
    */
   public static long addTopic(String title, String tags, String topicText, String subject, String images, String videos,
       UserInfo user) {
@@ -70,7 +72,7 @@ public class TopicDB {
    * @return A list of topics with the matching topic.
    */
   public static List<Topic> getTopicsBySubject(Subject subject) {
-    return Topic.find().where().eq("subject", subject).findList();
+    return Topic.find().where().eq("subject", subject).order().desc("date_posted").findList();
   }
   
   /**
@@ -79,7 +81,7 @@ public class TopicDB {
    * @return A list of topics.
    */
   public static List<Topic> getTopicsBySubjectSorted(Subject subject) {
-    return Topic.find().where().eq("subject", subject).orderBy("datePosted, datePosted asc").findList();
+    return Topic.find().where().eq("subject", subject).order().desc("date_posted").findList();
   }
   
   /**
@@ -88,7 +90,7 @@ public class TopicDB {
    * @return A list of topics with the search term in its title.
    */
   public static PagingList<Topic> getTopicsBySearch(String searchTerm) {
-    return Topic.find().where().icontains("title", searchTerm).findPagingList(PAGE_SIZE);
+    return Topic.find().where().icontains("title", searchTerm).order().desc("date_posted").findPagingList(PAGE_SIZE);
   }
   
   /**
@@ -99,12 +101,13 @@ public class TopicDB {
    */
   public static PagingList<Topic> getTopicByTag(String tag, Subject subject) {
     Logger.debug(tag + " " + subject);
-    return Topic.find().where().eq("subject", subject).icontains("tags", tag).findPagingList(PAGE_SIZE);
+    return Topic.find().where().eq("subject", subject).icontains("tags", tag).order().desc("date_posted").findPagingList(PAGE_SIZE);
   }
   
   /**
    * Increment the view of a page.
    * @param id The ID of the page to view.
+   * @author eduardgamiao
    */
   public static void addView(Long id) {
     Topic topic = TopicDB.getTopic(id);

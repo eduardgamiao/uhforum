@@ -74,6 +74,12 @@ h1 {
 	margin: 0px;
 }
 
-.post {
-	min-height: 121px;
+.post-image {
+	max-height: 300px;
 }
+
+.embed-video {
+	width: 640px;
+	height: 390px;
+}
+

@@ -205,7 +205,11 @@ import play.db.ebean.Model;
     /**
      * @return the videos
      */
-    public String getVideos() {
+    public List<String> getVideos() {
+      List<String> videos = new ArrayList<String>();
+      for (String current : this.videos.split(",")) {
+        videos.add(current);
+      }
       return videos;
     }
 

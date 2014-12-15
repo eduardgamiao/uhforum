@@ -34,8 +34,9 @@ public class Global extends GlobalSettings {
     
     if (UserInfoDB.getUsers().isEmpty()) {
      Long id = UserInfoDB.addUser("Site Administrator", "admin@abc.com", "pw");
-     UserInfoDB.addUser("Eduard Gamiao", "eduard@gamiao.com", "notpw");
+     Long id2 = UserInfoDB.addUser("Eduard Gamiao", "eduard@gamiao.com", "notpw");
      UserInfo user = UserInfoDB.getUser(id);
+     UserInfo user2 = UserInfoDB.getUser(id2);
      TopicDB.addTopic("test", "guy", "itsatesttext", "testTag", "subjectTest", 0, user);
      TopicDB.addTopic("test", "guy2", "itsatesttext", "testTag", "subjectTest", 0, user);
      TopicDB.addTopic("test", "guy3", "itsatesttext", "testTag", "subjectTest", 0, user);
@@ -49,11 +50,12 @@ public class Global extends GlobalSettings {
      TopicDB.addTopic("How do I succeed at French 201?", "<3 English, hey", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
-     Logger.debug("" + topicID);
      Topic topic = TopicDB.getTopic(topicID);
      PostDB.addPost("Good luck!", topic, user);
-
-     PostDB.addPost("Good luck!", topic, user);
+     PostDB.addPost("Good luck!", topic, user);     
+     TopicDB.addTopic("Chavaux and Chaveux", "French, FR101", "Does anyone have a good way to remember which word is"
+         + " which?", "French", "http://static-mb.minutebuzz.com/wp-content/uploads/2013/07/brock-davis-cheveux-"
+             + "chevaux-545x736.jpg", "https://www.youtube.com/watch?v=uvpikUEIaLI", user2); 
     }
   }
 
