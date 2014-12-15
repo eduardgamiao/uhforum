@@ -21,14 +21,14 @@ import play.db.ebean.Model;
     private Long id;
     private String firstName;
     private String title;
-    private String tags;
+    private String tags = "";
     @Column(columnDefinition = "TEXT")
     private String topicText;
     private int views;
     @Column(columnDefinition = "TEXT")
-    private String images;
+    private String images = "";
     @Column(columnDefinition = "TEXT")
-    private String videos;
+    private String videos = "";
     private Date datePosted;
     
     @OneToMany (mappedBy = "topic", cascade = CascadeType.ALL)
@@ -149,8 +149,14 @@ import play.db.ebean.Model;
     /**
      * @return the tags
      */
-    public String[] getTags() {
-      return tags.split(",");
+    public List<String> getTags() {
+      List<String> tags = new ArrayList<String>();
+      if (this.tags != null || this.tags.length() > 0) {
+        for (String current : this.tags.split(",")) {
+          tags.add(current.trim());
+        }
+      }
+      return tags;
     }
 
     /**
@@ -191,8 +197,14 @@ import play.db.ebean.Model;
     /**
      * @return the images
      */
-    public String[] getImages() {
-      return images.split(",");
+    public List<String> getImages() {
+      List<String> images = new ArrayList<String>();
+      if (!(this.images == null || this.images.length() == 0)) {
+        for (String current : this.images.split(",")) {
+          images.add(current.trim());
+        }
+      }
+      return images;
     }
 
     /**
@@ -207,8 +219,10 @@ import play.db.ebean.Model;
      */
     public List<String> getVideos() {
       List<String> videos = new ArrayList<String>();
-      for (String current : this.videos.split(",")) {
-        videos.add(current);
+      if (!(this.videos == null || this.videos.length() == 0)) {
+        for (String current : this.videos.split(",")) {
+          videos.add(current.trim());
+        }
       }
       return videos;
     }

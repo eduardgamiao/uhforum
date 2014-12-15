@@ -55,7 +55,7 @@ public class Global extends GlobalSettings {
      PostDB.addPost("Good luck!", topic, user);     
      TopicDB.addTopic("Chavaux and Chaveux", "French, FR101", "Does anyone have a good way to remember which word is"
          + " which?", "French", "http://static-mb.minutebuzz.com/wp-content/uploads/2013/07/brock-davis-cheveux-"
-             + "chevaux-545x736.jpg", "https://www.youtube.com/watch?v=uvpikUEIaLI", user2); 
+             + "chevaux-545x736.jpg", "https://www.youtube.com/embed/uvpikUEIaLI", user2); 
     }
   }
 

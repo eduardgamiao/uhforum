@@ -71,8 +71,8 @@ public class Application extends Controller {
       TagComparator comparator = new TagComparator(tags);
       TreeMap<String, Integer> sortedTags = new TreeMap<String, Integer>(comparator);
       for (Topic topic : topics) {
-        String [] topicTags = topic.getTags();
-        for (String current : topicTags) {
+        
+        for (String current : topic.getTags()) {
           current = current.trim();
           if (tags.containsKey(current)) {
             tags.put(current, tags.get(current) + 1);

@@ -24,14 +24,12 @@
       @topics(user.getTopics())
       </div>
 
-
-
        <div class="panel panel-primary">
        <div class="panel-heading">My Answers</div> 
   <!-- List group -->
   <ul class="list-group">
     @if(user.getPosts().isEmpty()) {
-    <li class="list-group-item"><span class="label label-info">You have not posted yet.</span></li>
+    <li class="list-group-item"><span class="label label-info">You have not posted in any topics.</span></li>
   } else {
     @for(post <- user.getPosts()) {    
     <li class="list-group-item topic">@post.getTopicText()</li>

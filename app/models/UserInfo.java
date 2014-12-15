@@ -11,7 +11,6 @@ import play.db.ebean.Model;
 /**
  * User model.
  * @author eduardgamiao
- *
  */
 @Entity
 public class UserInfo extends Model {
@@ -40,6 +39,20 @@ public class UserInfo extends Model {
     this.name = name;
     this.email = email;
     this.setPassword(password);
+  }
+  
+  /**
+   * Constructor.
+   * @param name User's name.
+   * @param email User's email.
+   * @param password User's password.
+   * @param avatar User's avatar.
+   */
+  public UserInfo(String name, String email, String password, String avatar) {
+    this.name = name;
+    this.email = email;
+    this.password = password;
+    this.avatarURL = avatar;
   }
 
   /**

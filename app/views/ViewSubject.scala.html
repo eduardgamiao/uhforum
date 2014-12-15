@@ -6,17 +6,18 @@
 <div class="container">
   <div class="page-header">
     <h1>
-      @if(!(subject == null)) {@subject.getName() <small>(@subject.getAcronym())} else {All Subjects}</small>
+      @if(!(subject == null)) {@subject.getName() <small>(@subject.getAcronym())} else {All Subjects}</small>      
     </h1>
   </div>
   <div class="col-md-10">
-    <div class="panel panel-primary">
-
+    <div class="panel panel-primary">    
       <!-- Default panel contents -->
-      <div class="panel-heading">Topics</div>
+      <div class="panel-heading">Topics 
+    </div>
 
       @topics(TopicDB.getTopicsBySubjectSorted(subject))
     </div>
+      <a href="@routes.Posts.postTopic()"><button class="btn-group btn-primary">New Topic</button></a>
   </div>
   @tags(tagMap, subject.getName())
 </div>
