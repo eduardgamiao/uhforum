@@ -37,10 +37,10 @@ public class Global extends GlobalSettings {
      Long id2 = UserInfoDB.addUser("Eduard Gamiao", "eduard@gamiao.com", "notpw");
      UserInfo user = UserInfoDB.getUser(id);
      UserInfo user2 = UserInfoDB.getUser(id2);
-     TopicDB.addTopic("test", "guy", "itsatesttext", "testTag", "subjectTest", 0, user);
-     TopicDB.addTopic("test", "guy2", "itsatesttext", "testTag", "subjectTest", 0, user);
-     TopicDB.addTopic("test", "guy3", "itsatesttext", "testTag", "subjectTest", 0, user);
-     TopicDB.addTopic("test", "guy4", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "How's is Everyone", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "Which Teachers did you enjoy", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "UH General", "itsatesttext", "testTag", "subjectTest", 0, user);
+     TopicDB.addTopic("test", "Campus Events", "itsatesttext", "testTag", "subjectTest", 0, user);
      Long topicID = TopicDB.addTopic("How do I succeed at French?", "hey, lol, <3 English", "Read the title.", 
          "French", "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, "
              + "http://i.imgur.com/fa0Wmp2.gif", "", user);

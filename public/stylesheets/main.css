@@ -88,3 +88,9 @@ h1 {
 	height: 390px;
 }
 
+.panel.panel-primary.topic-listing {
+    margin-left:50px;
+    margin-right:50px;
+}
+
+

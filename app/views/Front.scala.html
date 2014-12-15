@@ -9,7 +9,8 @@
   <div class="panel-body">
   <ul class="list-group">
   @for(topic <- TopicDB.getTopics) {  
-    <li class="list-group-item"> <a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(),topic.getId())">@topic.getTitle() (@topic.getSubject().getAcronym())</a></li>
+    <li class="list-group-item"> <a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(),topic.getId())">
+    <span class="badge">Views @topic.getViews()</span> @topic.getTitle() (@topic.getSubject().getAcronym())</a></li>
   }
   </ul>
   </div>

@@ -19,3 +19,8 @@ body {
 .panel-front {
     height: 200px;
 }
+
+.panel {
+    padding-left: 50px;
+    padding-right:50px;
+}
