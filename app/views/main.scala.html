@@ -1,4 +1,4 @@
-@(title: String, searchForm: Form[views.formdata.SearchFormData])(content: Html)
+@(title: String)(content: Html, searchForm: play.data.Form[views.formdata.SearchFormData] = Form.form(classOf[views.formdata.SearchFormData]))
 
 @import bootstrap3._
 

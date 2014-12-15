@@ -1,9 +1,9 @@
-@(editForm: Form[views.formdata.EditProfileFormData], user: UserInfo, searchForm: Form[views.formdata.SearchFormData])
+@(editForm: Form[views.formdata.EditProfileFormData], user: UserInfo)
 
 @import helper._
 @import bootstrap3._
 
-@main("Edit Profile", searchForm) {
+@main("Edit Profile") {
 <div class="container">
  @if(user != null) {
       <h1>

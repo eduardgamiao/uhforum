@@ -27,9 +27,8 @@ public class Users extends Controller {
   
   public static Result postTopic() {
     Form<TopicFormData> formData = Form.form(TopicFormData.class);
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     Map<Subject, Boolean> subjectTypeMap = SubjectTypes.getTypes();
-    return ok(PostTopics.render("Post Topic", formData, searchFormData, subjectTypeMap));
+    return ok(PostTopics.render("Post Topic", formData, subjectTypeMap));
   }
   /**
    * Returns the signup view.
@@ -37,8 +36,7 @@ public class Users extends Controller {
    */
   public static Result signup() {
     Form<SignupFormData> formData = Form.form(SignupFormData.class);
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-    return ok(Signup.render("Signup", formData, searchFormData));
+    return ok(Signup.render("Signup", formData));
   }
   
   /**
@@ -47,10 +45,9 @@ public class Users extends Controller {
    */
   public static Result postSignup() {
     Form<SignupFormData> formData = Form.form(SignupFormData.class).bindFromRequest();
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);    
     
     if (formData.hasErrors()) {
-      return badRequest(Signup.render("Signup", formData, searchFormData));
+      return badRequest(Signup.render("Signup", formData));
     }
     SignupFormData data = formData.get();
     Long id = UserInfoDB.addUser(data);
@@ -65,8 +62,7 @@ public class Users extends Controller {
    */
   public static Result login() {
     Form<LoginFormData> formData = Form.form(LoginFormData.class);
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-    return ok(Login.render("Login", formData, searchFormData));
+    return ok(Login.render("Login", formData));
   }
   
   /**
@@ -75,15 +71,14 @@ public class Users extends Controller {
    */
   public static Result postLogin() {
     Form<LoginFormData> formData = Form.form(LoginFormData.class).bindFromRequest();
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     
     if (formData.hasErrors()) {
-      return badRequest(Login.render("Login", formData, searchFormData));
+      return badRequest(Login.render("Login", formData));
     }
     else {
       session().clear();
       session("email", formData.get().email);
-      return ok(index.render("UH Forum", searchFormData));
+      return ok(index.render("UH Forum"));
     }
   }
   
@@ -94,9 +89,8 @@ public class Users extends Controller {
    */
   public static Result viewProfile(Long id) {
     UserInfo user = UserInfoDB.getUser(id);
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     if (user != null) {
-      return ok(Profile.render("View Profile", user, searchFormData));
+      return ok(Profile.render("View Profile", user));
     }
     return redirect(routes.Application.index());
   }
@@ -113,8 +107,7 @@ public class Users extends Controller {
       if (Secured.getUserInfo(ctx()).getId() == id) {
         EditProfileFormData data = new EditProfileFormData(user);
         Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).fill(data);
-        Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-        return ok(EditProfile.render(formData, user, searchFormData));
+        return ok(EditProfile.render(formData, user));
       }
     }
     return redirect(routes.Users.viewProfile(Secured.getUserInfo(ctx()).getId()));
@@ -130,8 +123,7 @@ public class Users extends Controller {
     Form<EditProfileFormData> formData = Form.form(EditProfileFormData.class).bindFromRequest();
     UserInfo user = UserInfoDB.getUser(id);
     if (formData.hasErrors() || user == null) {
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-      return badRequest(EditProfile.render(formData, user, searchFormData));
+      return badRequest(EditProfile.render(formData, user));
     }
     EditProfileFormData data = formData.get();
     UserInfoDB.addUser(data);
