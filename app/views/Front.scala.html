@@ -10,7 +10,8 @@
   <ul class="list-group">
   @for(topic <- TopicDB.getTopics) {  
     <li class="list-group-item"> <a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(),topic.getId())">
-    <span class="badge">Views @topic.getViews()</span> @topic.getTitle() (@topic.getSubject().getAcronym())</a></li>
+    <span class="badge">Views @topic.getViews()</span> @topic.getTitle() (@topic.getSubject().getAcronym())</a>
+    <footer class="footer">@for(tag <- topic.getTags()){@tag}</footer></li>
   }
   </ul>
   </div>
