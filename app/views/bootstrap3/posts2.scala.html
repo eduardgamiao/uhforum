@@ -17,10 +17,10 @@
           <img src="@topic.getUser().getAvatarURL()" class="avatar">
         </td>
         <td class="col-md-10 col-md-10 col-xs-10">@topic.getTopicText()<br/>
-            @for(picture <- topic.getImages()) {
+             @for(picture <- topic.getImages()) {
               <img src="@picture.trim()" class="img-responsive post-image">
               <br/>
-            }
+               }
             @for(video <- topic.getVideos()) {
             <div class="embed-responsive embed-responsive-16by9">
               <iframe width="640" height="390" class="embed-responsive-item" src="@video.trim()"></iframe>
