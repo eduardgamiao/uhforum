@@ -47,8 +47,8 @@ public class UserInfoDB {
       user = UserInfoDB.getUser(formData.id);
       user.setName(formData.name);
       user.setEmail(formData.email);
-      if (!(formData.password1 != null || formData.password1.isEmpty())) {
-        if (!(formData.password1.equals(user.getPassword()))) {
+      if (!(formData.password1 == null || formData.password1.isEmpty())) {
+        if (formData.verifyPassword.equals(user.getPassword())) {
           user.setPassword(formData.password1);
         }
       }
