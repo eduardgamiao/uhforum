@@ -14,3 +14,7 @@ body {
 section-1 {
     padding-top: 1000px;
 }
+
+#panel-front {
+    height: 200px;
+}

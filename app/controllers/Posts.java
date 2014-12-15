@@ -3,6 +3,8 @@ package controllers;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import models.Post;
+import models.PostDB;
 import models.Subject;
 import models.Topic;
 import models.TopicDB;
@@ -57,22 +59,21 @@ public class Posts extends Controller {
     return ok(Front.render("Front", topicList, searchFormData));
   }
   
-  /**
-   * Handles the post signup event.
-   * @return The user's profile page.
-   */
-  /*public static Result postPosts() {
+  public static Result inputPost() {
+    List<Topic> topicList = new ArrayList<Topic>();
+    topicList = TopicDB.getTopics();
+    List<Post> postList = new ArrayList<Post>();
+    postList = PostDB.getPosts();
     Form<PostFormData> formData = Form.form(PostFormData.class).bindFromRequest();
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);    
-    
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+    Map<Subject, Boolean> subjectTypeMap = SubjectTypes.getTypes();
     if (formData.hasErrors()) {
-      return badRequest(PostTopic.render("Post", formData, searchFormData));
+      return badRequest(PostPosts.render("Post Topic", formData, searchFormData, subjectTypeMap));
     }
     PostFormData data = formData.get();
-    Long id = Topic.addTopic(data);
-    session().clear();
-    session("email", data.email);
-    return redirect(routes.Users.viewProfile(id));
-  }*/
+    UserInfo user = Secured.getUserInfo(ctx());
+    String topicTitle = Secured.getTopic(ctx());
+    return ok(Front.render("Front", topicList, searchFormData));
+  }
   
 }

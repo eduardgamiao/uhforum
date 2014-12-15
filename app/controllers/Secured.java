@@ -1,5 +1,6 @@
 package controllers;
 
+import models.Topic;
 import models.UserInfo;
 import models.UserInfoDB;
 import play.mvc.Result;
@@ -26,6 +27,10 @@ public class Secured extends Security.Authenticator {
   @Override
   public String getUsername(Context ctx) {
     return ctx.session().get("email");
+  }
+  
+  public static String getTopic(Context ctx) {
+    return ctx.session().get("title");
   }
 
   /**

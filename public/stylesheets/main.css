@@ -15,6 +15,11 @@ body {
     padding-bottom: 50px;
 }
 
+#panel-front {
+    height: 170px;
+}
+
+
 h1 {
     font-size: 60px;
 }
