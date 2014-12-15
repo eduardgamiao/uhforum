@@ -21,8 +21,7 @@ import views.html.*;
 public class Application extends Controller {
 
     public static Result index() {
-        Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-        return ok(index.render("Your new application is ready.", searchFormData));
+        return ok(index.render("Your new application is ready."));
     }
     
     public static Result Front()  {
@@ -30,10 +29,9 @@ public class Application extends Controller {
       UserInfo userInfo = Secured.getUserInfo(ctx());
       List<Topic> topicList = new ArrayList<Topic>();
       topicList = TopicDB.getTopics();
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
       
       //List<Surfer> searchList = SearchFormDB.getSearch();          
-      return ok(Front.render("Front Page", topicList, searchFormData));
+      return ok(Front.render("Front Page", topicList));
     }
     
     /**
@@ -47,20 +45,18 @@ public class Application extends Controller {
         return redirect(routes.Application.index());
       }
       List<Topic> topics = TopicDB.getTopicsBySubject(subject);            
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
-      return ok(ViewSubject.render(subject, getTags(topics), searchFormData));
+      return ok(ViewSubject.render(subject, getTags(topics)));
     }
     
     public static Result viewTopic(String subjectAcronym, Long id) {
       Topic topic = TopicDB.getTopic(id);
       Subject subject = SubjectDB.getSubjectByAcronym(subjectAcronym);
-      Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
       if (topic == null) {        
         return redirect(routes.Application.viewSubject(subjectAcronym));
       }
       if (topic.getSubject().getName().equals(subject.getName())) {
         TopicDB.addView(topic.getId());
-        return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts(), searchFormData));
+        return ok(ViewTopic.render(topic.getTitle(), topic, topic.getPosts()));
       }
       return redirect(routes.Application.viewSubject(subjectAcronym));    
     }    

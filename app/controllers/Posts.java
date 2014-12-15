@@ -35,9 +35,8 @@ public class Posts extends Controller {
   @Security.Authenticated(Secured.class)
   public static Result postTopic() {
     Form<TopicFormData> formData = Form.form(TopicFormData.class);
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     Map<Subject, Boolean> subjectTypeMap = SubjectTypes.getTypes();
-    return ok(PostTopics.render("Post Topic", formData, searchFormData, subjectTypeMap));
+    return ok(PostTopics.render("Post Topic", formData, subjectTypeMap));
   }
   
   @Security.Authenticated(Secured.class)
@@ -45,16 +44,15 @@ public class Posts extends Controller {
     List<Topic> topicList = new ArrayList<Topic>();
     topicList = TopicDB.getTopics();
     Form<TopicFormData> formData = Form.form(TopicFormData.class).bindFromRequest();
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     Map<Subject, Boolean> subjectTypeMap = SubjectTypes.getTypes();
     if (formData.hasErrors()) {
-      return badRequest(PostTopics.render("Post Topic", formData, searchFormData, subjectTypeMap));
+      return badRequest(PostTopics.render("Post Topic", formData, subjectTypeMap));
     }
     TopicFormData data = formData.get();
     System.out.println(data.subject);
     UserInfo user = Secured.getUserInfo(ctx());
     TopicDB.addTopic(data, user);
-    return ok(Front.render("Front", topicList, searchFormData));
+    return ok(Front.render("Front", topicList));
   }
   
   /**
