@@ -1,0 +1,21 @@
+@(post: Post)
+  <div class="panel panel-default">
+    <div class="panel-heading" role="tab" id="heading@post.getId()">
+      <h4 class="panel-title">
+        <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#@post.getId()" aria-expanded="false" aria-controls="@post.getId()">
+          @post.getTopic().getTitle()
+        </a>
+        <a href="@routes.Application.viewTopic(post.getTopic().getSubject().getAcronym().toLowerCase(), post.getTopic().getId())"><small><span class="pull-right">View Topic</span></small></a>
+        <br/>
+        <small>
+        Posted In: <a href="@routes.Application.viewSubject(post.getTopic().getSubject().getAcronym().toLowerCase())">@post.getTopic().getSubject().getName()</a> <br/>
+        (@post.getDatePosted())
+        </small>
+      </h4>
+    </div>
+    <div id="@post.getId()" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne@post.getId()">
+      <div class="panel-body">
+        @post.getTopicText()
+      </div>
+    </div>
+  </div>

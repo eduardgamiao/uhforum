@@ -143,6 +143,13 @@ import play.db.ebean.Model.Finder;
     public void setDatePosted(Date datePosted) {
       this.datePosted = datePosted;
     }
+    
+    /**
+     * @return the topic
+     */
+    public Topic getTopic() {
+      return this.topic;
+    }
 
     /**
      * @return the user

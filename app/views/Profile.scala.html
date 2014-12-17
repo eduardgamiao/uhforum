@@ -25,17 +25,20 @@
       </div>
 
        <div class="panel panel-primary">
-       <div class="panel-heading">My Answers</div> 
-  <!-- List group -->
-  <ul class="list-group">
+       <div class="panel-heading">My Posts</div> 
     @if(user.getPosts().isEmpty()) {
+    <ul class="list-group">
     <li class="list-group-item"><span class="label label-info">You have not posted in any topics.</span></li>
+    </ul>
   } else {
-    @for(post <- user.getPosts()) {    
-    <li class="list-group-item topic">@post.getTopicText()</li>
+    @for((post, index) <- user.getPosts().zipWithIndex) {
+    <div class="panel-body">
+      <div class="panel-group panel-list" id="accordion" role="tablist" aria-multiselectable="true">
+        @postList(post)
+      </div>
+    </div>
     }
   }
-  </ul>
 </div> 
       </div>
     </div>

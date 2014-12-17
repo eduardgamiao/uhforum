@@ -10,11 +10,13 @@
   <div class="panel panel-primary">
     <div class="panel-heading">@topic.getTitle()</div>
     <table class="table table-bordered">
-      <tr class="post">
+      <tr class="post" id="1">
         <td class="col-md-2 col-sm-2 col-xs-2">
           <a href="@routes.Users.viewProfile(topic.getUser().getId())">@topic.getUser().getName()</a><br />
           <small>@topic.getDatePosted()</small><br/>
-          <img src="@topic.getUser().getAvatarURL()" class="avatar">
+          @if(topic.getUser().hasAvatar()) {
+            <img src="@topic.getUser().getAvatarURL()" class="avatar">
+          }
         </td>
         <td class="col-md-10 col-md-10 col-xs-10">@topic.getTopicText()<br/>
              @for(picture <- topic.getImages()) {
@@ -29,8 +31,8 @@
             }
         </td>
       </tr>
-      @for(post <- posts) {
-      <tr class="post">
+      @for((post, index) <- posts.zip (Stream from 2)) {
+      <tr class="post" id="@index">
         <td class="col-md-2 col-sm-2 col-xs-2"><a href="@routes.Users.viewProfile(post.getUser().getId())">@post.getUser().getName()</a><br /> <small>@post.getDatePosted()</small><br />
           @if(post.getUser().hasAvatar()) {<img src="@post.getUser().getAvatarURL()" class="avatar">}
         </td>
