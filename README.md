@@ -8,5 +8,5 @@ Installation
 
 The forum requires Play Framework 2.
 
-A more detailed installation guide can be found on the ![http://www.playframework.com](Play Framework) website.
+A more detailed installation guide can be found on the ![Play Framework](http://www.playframework.com) website.
 
