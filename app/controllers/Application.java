@@ -20,17 +20,25 @@ import views.html.*;
 
 public class Application extends Controller {
 
+  /**
+   * Render the index page.
+   * @param n/a.
+   * @return the index page.
+   * @author Brent
+   */
     public static Result index() {
         return ok(index.render("Your new application is ready."));
     }
-    
+    /**
+     * Render the front page.
+     * @param n/a.
+     * @return the Front page.
+     * @author Brent
+     */
     public static Result Front()  {
-      
       UserInfo userInfo = Secured.getUserInfo(ctx());
       List<Topic> topicList = new ArrayList<Topic>();
-      topicList = TopicDB.getTopics();
-      
-      //List<Surfer> searchList = SearchFormDB.getSearch();          
+      topicList = TopicDB.getTopics();     
       return ok(Front.render("Front Page", topicList));
     }
     

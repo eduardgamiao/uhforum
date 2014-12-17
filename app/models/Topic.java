@@ -13,6 +13,11 @@ import javax.persistence.OneToMany;
 import play.Logger;
 import play.db.ebean.Model;
 
+/**
+ * Topic model.
+ * @author Brent
+ */
+
 @Entity
   public class Topic extends Model {
     private static final long serialVersionUID = 1L;
