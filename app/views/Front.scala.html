@@ -11,7 +11,9 @@
   @for(topic <- TopicDB.getTopics) {  
     <li class="list-group-item"> <a href="@routes.Application.viewTopic(topic.getSubject().getAcronym().toLowerCase(),topic.getId())">
     <span class="badge">Views @topic.getViews()</span> @topic.getTitle() (@topic.getSubject().getAcronym())</a>
-    <footer class="footer">@for(tag <- topic.getTags()){@tag}</footer></li>
+    <footer class="footer">@for(tag <- topic.getTags()) {
+      <a href="@routes.Search.searchByTag(tag.trim(), topic.getSubject().getName())"><span class="label label-info">@tag.trim()</span></a>
+    }</footer></li>
   }
   </ul>
   </div>
