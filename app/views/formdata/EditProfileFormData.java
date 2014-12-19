@@ -1,6 +1,5 @@
 package views.formdata;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import play.data.validation.ValidationError;
@@ -10,7 +9,6 @@ import models.UserInfoDB;
 /**
  * Handles profile edits.
  * @author eduardgamiao
- *
  */
 public class EditProfileFormData {
   
@@ -37,6 +35,7 @@ public class EditProfileFormData {
   
   /**
    * Default constructor.
+   * @author eduardgamiao
    */
   public EditProfileFormData() {
     
@@ -45,6 +44,7 @@ public class EditProfileFormData {
   /**
    * Constructor.
    * @param user User being edited.
+   * @author eduardgamiao
    */
   public EditProfileFormData(UserInfo user) {
     this.id = user.getId();
@@ -56,9 +56,9 @@ public class EditProfileFormData {
   /**
    * Validate the form data.
    * @return A list of errors.
-   * @throws IOException 
+   * @author eduardgamiao
    */
-  public List<ValidationError> validate() throws IOException {
+  public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<ValidationError>();
     UserInfo editedUser = UserInfoDB.getUser(this.id);
     
@@ -86,21 +86,6 @@ public class EditProfileFormData {
         errors.add(new ValidationError("password1", "The passwords do not match."));       
       }
     }
-    /**
-    if (this.avatarURL != null || this.avatarURL.length() > 0) {    
-      try {
-      URL url = new URL(this.avatarURL);
-      HttpURLConnection connection =  (HttpURLConnection) url.openConnection();
-      connection.setRequestMethod("HEAD");
-      connection.connect();
-      System.out.println(connection.getContentType());
-      connection.disconnect();
-      }
-      catch (MalformedURLException e) {
-        errors.add(new ValidationError("avatarURL", "\"" + this.avatarURL + "\" is not a valid URL."));
-      }
-    }
-    **/
     
     return errors.isEmpty() ? null : errors;
   }

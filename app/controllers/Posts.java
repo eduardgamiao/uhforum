@@ -25,7 +25,7 @@ import views.html.*;
 
 /**
  * Handles user login, logout, signup and profiles.
- * @author eduardgamiao
+ * @author Brent
  *
  */
 public class Posts extends Controller {
@@ -33,6 +33,7 @@ public class Posts extends Controller {
   /**
    * Returns the signup view.
    * @return The signup Result view.
+   * @author Brent
    */
   @Security.Authenticated(Secured.class)
   public static Result postTopic() {
@@ -41,6 +42,11 @@ public class Posts extends Controller {
     return ok(PostTopics.render("Post Topic", formData, subjectTypeMap));
   }
   
+  /**
+   * Post a new topic.
+   * @return The front page.
+   * @author Brent
+   */
   @Security.Authenticated(Secured.class)
   public static Result inputTopic() {
     List<Topic> topicList = new ArrayList<Topic>();
@@ -57,12 +63,24 @@ public class Posts extends Controller {
     return ok(Front.render("Front", topicList));
   }
   
+  /**
+   * Post a new topic.
+   * @param id The ID of the post.
+   * @return  The new topic form.
+   * @author Brent
+   */
   @Security.Authenticated(Secured.class)
   public static Result postPost(Long id) {
     Form<PostFormData> formData = Form.form(PostFormData.class);
     return ok(PostPosts.render("Post Topic", formData, id));
   }
   
+  /**
+   * Add new post.
+   * @param ID The ID of the post.
+   * @return The front page.
+   * @author Brent
+   */
   public static Result inputPost(Long ID) {
     List<Topic> topicList = new ArrayList<Topic>();
     topicList = TopicDB.getTopics();

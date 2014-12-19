@@ -1,6 +1,5 @@
 package views.formdata;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -8,16 +7,17 @@ import models.Subject;
 import models.SubjectDB;
 
 /**
- * Represents surfer types.
+ * Handles subject types for forms.
+ * @author Brent
  */
-
 public class SubjectTypes {
   
   private static List<Subject> types = SubjectDB.getSubjects();
   
   /**
-   * Returns an initialized Map of surfer types (when no type is selected).
-   * @return The surfer type map.
+   * Returns an initialized Map of subjects.
+   * @return The subject map.
+   * @author Brent, eduardgamiao
    */
   public static Map<Subject, Boolean> getTypes() {
     Map<Subject, Boolean> typeMap = new LinkedHashMap<>();
@@ -28,9 +28,10 @@ public class SubjectTypes {
   }
   
   /**
-   * Returns a Map of the selected surfer type.
-   * @param surfType The type of surfer.
-   * @return The surfer type map.
+   * Returns a Map of the selected subjects.
+   * @param subjectTypes The type of subject.
+   * @return The subject type map.
+   * @author Brent, eduardgamiao
    */
   public static Map<Subject, Boolean> getTypes(Subject subjectTypes) {
     Map<Subject, Boolean> typeMap = SubjectTypes.getTypes();
@@ -42,8 +43,9 @@ public class SubjectTypes {
 
   /**
    * Returns true if surfType is valid type.
-   * @param surfType The surfer type.
+   * @param subjectType The subject type.
    * @return True if valid, else false.
+   * @author Brent
    */
   public static boolean isType(Subject subjectType) {
     return SubjectTypes.getTypes().keySet().contains(subjectType);

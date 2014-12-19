@@ -11,6 +11,11 @@ import javax.persistence.ManyToOne;
 import play.db.ebean.Model;
 import play.db.ebean.Model.Finder;
 
+/**
+ * Represents a post.
+ * @author Brent
+ *
+ */
 @Entity
   public class Post extends Model {
     private static final long serialVersionUID = 1L;
@@ -32,10 +37,14 @@ import play.db.ebean.Model.Finder;
     @ManyToOne
     private UserInfo user;
 
-    
-
-       
-
+    /**
+     * Constructor.
+     * @param firstName User's first name.
+     * @param topicText Topic text.
+     * @param lastName User's last name.
+     * @param subject The subject of the post.
+     * @author Brent
+     */
     public Post(String firstName, String topicText, String lastName, String subject) {
       this.firstName = firstName;
       this.topicText = topicText;
@@ -44,6 +53,15 @@ import play.db.ebean.Model.Finder;
       this.setDatePosted(new Date());
     }
     
+    /**
+     * Constructor.
+     * @param firstName The user's first name.
+     * @param topicText The topic text.
+     * @param lastName The user's last name.
+     * @param subject The subejct of the post.
+     * @param user The user.
+     * @author Brent
+     */
     public Post(String firstName, String topicText, String lastName, String subject,
         UserInfo user) {
       this.firstName = firstName;
@@ -56,10 +74,13 @@ import play.db.ebean.Model.Finder;
     /**
      * Constructor.
      * @param topicText The text of the post.
+     * @param image The post's images.
+     * @param video The post's videos.
      * @param topic The topic of the post.
      * @param user The poster.
+     * @author Brent
      */
-    public Post(String topicText,String image, String video, Topic topic, UserInfo user) {
+    public Post(String topicText, String image, String video, Topic topic, UserInfo user) {
       this.topicText = topicText;
       this.topic = topic;
       this.user = user;
@@ -222,6 +243,11 @@ import play.db.ebean.Model.Finder;
       this.topic = topic;
     }
 
+    /**
+     * Ebean finder method.
+     * @return A finder instance for Post.
+     * @author Brent
+     */
     public static Finder<Long, Post> find() {
       return new Finder<Long, Post>(Long.class, Post.class);
     }

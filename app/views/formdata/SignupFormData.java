@@ -41,6 +41,7 @@ public class SignupFormData {
   /**
    * Constructor.
    * @param user The user being edited.
+   * @author eduardgamiao
    */
   public SignupFormData(UserInfo user) {
     this.id = user.getId();
@@ -52,6 +53,7 @@ public class SignupFormData {
   /**
    * Validates the form data.
    * @return A list of ValidationErrors.
+   * @author eduardgamiao
    */
   public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<ValidationError>();

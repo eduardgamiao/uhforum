@@ -8,14 +8,12 @@ import models.Topic;
 import models.TopicDB;
 import models.UserInfo;
 import models.UserInfoDB;
-import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
 import play.mvc.Security;
 import views.formdata.EditProfileFormData;
 import views.formdata.LoginFormData;
-import views.formdata.SearchFormData;
 import views.formdata.SignupFormData;
 import views.formdata.SubjectTypes;
 import views.formdata.TopicFormData;
@@ -28,15 +26,21 @@ import views.html.*;
  */
 public class Users extends Controller {
   
-  
+  /**
+   * Post a topic.
+   * @return The new topic page.
+   * @author Brent
+   */
   public static Result postTopic() {
     Form<TopicFormData> formData = Form.form(TopicFormData.class);
     Map<Subject, Boolean> subjectTypeMap = SubjectTypes.getTypes();
     return ok(PostTopics.render("Post Topic", formData, subjectTypeMap));
   }
+  
   /**
    * Returns the signup view.
    * @return The signup Result view.
+   * @author eduardgamiao
    */
   public static Result signup() {
     Form<SignupFormData> formData = Form.form(SignupFormData.class);
@@ -46,6 +50,7 @@ public class Users extends Controller {
   /**
    * Handles the post signup event.
    * @return The user's profile page.
+   * @author eduardgamiao
    */
   public static Result postSignup() {
     Form<SignupFormData> formData = Form.form(SignupFormData.class).bindFromRequest();
@@ -63,6 +68,7 @@ public class Users extends Controller {
   /**
    * Renders the login page for the website.
    * @return The Login view.
+   * @author eduardgamiao
    */
   public static Result login() {
     Form<LoginFormData> formData = Form.form(LoginFormData.class);
@@ -72,6 +78,7 @@ public class Users extends Controller {
   /**
    * Handles post login functions.
    * @return The index page if successful, otherwise the login page.
+   * @author eduardgamiao
    */
   public static Result postLogin() {
     Form<LoginFormData> formData = Form.form(LoginFormData.class).bindFromRequest();
@@ -92,6 +99,7 @@ public class Users extends Controller {
    * Returns the profile page.
    * @param id The ID of the user.
    * @return The user's profile page (if it exists). The index page if not a valid user.
+   * @author eduardgamiao
    */
   public static Result viewProfile(Long id) {
     UserInfo user = UserInfoDB.getUser(id);
@@ -105,6 +113,7 @@ public class Users extends Controller {
    * User information management.
    * @param id The ID of the user.
    * @return The user edit page (if valid) or the index page.
+   * @author eduardgamiao
    */
   @Security.Authenticated(Secured.class)
   public static Result editProfile(Long id) {
@@ -123,6 +132,7 @@ public class Users extends Controller {
    * Handles edit profile submission.
    * @param id The ID of the user.
    * @return The profile page of the user or the edit profile form if the form has errors.
+   * @author eduardgamiao
    */
   @Security.Authenticated(Secured.class)
   public static Result postEditProfile(Long id) {
@@ -141,6 +151,7 @@ public class Users extends Controller {
   /**
    * Handles logout function.
    * @return The index page.
+   * @author eduardgamiao
    */
   @Security.Authenticated(Secured.class)
   public static Result logout() {

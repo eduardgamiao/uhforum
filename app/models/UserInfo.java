@@ -33,7 +33,8 @@ public class UserInfo extends Model {
    * Constructor.
    * @param name Name.
    * @param email Email.
-   * @param password Password.
+   * @param password Password
+   * @author eduardgamiao
    */
   public UserInfo(String name, String email, String password) {
     this.name = name;
@@ -43,6 +44,7 @@ public class UserInfo extends Model {
   
   /**
    * Constructor.
+   * @author eduardgamiao
    * @param name User's name.
    * @param email User's email.
    * @param password User's password.
@@ -144,6 +146,7 @@ public class UserInfo extends Model {
   /**
    * Check if user has an avatar URL.
    * @return True if the user has an avatar url, false otherwise.
+   * @author eduardgamiao
    */
   public boolean hasAvatar() {
     return (this.avatarURL != null && !(this.avatarURL.isEmpty()));
@@ -152,6 +155,7 @@ public class UserInfo extends Model {
   /**
    * Finder method for database functions.
    * @return A Finder instance.
+   * @author eduardgamiao
    */
   public static Finder<Long, UserInfo> find() {
     return new Finder<Long, UserInfo>(Long.class, UserInfo.class);

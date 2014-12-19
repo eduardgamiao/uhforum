@@ -3,8 +3,6 @@ package controllers;
 import java.util.Map;
 import models.Subject;
 import models.SubjectDB;
-import models.TopicDB;
-import play.Logger;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -14,8 +12,21 @@ import views.formdata.TagSearchFormData;
 import views.html.SearchResults;
 import views.html.TagResults;
 
+/**
+ * Handles all searching functions.
+ * @author eduardgamiao
+ *
+ */
 public class Search extends Controller {
   
+  /**
+   * Search for topic.
+   * @param term The search term.
+   * @param subjectTitle The subject name;
+   * @param currentPage The current paging list page.
+   * @return The search result page.
+   * @author eduardgamiao
+   */
   public static Result search(String term, String subjectTitle, Integer currentPage) {
     Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
     searchFormData.data().put("term", request().getQueryString("term"));
@@ -31,6 +42,14 @@ public class Search extends Controller {
     return ok(SearchResults.render(searchFormData, subjectMap, term, subjectTitle, currentPage));
   }
   
+  /**
+   * Search by tag.
+   * @param tag The tag.
+   * @param subjectTitle The subject name.
+   * @param currentPage The current paging list page.
+   * @return The tag result page.
+   * @author eduardgamiao
+   */
   public static Result searchByTag(String tag, String subjectTitle, Integer currentPage) {
     Form<TagSearchFormData> tagFormData = Form.form(TagSearchFormData.class);
     Subject subject = SubjectDB.getSubjectBySubject(request().getQueryString("subject"));

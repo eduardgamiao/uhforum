@@ -28,6 +28,7 @@ public class Subject extends Model {
    * Constructor.
    * @param name Name of the subject.
    * @param acronym Acronym of the subject.
+   * @author eduardgamiao
    */
   public Subject(String name, String acronym) {
     this.setName(name);
@@ -65,6 +66,7 @@ public class Subject extends Model {
   /**
    * Finder method for database functions.
    * @return A Finder instance.
+   * @author eduardgamiao
    */
   public static Finder<Long, Subject> find() {
     return new Finder<Long, Subject>(Long.class, Subject.class);

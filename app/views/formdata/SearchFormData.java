@@ -15,6 +15,7 @@ public class SearchFormData {
   
   /**
    * Blank constructor.
+   * @author eduardgamiao
    */
   public SearchFormData() {
     
@@ -23,6 +24,7 @@ public class SearchFormData {
   /**
    * Constructor.
    * @param searchTerm The search term.
+   * @author eduardgamiao
    */
   public SearchFormData(String searchTerm) {
     this.term = searchTerm;

@@ -11,13 +11,14 @@ import models.SubjectDB;
 import models.Topic;
 import models.TopicDB;
 import models.UserInfo;
-import play.*;
-import play.data.Form;
 import play.mvc.*;
-import views.formdata.LoginFormData;
-import views.formdata.SearchFormData;
 import views.html.*;
 
+/**
+ * Application controller.
+ * @author eduardgamiao, Brent
+ *
+ */
 public class Application extends Controller {
 
   /**
@@ -46,6 +47,7 @@ public class Application extends Controller {
      * Render the subject specific topic listing.
      * @param acronym The acronym of the subject.
      * @return The subject topic listing.
+     * @author eduardgamiao
      */
     public static Result viewSubject(String acronym) {
       Subject subject = SubjectDB.getSubjectByAcronym(acronym);
@@ -56,6 +58,13 @@ public class Application extends Controller {
       return ok(ViewSubject.render(subject, getTags(topics)));
     }
     
+    /**
+     * Render a specific topic.
+     * @param subjectAcronym The acronym of the subject of the topic.
+     * @param id The ID of the topic.
+     * @return The topic view with the matching ID.
+     * @author eduardgamiao
+     */
     public static Result viewTopic(String subjectAcronym, Long id) {
       Topic topic = TopicDB.getTopic(id);
       Subject subject = SubjectDB.getSubjectByAcronym(subjectAcronym);
@@ -73,6 +82,7 @@ public class Application extends Controller {
      * Return a hashmap of tags.
      * @param topics The list of topics to compile.
      * @return A hashmap of tags.
+     * @author eduardgamiao
      */
     private static TreeMap<String, Integer> getTags(List<Topic> topics) {
       HashMap<String, Integer> tags = new HashMap<String, Integer>();
@@ -95,12 +105,28 @@ public class Application extends Controller {
     }        
 }
 
+/**
+ * Tag comparator.
+ * @author eduardgamiao
+ *
+ */
 class TagComparator implements Comparator<String> {
       Map<String, Integer> map;
+      
+      /**
+       * Constructor.
+       * @param map A map of tags and integers.
+       */
       public TagComparator(Map<String, Integer> map) {
         this.map = map;
       }
 
+      /**
+       * Compare tag keys.
+       * @param key1 The first tag.
+       * @param key2 The second tag.
+       * @return The integer value resulting from the comparing of the objects.
+       */
       public int compare(String key1, String key2) {
         if (map.get(key1) < map.get(key2)) {
           return 1;        

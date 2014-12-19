@@ -19,6 +19,7 @@ public class TagSearchFormData {
   /**
    * Validate form data.
    * @return A list of errors.
+   * @author eduardgamiao
    */
   public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<ValidationError>();

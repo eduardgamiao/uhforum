@@ -17,7 +17,6 @@ import play.db.ebean.Model;
  * Topic model.
  * @author Brent
  */
-
 @Entity
   public class Topic extends Model {
     private static final long serialVersionUID = 1L;
@@ -45,6 +44,16 @@ import play.db.ebean.Model;
     @ManyToOne
     private Subject subject = SubjectDB.getSubjectBySubject("General");
 
+    /**
+     * Constructor.
+     * @param firstName User's first name.
+     * @param title Topic title.
+     * @param tags Topic tags.
+     * @param topicText Topic text.
+     * @param subjectTitle Subject name.
+     * @param views Amount of views.
+     * @author Brent
+     */
     public Topic(String firstName, String title, String tags, String topicText, String subjectTitle, int views) {
       this.firstName = firstName;
       this.title = title;
@@ -59,6 +68,17 @@ import play.db.ebean.Model;
       }
     }
     
+    /**
+     * Constructor.
+     * @param firstName User's first name.
+     * @param title Topic title.
+     * @param tags Topic tag.
+     * @param topicText Topic text.
+     * @param subjectTitle Topic subject name.
+     * @param views The page views for the topic.
+     * @param user The topic creator.
+     * @author Brent
+     */
     public Topic(String firstName, String title, String tags, String topicText, String subjectTitle, int views,
                  UserInfo user) {
       this.firstName = firstName;
@@ -84,6 +104,7 @@ import play.db.ebean.Model;
      * @param images Images.
      * @param videos Videos.
      * @param user Topic creator.
+     * @author Brent
      */
     public Topic(String title, String tags, String topicText, String subjectTitle, String images, String videos,
         UserInfo user) {
@@ -101,10 +122,20 @@ import play.db.ebean.Model;
       }
     }
 
+    /**
+     * Get the subject.
+     * @return The subject.
+     * @author Brent
+     */
     public Subject getSubject() {
       return subject;
     }
-
+    
+    /**
+     * Set the subject.
+     * @param subject The subject.
+     * @author Brent
+     */
     public void setSubject(Subject subject) {
       this.subject = subject;
     }
@@ -269,6 +300,11 @@ import play.db.ebean.Model;
       return user;
     }
 
+    /**
+     * Ebean finder method.
+     * @return Finder instance for Topic.
+     * @author Brent
+     */
     public static Finder<Long, Topic> find() {
       return new Finder<Long, Topic>(Long.class, Topic.class);
     }

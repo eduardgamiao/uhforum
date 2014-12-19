@@ -9,20 +9,18 @@ import models.UserInfoDB;
 import models.TopicDB;
 import play.Application;
 import play.GlobalSettings;
-import play.Logger;
 import play.libs.Yaml;
 
 
 /**
  * Global class.
- * @author eduardgamiao
- *
  */
 public class Global extends GlobalSettings {
   
   /**
    * Initialization method.
    * @param app The application being run.
+   * @author eduardgamiao, Brent
    */
   public void onStart(Application app) {
  // Populate Subject Database.

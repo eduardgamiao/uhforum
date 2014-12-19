@@ -8,26 +8,33 @@ import play.data.validation.ValidationError;
 /**
  * Handles form data for User Account model.
  * @author eduardgamiao
- *
  */
 public class LoginFormData {
   
+  /** User emaiil. */
   public String email;
+  
+  /** User password. */
   public String password;
 
+  /**
+   * Validate user login.
+   * @return A list of errors.
+   * @author eduardgamiao
+   */
   public List<ValidationError> validate() {
     List<ValidationError> errors = new ArrayList<ValidationError>();
     
-    if(this.email == null || this.email.length() == 0) {
+    if (this.email == null || this.email.length() == 0) {
       errors.add(new ValidationError("email", "Email is a required field."));
     }
-    if(this.password == null || this.password.length() == 0) {
+    if (this.password == null || this.password.length() == 0) {
       errors.add(new ValidationError("password", "Password is a required field."));
     }
-    if(UserInfoDB.getUser(this.email) == null) {
+    if (UserInfoDB.getUser(this.email) == null) {
       errors.add(new ValidationError("email", "The email " + this.email + " is not a valid email"));
     }
-    if(!UserInfoDB.isValidPassword(this.email, this.password)) {
+    if (!UserInfoDB.isValidPassword(this.email, this.password)) {
       errors.add(new ValidationError("password", "The password is incorrect."));
     }
     
