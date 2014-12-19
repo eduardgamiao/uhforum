@@ -26,12 +26,12 @@ This application uses a few external libraries.
 Credit
 ======
 
-*[brentmy](https://www.github.com/brentmy)
+[brentmy](https://www.github.com/brentmy) (Brent Yoshida)
 - Front page design.
 - New Topic form.
 - New Post form.
 
-*[eduardgamiao](https://www.github.com/eduardgamiao)
+[eduardgamiao](https://www.github.com/eduardgamiao) (Eduard Gamiao)
 - User functions (Login, Signup and Editing).
 - Search features.
 - Subject display.
