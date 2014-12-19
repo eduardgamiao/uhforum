@@ -40,4 +40,4 @@ Live Demo
 ======
 A live demo is available via [Heroku](http:/www.heroku.com).
 
-[https://uhforum.herokuapps.com](https://uhforum.herokuapps.com)
+[https://uhforum.herokuapp.com](https://uhforum.herokuapp.com)
