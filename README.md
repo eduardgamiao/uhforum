@@ -43,7 +43,7 @@ Check commit history for more details.
 Project Resources
 ======
 
-[Midterm Presentation](https://docs.google.com/presentation/d/1ki0YK4RLQSBdb6DiOzjnQkPwy7Jv5wKSgCZqnveaKzw/edit?usp=sharing)
+[Midterm Presentation](https://docs.google.com/presentation/d/1ki0YK4RLQSBdb6DiOzjnQkPwy7Jv5wKSgCZqnveaKzw/edit?usp=sharing)  
 [Final Presentation](https://docs.google.com/presentation/d/1ip9ISrmb-IeBErS1n6WcoQVF3Wee8Hp8HEadSKLMSx0/edit?usp=sharing)
 
 Live Demo
