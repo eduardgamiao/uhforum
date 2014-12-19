@@ -4,11 +4,12 @@
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Topic</th>
-      <th class="text-center">Topic Starter</th>
-      <th class="text-center hidden-xs">Posts</th>
-      <th class="text-center hidden-xs">Views</th>
-      <th class="text-center hidden-xs">Last Post</th>
+      <th class="col-md-5">Topic</th>
+      <th class="text-center col-md-2">Topic Starter</th>
+      <th class="text-center col-md-1 hidden-xs">Posts</th>
+      <th class="text-center col-md-1 hidden-xs">Views</th>
+      <th class="text-center col-md-2 hidden-xs">Last Post</th>
+      <th class="text-center col-md-1">Subject</th>
     </tr> 
   </thead>
   <tbody>
@@ -19,6 +20,7 @@
     <td class="text-center hidden-xs">@topic.getPosts().size()</td>
     <td class="text-center hidden-xs">@topic.getViews()</td>
     <td class="text-center hidden-xs">@topic.getDatePosted()</td>
+    <td class="text-center"><a href="@routes.Application.viewSubject(topic.getSubject().getAcronym().toLowerCase())">@topic.getSubject().getName()</a></td>
   </tr> 
   }
   </tbody>

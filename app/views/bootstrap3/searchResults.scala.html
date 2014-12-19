@@ -1,17 +1,17 @@
 @(term: String, subject: String, topics: com.avaje.ebean.PagingList[Topic], currentPage: Integer)
 
 <div class="panel panel-primary">
-<div class="panel-heading">@topics.getTotalRowCount() Result(s) For &quot;@term&quot;</div>
+<div class="panel-heading">@topics.getTotalRowCount() Result(s) For &quot;@term&quot; in @if(subject.isEmpty()) {All Subjects} else {@subject}</div>
 @if(topics.getTotalRowCount() != 0) {
 <table class="table table-hover">
   <thead>
     <tr>
-      <th>Topic</th>
-      <th class="text-center">Topic Starter</th>
-      <th class="text-center hidden-xs">Posts</th>
-      <th class="text-center hidden-xs">Views</th>
-      <th class="text-center hidden-xs">Last Post</th>
-      <th class="text-center">Subject</th>
+      <th class="col-md-5">Topic</th>
+      <th class="text-center col-md-2">Topic Starter</th>
+      <th class="text-center col-md-1 hidden-xs">Posts</th>
+      <th class="text-center col-md-1 hidden-xs">Views</th>
+      <th class="text-center col-md-2 hidden-xs">Last Post</th>
+      <th class="text-center col-md-1">Subject</th>
     </tr> 
   </thead>
   <tbody>

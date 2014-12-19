@@ -1,16 +1,20 @@
 @(searchForm: Form[views.formdata.SearchFormData], subjectMap: Map[Subject, Boolean], term: String, subject: String, currentPage: Integer) 
 
-@import bootstrap3._ 
+@import bootstrap3._
+@subjectDisplay(subject: String) = @{
+    if (subject.isEmpty()) "All Subjects" else subject
+}  
 
-@main("Search Results: " + term) {
+@main("Search Results: " + term + " in " + subjectDisplay(subject)) {
 <div class="container">
-  <div class="page-header">
+  <div class="page-header results">
     <h1>
-      Search
+      Search <small>By Topic</small>
     </h1>
   </div>
-  @topicSearch(searchForm("term"), searchForm("subject"), "Enter Search Term", subjectMap)
+  @topicSearch(searchForm("term"), searchForm("subject"), "Search Topics", subjectMap)
   <div class="col-md-12">
       @searchResults(term, subject, TopicDB.getTopicsBySearch(term, subject), currentPage)
 </div>
 }
+</div>
