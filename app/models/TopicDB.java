@@ -131,7 +131,7 @@ public class TopicDB {
   }
   
   public static List<Topic> getTopics() {
-    return Topic.find().all();
+    return Topic.find().order().desc("date_posted").findList();
   }
 }
   

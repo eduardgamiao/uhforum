@@ -121,3 +121,12 @@ h4 {
 #newPost {
     margin-left: 230px;
 }
+
+.search-filter {
+  padding-bottom: 30px;
+}
+
+.results {
+	margin-top: 0px;
+}
+
