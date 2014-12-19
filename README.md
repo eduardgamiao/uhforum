@@ -22,3 +22,12 @@ This application uses a few external libraries.
 [Bootstrap-Markdown](http://toopay.github.io/bootstrap-markdown/): A WYSIWYG text markdown editor.
 
 [Markdown4j](https://code.google.com/p/markdown4j/): Markdown to HTML converter.
+
+Credit
+======
+
+Live Demo
+======
+A live demo is available via [Heroku](http:/www.heroku.com).
+
+[](https://uhforum.herokuapps.com)
