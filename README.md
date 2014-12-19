@@ -1,7 +1,7 @@
 uhforum
 =======
 
-Forum built in Play Framework 2.
+Forum built in Play Framework 2 for University of Hawai'i ICS 465 (Intro to Hypermedia) final project.
 
 Installation
 =======
@@ -14,7 +14,7 @@ Once Play Framework has been installed, `fork` the repository onto your local ma
 
 If you want to edit this code in [Eclipse](http://www.eclipse.org/), run the `play eclipse` command in the repository folder on your local machine. Then import the project into Eclipse.
 
-You can also download a zip of the file by clicking on the link in the [Github](https://ww.github.com/eduardgamiao/uhforum/) page.
+You can also download a zip of the file by clicking on the link in the [Github](https://www.github.com/eduardgamiao/uhforum/) page.
 
 Additional Libraries
 ======
