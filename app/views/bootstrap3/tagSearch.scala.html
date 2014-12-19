@@ -1,5 +1,7 @@
 @(tagField: Field, subjectField: Field, placeholder: String, optionMap: Map[Subject, Boolean])
 
+<!-- Created By: Eduard Gamiao -->
+
 <form role="search" action="@routes.Search.searchByTag("", "", 0)" method="get">
 <div class="form-group search-filter @if(tagField.hasErrors){has-error}">
     <div class="col-sm-6">

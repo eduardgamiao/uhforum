@@ -1,5 +1,7 @@
 @(tag: String, subject: Subject, topics: com.avaje.ebean.PagingList[Topic], currentPage: Integer)
 
+<!-- Created By: Eduard Gamiao -->
+
 <div class="panel panel-primary">
 <div class="panel-heading">@topics.getTotalRowCount() Result(s) For <i>&quot;@tag&quot;</i> in @if(subject == null) {All Subjects} else {@subject.getName()}</div>
 @if(topics.getTotalRowCount() != 0) {
