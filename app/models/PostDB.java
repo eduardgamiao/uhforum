@@ -30,6 +30,23 @@ public class PostDB {
     return post.getId();
   }
   
+  /**
+   * Add a post to the database.
+   * @param text The text of the topic.
+   * @param image Image links.
+   * @param video Video links
+   * @param topic The topic being posted to.
+   * @param user The poster of the post.
+   * @return The ID of the post.
+   */
+  public static long addPost(String text, String image, String video, Topic topic, UserInfo user) {
+    Post post = new Post(text, image, video, topic, user);
+    post.save();
+    return post.getId();
+  }
+  
+  
+  
 /*  public static Post getPostFirst(String firstName) {
     return Post.find().where().eq("firstName", firstName).findUnique();
   }

@@ -41,9 +41,9 @@ public class Global extends GlobalSettings {
      TopicDB.addTopic("test", "Which Teachers did you enjoy", "itsatesttext", "testTag", "subjectTest", 0, user);
      TopicDB.addTopic("test", "UH General", "itsatesttext", "testTag", "subjectTest", 0, user);
      TopicDB.addTopic("test", "Campus Events", "itsatesttext", "testTag", "subjectTest", 0, user);
-     Long topicID = TopicDB.addTopic("How do I succeed at French?", "hey, lol, <3 English", "Read the title.", 
-         "French", "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, "
-             + "http://i.imgur.com/fa0Wmp2.gif", "", user);
+     Long topicID = TopicDB.addTopic("How do I succeed at French?", "hey, lol, <3 English", "I'm taking French next "
+         + "semester and don't know what to expect. Help?", 
+         "French", "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png", "", user);
      TopicDB.addTopic("How do I succeed at French 101?", "<3 English, all", "Read the title.", "French", 
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
@@ -51,8 +51,9 @@ public class Global extends GlobalSettings {
          "http://i2.kym-cdn.com/photos/images/facebook/000/126/314/3cd8a33a.png, http://i.imgur.com/fa0Wmp2.gif", 
          "", user);
      Topic topic = TopicDB.getTopic(topicID);
-     PostDB.addPost("Good luck!", topic, user);
-     PostDB.addPost("Good luck!", topic, user);     
+     PostDB.addPost("Good luck! Seriously though, don't worry about it. French is as easy as ICS 311.", 
+         "http://i.minus.com/iQ0AsS0yYNFCD.gif", "", topic, user2);
+     PostDB.addPost("Thanks?", "", "", topic, user);     
      TopicDB.addTopic("Chavaux and Chaveux", "French, FR101", "Does anyone have a good way to remember which word is"
          + " which?", "French", "http://static-mb.minutebuzz.com/wp-content/uploads/2013/07/brock-davis-cheveux-"
              + "chevaux-545x736.jpg", "https://www.youtube.com/embed/uvpikUEIaLI", user2); 
