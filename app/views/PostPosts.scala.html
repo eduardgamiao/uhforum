@@ -1,4 +1,4 @@
-@(message: String, postForm: Form[views.formdata.PostFormData], searchForm: Form[views.formdata.SearchFormData],subjectTypeMap: Map[Subject, Boolean])
+@(message: String, postForm: Form[views.formdata.PostFormData], ID : Long)
 
 @import helper._
 @import bootstrap3._
@@ -12,7 +12,7 @@
             <h3 class="panel-title">Post a Topic</h3>
           </div>
           <div class="panel-body" style="color: black;">
-            @form(routes.Posts.inputTopic(), 'class -> "form-horizontal") {
+            @form(routes.Posts.inputPost(ID), 'class -> "form-horizontal") {
               @bootstrap3.text(postForm("topicText"), "TopicText", "TopicText", "")              
               @bootstrap3.text(postForm("image"), "Image", "Image", "")
               @bootstrap3.text(postForm("video"), "Video", "Video", "")

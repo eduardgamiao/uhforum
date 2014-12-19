@@ -19,6 +19,8 @@ GET     /new/topic                  controllers.Posts.postTopic()
 POST    /new/topic                  controllers.Posts.inputTopic()
 GET     /user/:id/edit              controllers.Users.editProfile(id: Long)
 POST    /user/:id/edit              controllers.Users.postEditProfile(id: Long)
+GET     /new/post                   controllers.Posts.postPost(id : Long)
+POST    /new/post                   controllers.Posts.inputPost(id : Long)
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.at(path="/public", file)

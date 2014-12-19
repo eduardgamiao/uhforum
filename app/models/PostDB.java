@@ -1,6 +1,7 @@
 package models;
 
 import java.util.List;
+import views.formdata.PostFormData;
 
 public class PostDB {
   
@@ -23,8 +24,8 @@ public class PostDB {
    * @param user The poster of the post.
    * @return The ID of the post.
    */
-  public static long addPost(String topicText, Topic topic, UserInfo user) {
-    Post post = new Post(topicText, topic, user);
+  public static long addPost(PostFormData posts, Topic topic, UserInfo user) {
+    Post post = new Post(posts.topicText, topic, user);
     post.save();
     return post.getId();
   }
