@@ -34,7 +34,7 @@ Credit
 [eduardgamiao](https://www.github.com/eduardgamiao) (Eduard Gamiao)
 - User functions (Login, Signup and Editing).
 - Search features.
-- Subject display.
+- Subject and Topic templates.
 
 Check commit history for more details.
 
