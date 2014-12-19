@@ -7,10 +7,11 @@ package views.formdata;
  */
 public class SearchFormData {
   
-  /**
-   * The search term.
-   */
-  public String searchTerm = "";
+  /** The search term. */
+  public String term = "";
+  
+  /** Subject. */
+  public String subject;
   
   /**
    * Blank constructor.
@@ -24,7 +25,7 @@ public class SearchFormData {
    * @param searchTerm The search term.
    */
   public SearchFormData(String searchTerm) {
-    this.searchTerm = searchTerm;
+    this.term = searchTerm;
   }
 
 }

@@ -1,0 +1,27 @@
+@(tagField: Field, subjectField: Field, placeholder: String, optionMap: Map[Subject, Boolean])
+
+<form role="search" action="@routes.Search.searchByTag("", "", 0)" method="get">
+<div class="form-group search-filter @if(tagField.hasErrors){has-error}">
+    <div class="col-sm-6">
+      <input type="text" 
+             class="form-control" 
+             id="@tagField.id" 
+             name="@tagField.name" 
+             value="@tagField.value.getOrElse("")"
+             placeholder="@placeholder" />
+    </div>
+    <div class="col-sm-5"> 
+      <select class="form-control"
+              id="@subjectField.id"
+              name="@subjectField.name">
+              <option class="blank" value="">All Subjects</option>
+              @for((optionName, isSelected) <- optionMap) {
+                <option id="@optionName.getAcronym()" value="@optionName.getName()" @if(isSelected) {selected}>@optionName.getName() (@optionName.getAcronym())</option>
+              }
+      </select>
+    </div>
+      <div class="col-sm-1">
+        <button type="submit" class="btn btn-primary pull-right">Search</button>
+      </div>
+    </div>
+</form>

@@ -1,15 +1,20 @@
-@(tag: String, subject: Subject, currentPage: Integer) 
+@(tagForm: Form[views.formdata.TagSearchFormData], subjectMap: Map[Subject, Boolean], tag: String, subject: Subject, currentPage: Integer) 
 
-@import bootstrap3._ 
+@import bootstrap3._
+@subjectDisplay(subject: Subject) = @{
+    if (subject == null) "All Subjects" else subject.getName()
+} 
 
-@main("Search Results: " + tag + " in " + subject) {
+@main("Search Results: " + tag + " in " + subjectDisplay(subject)) {
 <div class="container">
-  <div class="page-header">
+  <div class="page-header results">
     <h1>
-      Search
+      Search <small>By Tag</small>
     </h1>
   </div>
+  @tagSearch(tagForm("tag"), tagForm("subject"), "Search Tags", subjectMap)
   <div class="col-md-12">
       @tagResults(tag, subject, TopicDB.getTopicByTag(tag, subject), currentPage)
 </div>
 }
+</div>

@@ -1,7 +1,7 @@
 @(post: Post)
   <div class="panel panel-default">
     <div class="panel-heading" role="tab" id="heading@post.getId()">
-      <h4 class="panel-title">
+      <h4 class="panel-title post-title">
         <a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#@post.getId()" aria-expanded="false" aria-controls="@post.getId()">
           @post.getTopic().getTitle()
         </a>

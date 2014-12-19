@@ -1,6 +1,7 @@
 package views.formdata;
 
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import models.Subject;
@@ -19,7 +20,7 @@ public class SubjectTypes {
    * @return The surfer type map.
    */
   public static Map<Subject, Boolean> getTypes() {
-    Map<Subject, Boolean> typeMap = new HashMap<>();
+    Map<Subject, Boolean> typeMap = new LinkedHashMap<>();
     for (Subject type : types) {
       typeMap.put(type, false);
     }
