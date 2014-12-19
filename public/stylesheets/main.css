@@ -128,3 +128,7 @@ h4 {
   top: -50px; 
   visibility: hidden;
 }
+
+.search-filter {
+	padding-bottom: 30px;
+}

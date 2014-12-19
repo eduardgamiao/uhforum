@@ -1,6 +1,6 @@
-@(tag: String, subject: Subject, currentPage: Integer) 
+@(tagForm: Form[views.formdata.TagSearchFormData], subjectMap: Map[Subject, Boolean], tag: String, subject: Subject, currentPage: Integer) 
 
-@import bootstrap3._ 
+@import bootstrap3._
 
 @main("Search Results: " + tag + " in " + subject) {
 <div class="container">
@@ -9,6 +9,7 @@
       Search
     </h1>
   </div>
+  @tagSearch(tagForm("tag"), tagForm("subject"), "Tag Search Field", subjectMap)
   <div class="col-md-12">
       @tagResults(tag, subject, TopicDB.getTopicByTag(tag, subject), currentPage)
 </div>
