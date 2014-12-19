@@ -38,7 +38,18 @@
         <td class="col-md-2 col-sm-2 col-xs-2"><a href="@routes.Users.viewProfile(post.getUser().getId())">@post.getUser().getName()</a><br /> <small>@post.getDatePosted()</small><br />
           @if(post.getUser().hasAvatar()) {<img src="@post.getUser().getAvatarURL()" class="avatar">}
         </td>
-        <td class="col-md-10 col-md-10 col-xs-10">@post.getTopicText()</td>
+        <td class="col-md-10 col-md-10 col-xs-10">@post.getTopicText()<br/>
+             @for(picture <- post.getImages()) {
+              <img src="@picture.trim()" class="img-responsive post-image">
+              <br/>
+               }
+            @for(video <- post.getVideos()) {
+            <div class="embed-responsive embed-responsive-16by9">
+              <iframe width="640" height="390" class="embed-responsive-item" src="@video.trim()"></iframe>
+            </div>
+            <br/>
+            }
+        </td>
       </tr>
       }
     </table>

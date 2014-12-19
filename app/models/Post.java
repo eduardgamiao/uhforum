@@ -1,7 +1,9 @@
 package models;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -19,6 +21,8 @@ import play.db.ebean.Model.Finder;
     private String lastName;
     @Column(columnDefinition = "TEXT")
     private String topicText;
+    private String image;
+    private String video;
     private String subject;
     private Date datePosted;
     
@@ -26,7 +30,11 @@ import play.db.ebean.Model.Finder;
     private Topic topic;
     
     @ManyToOne
-    private UserInfo user;    
+    private UserInfo user;
+
+    
+
+       
 
     public Post(String firstName, String topicText, String lastName, String subject) {
       this.firstName = firstName;
@@ -51,10 +59,12 @@ import play.db.ebean.Model.Finder;
      * @param topic The topic of the post.
      * @param user The poster.
      */
-    public Post(String topicText, Topic topic, UserInfo user) {
+    public Post(String topicText,String image, String video, Topic topic, UserInfo user) {
       this.topicText = topicText;
       this.topic = topic;
       this.user = user;
+      this.image = image;
+      this.video = video;
       this.setDatePosted(new Date());
     }
     
@@ -165,6 +175,53 @@ import play.db.ebean.Model.Finder;
       this.user = user;
     }
     
+    /**
+     * @return the images
+     */
+    public List<String> getImages() {
+      List<String> images = new ArrayList<String>();
+      if (!(this.image == null || this.image.length() == 0)) {
+        for (String current : this.image.split(",")) {
+          images.add(current.trim());
+        }
+      }
+      return images;
+    }
+
+    /**
+     * @param image the image to set
+     */
+    public void setImage(String image) {
+      this.image = image;
+    }
+
+    /**
+     * @return the videos
+     */
+    public List<String> getVideos() {
+      List<String> videos = new ArrayList<String>();
+      if (!(this.video == null || this.video.length() == 0)) {
+        for (String current : this.video.split(",")) {
+          videos.add(current.trim());
+        }
+      }
+      return videos;
+    }
+
+    /**
+     * @param video the video to set
+     */
+    public void setVideo(String video) {
+      this.video = video;
+    }
+
+    /**
+     * @param topic the topic to set
+     */
+    public void setTopic(Topic topic) {
+      this.topic = topic;
+    }
+
     public static Finder<Long, Post> find() {
       return new Finder<Long, Post>(Long.class, Post.class);
     }

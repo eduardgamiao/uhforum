@@ -25,7 +25,7 @@ public class PostDB {
    * @return The ID of the post.
    */
   public static long addPost(PostFormData posts, Topic topic, UserInfo user) {
-    Post post = new Post(posts.topicText, topic, user);
+    Post post = new Post(posts.topicText,posts.image,posts.video, topic, user);
     post.save();
     return post.getId();
   }

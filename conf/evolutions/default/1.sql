@@ -8,6 +8,8 @@ create table post (
   first_name                varchar(255),
   last_name                 varchar(255),
   topic_text                TEXT,
+  image                     varchar(255),
+  video                     varchar(255),
   subject                   varchar(255),
   date_posted               timestamp,
   topic_id                  bigint,
