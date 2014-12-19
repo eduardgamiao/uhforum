@@ -14,6 +14,8 @@ Once Play Framework has been installed, `fork` the repository onto your local ma
 
 If you want to edit this code in [Eclipse](http://www.eclipse.org/), run the `play eclipse` command in the repository folder on your local machine. Then import the project into Eclipse.
 
+You can also download a zip of the file by clicking on the link in the [https://ww.github.com/eduardgamiao/uhforum/](GitHub) page.
+
 Additional Libraries
 ======
 
@@ -37,6 +39,12 @@ Credit
 - Subject and Topic templates.
 
 Check commit history for more details.
+
+Project Resources
+======
+
+[Midterm Presentation](https://docs.google.com/presentation/d/1ki0YK4RLQSBdb6DiOzjnQkPwy7Jv5wKSgCZqnveaKzw/edit?usp=sharing)
+[Final Presentation](https://docs.google.com/presentation/d/1ip9ISrmb-IeBErS1n6WcoQVF3Wee8Hp8HEadSKLMSx0/edit?usp=sharing)
 
 Live Demo
 ======
