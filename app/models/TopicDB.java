@@ -100,8 +100,14 @@ public class TopicDB {
    * @return A list of matching topics.
    */
   public static PagingList<Topic> getTopicByTag(String tag, Subject subject) {
-    Logger.debug(tag + " " + subject);
-    return Topic.find().where().eq("subject", subject).icontains("tags", tag).order().desc("date_posted").findPagingList(PAGE_SIZE);
+    if (subject == null) {
+      return Topic.find().where().icontains("tags", tag)
+             .order().desc("date_posted").findPagingList(PAGE_SIZE);      
+    }
+    else {
+    return Topic.find().where().eq("subject", subject).icontains("tags", tag)
+           .order().desc("date_posted").findPagingList(PAGE_SIZE);
+    }
   }
   
   /**
