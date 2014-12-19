@@ -36,6 +36,8 @@ Credit
 - Search features.
 - Subject display.
 
+Check commit history for more details.
+
 Live Demo
 ======
 A live demo is available via [Heroku](http:/www.heroku.com).
