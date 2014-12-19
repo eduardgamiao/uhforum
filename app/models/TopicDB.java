@@ -87,10 +87,17 @@ public class TopicDB {
   /**
    * Return a list of matching topics.
    * @param searchTerm The search term.
+   * @param subject Subject title.
    * @return A list of topics with the search term in its title.
    */
-  public static PagingList<Topic> getTopicsBySearch(String searchTerm) {
-    return Topic.find().where().icontains("title", searchTerm).order().desc("date_posted").findPagingList(PAGE_SIZE);
+  public static PagingList<Topic> getTopicsBySearch(String searchTerm, String subject) {
+    if (!subject.isEmpty()) {
+      return Topic.find().where().eq("subject.name", subject).icontains("title", searchTerm)
+             .findPagingList(PAGE_SIZE);
+    }
+    else {
+      return Topic.find().where().icontains("title", searchTerm).findPagingList(PAGE_SIZE);
+    }
   }
   
   /**

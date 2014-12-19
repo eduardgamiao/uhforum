@@ -16,16 +16,19 @@ import views.html.TagResults;
 
 public class Search extends Controller {
   
-  public static Result search(String term, Integer currentPage) {
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
-    SearchFormData formData = searchFormData.get();     
-    return ok(SearchResults.render(term, currentPage));
-  }
-  
-  public static Result pageSearch(String term, Integer currentPage) {
-    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class).bindFromRequest();
-    SearchFormData formData = searchFormData.get();    
-    return ok(SearchResults.render(term, currentPage));
+  public static Result search(String term, String subjectTitle, Integer currentPage) {
+    Form<SearchFormData> searchFormData = Form.form(SearchFormData.class);
+    searchFormData.data().put("term", request().getQueryString("term"));
+    Subject subject = SubjectDB.getSubjectBySubject(request().getQueryString("subject"));
+    Map<Subject, Boolean> subjectMap;
+    if (subject != null) {
+      searchFormData.data().put("subject", request().getQueryString("subject"));
+      subjectMap = SubjectTypes.getTypes(subject);
+    }
+    else {
+      subjectMap = SubjectTypes.getTypes();      
+    }
+    return ok(SearchResults.render(searchFormData, subjectMap, term, subjectTitle, currentPage));
   }
   
   public static Result searchByTag(String tag, String subjectTitle, Integer currentPage) {

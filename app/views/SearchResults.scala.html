@@ -1,4 +1,4 @@
-@(term: String, currentPage: Integer) 
+@(searchForm: Form[views.formdata.SearchFormData], subjectMap: Map[Subject, Boolean], term: String, subject: String, currentPage: Integer) 
 
 @import bootstrap3._ 
 
@@ -9,7 +9,8 @@
       Search
     </h1>
   </div>
+  @topicSearch(searchForm("term"), searchForm("subject"), "Enter Search Term", subjectMap)
   <div class="col-md-12">
-      @searchResults(term, TopicDB.getTopicsBySearch(term), currentPage)
+      @searchResults(term, subject, TopicDB.getTopicsBySearch(term, subject), currentPage)
 </div>
 }
