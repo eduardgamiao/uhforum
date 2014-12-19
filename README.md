@@ -26,8 +26,18 @@ This application uses a few external libraries.
 Credit
 ======
 
+*[brentmy](https://www.github.com/brentmy)
+- Front page design.
+- New Topic form.
+- New Post form.
+
+*[eduardgamiao](https://www.github.com/eduardgamiao)
+- User functions (Login, Signup and Editing).
+- Search features.
+- Subject display.
+
 Live Demo
 ======
 A live demo is available via [Heroku](http:/www.heroku.com).
 
-[](https://uhforum.herokuapps.com)
+[https://uhforum.herokuapps.com](https://uhforum.herokuapps.com)
